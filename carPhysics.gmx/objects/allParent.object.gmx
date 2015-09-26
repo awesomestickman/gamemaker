@@ -25,11 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>vx=0;
-vy=0;
-vr=0;
-soonvx=0;
-soonvy=0;
+            <string>placeHolderY=0;
 </string>
           </argument>
         </arguments>
@@ -52,15 +48,10 @@ soonvy=0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//rotation occurs here
-
-image_angle+=vr;
-if(vr&gt;0){
-vr-=1;
-}
-if(vr&lt;0){
-vr+=1;
-}
+            <string>phy_speed_y=0;
+show_debug_message(phy_position_y);
+phy_position_y=placeHolderY;
+show_debug_message(phy_position_y);
 </string>
           </argument>
         </arguments>
@@ -83,29 +74,24 @@ vr+=1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>vx=soonvx;
-vy=soonvy;
-
-
-if(vx&gt;0){
-vx-=0.2;
+            <string>
+if(phy_speed_x&lt;0){
+physics_apply_force(x, y, 5, 0);
 }
-if(vx&lt;0){
-vx+=0.2;
+if(phy_speed_x&gt;0){
+physics_apply_force(x, y, -5, 0);
 }
 
+placeHolderY=phy_position_y;
+phy_speed_y=-20;
+phy_angular_velocity=0;
 
-x+=vx;
-//this.y+=vy;
-
-soonvx=vx;
-soonvy=vy;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="carParent">
+    <event eventtype="4" ename="allParent">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -122,56 +108,18 @@ soonvy=vy;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//vr=darcsin(other.vx/sprite_height);
-//show_debug_message(other.vx/sprite_height);
-
-
-if(other.vx&gt;vx){
-soonvx+=other.vx/3;
-other.soonvx=0;
-
-x+=other.vx;
-
-if((x-other.x)&lt;(other.sprite_width/2)){
-x+=other.sprite_width/2;
-}
-
-
-}
-if(other.vx&lt;vx){
-soonvx+=other.vx/3;
-other.soonvx=0;
-
-x+=other.vx;
-
-if((other.x-x)&lt;(other.sprite_width/2)){
-x-=other.sprite_width/2;
-
-
-}
-}
-
-if((other.x-x)&lt;(other.sprite_width/2.5+sprite_width/2.5)&amp;&amp;x&lt;other.x){
-x=other.x-other.sprite_width/2-sprite_width/2;
-if((x-other.x)&lt;(other.sprite_width/2+sprite_width/2)&amp;&amp;x&gt;other.x){
-
-x=other.x+other.sprite_width/2+sprite_width/2;
-
-}
-
-
-
-}
+            <string>//collide
+phy_speed_y=-50;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
   </events>
-  <PhysicsObject>0</PhysicsObject>
+  <PhysicsObject>-1</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
-  <PhysicsObjectShape>0</PhysicsObjectShape>
-  <PhysicsObjectDensity>0.5</PhysicsObjectDensity>
+  <PhysicsObjectShape>1</PhysicsObjectShape>
+  <PhysicsObjectDensity>0</PhysicsObjectDensity>
   <PhysicsObjectRestitution>0.100000001490116</PhysicsObjectRestitution>
   <PhysicsObjectGroup>0</PhysicsObjectGroup>
   <PhysicsObjectLinearDamping>0.100000001490116</PhysicsObjectLinearDamping>

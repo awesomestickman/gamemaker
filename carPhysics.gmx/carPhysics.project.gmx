@@ -11,9 +11,9 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <objects name="objects">
-    <object>objects\carParent</object>
+    <object>objects\allParent</object>
     <object>objects\playerCar</object>
-    <object>objects\aiCar</object>
+    <object>objects\carDead</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
