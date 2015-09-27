@@ -25,7 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>placeHolderY=0;
+            <string>velocity=500;
+turnDirection=0;
+tireGrip=700;
+
+ theTire= instance_create(x,y-sprite_height/4, tire);
+physics_joint_revolute_create(id,theTire,theTire.x,theTire.y,0,0,0,0,0,0,false);
+theTire.depth=-1000;
 </string>
           </argument>
         </arguments>
@@ -48,10 +54,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>phy_speed_y=0;
-show_debug_message(phy_position_y);
-phy_position_y=placeHolderY;
-show_debug_message(phy_position_y);
+            <string>
+//phy_speed_y=0;
+phy_position_y+=23;
+
+
+
+//phy_position_y=phy_position_yprevious;
+
 </string>
           </argument>
         </arguments>
@@ -75,15 +85,30 @@ show_debug_message(phy_position_y);
           <argument>
             <kind>1</kind>
             <string>
-if(phy_speed_x&lt;0){
+/*if(phy_speed_x&lt;0){
 physics_apply_force(x, y, 5, 0);
 }
 if(phy_speed_x&gt;0){
 physics_apply_force(x, y, -5, 0);
 }
+*/
 
-placeHolderY=phy_position_y;
-phy_speed_y=-20;
+
+physics_apply_force(x, y-sprite_height/4,(dsin(theTire.image_angle)*velocity)*-1 , (dcos(theTire.image_angle)*velocity)*-1);
+//turnD 1=left, 2 = right
+if(turnDirection==1){
+
+
+}
+if(turnDirection==2){
+
+
+}
+
+
+//y1=phy_position_y;
+
+//phy_speed_y=-20;
 phy_angular_velocity=0;
 
 </string>
