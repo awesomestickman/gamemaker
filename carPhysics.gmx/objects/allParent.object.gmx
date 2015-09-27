@@ -33,6 +33,10 @@ oldTireRotation=0;
  theTire= instance_create(x,y-sprite_height/4, tire);
 physics_joint_revolute_create(id,theTire,theTire.x,theTire.y,0,0,0,0,0,0,false);
 theTire.depth=-1000;
+
+deadWeight=instance_create(x,y+sprite_height/4,junk);
+physics_joint_revolute_create(id,deadWeight,deadWeight.x,deadWeight.y,0,0,0,0,0,0,false);
+deadWeight.depth=-1000;
 </string>
           </argument>
         </arguments>
@@ -94,14 +98,24 @@ if(phy_speed_x&gt;0){
 physics_apply_force(x, y, -10, 0);
 }
 
+//return tire
+if(theTire.trueRotation&gt;0){
+theTire.trueRotation-=theTire.trueRotation/10;
+}
+if(theTire.trueRotation&lt;0){
+theTire.trueRotation-=theTire.trueRotation/10;
+}
 
+
+
+//get tire
 theTire.phy_rotation=theTire.trueRotation +(image_angle*-1);
-show_debug_message((dsin(theTire.image_angle)*velocity)*-1);
+
 
 //mess around with speed limit and velocity for good feel
 if(sqrt(sqr(phy_speed_y)+sqr(phy_speed_x))&lt;7){
 
-physics_apply_force(x, y-sprite_height/4,(dsin(theTire.image_angle)*velocity)*-1, (dcos(theTire.image_angle)*velocity)*-1);
+physics_apply_force(x, y-sprite_height/4,(dsin(theTire.image_angle)*velocity)*-2, (dcos(theTire.image_angle)*velocity)*-1);
 
 }
 
@@ -117,6 +131,7 @@ if(turnDirection==2){
 }
 
 //tire grip real
+
 if(theTire.phy_rotation&lt;-10){
 
 physics_apply_force(x, y-sprite_height/4,(dcos(theTire.image_angle)*tireGrip)*-1, (dsin(theTire.image_angle)*tireGrip));
@@ -132,12 +147,16 @@ physics_apply_force(x, y-sprite_height/4,(dcos(theTire.image_angle)*tireGrip), (
 //phy_speed_y=-20;
 //phy_angular_velocity=0;
 
+/*
+if(oldTireRotation-theTire.trueRotation&gt;0){
 
-/*if(oldTireRotation-theTire.trueRotation&gt;0){
-physics_apply_force(x, y-sprite_width/4, -tireGrip, 0);
+physics_apply_force(x, y-sprite_height/4,(dcos(theTire.image_angle)*tireGrip)*-1, (dsin(theTire.image_angle)*tireGrip));
+//physics_apply_force(x, y-sprite_width/4, -tireGrip, 0);
 }
 if(oldTireRotation-theTire.trueRotation&lt;-0){
-physics_apply_force(x, y-sprite_width/4, tireGrip, 0);
+
+physics_apply_force(x, y-sprite_height/4,(dcos(theTire.image_angle)*tireGrip), (dsin(theTire.image_angle)*tireGrip)*-1);
+//physics_apply_force(x, y-sprite_width/4, tireGrip, 0);
 }
 */
 //keep track of tire rotation

@@ -99,8 +99,8 @@ turnSpeed=2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(phy_speed_x&lt;30){
-theTire.trueRotation+=7;
+            <string>if(theTire.trueRotation&lt;90){
+theTire.trueRotation+=17;
 //physics_apply_force(x, y-sprite_width/4, tireGrip, 0);
 //tire_angle-=turnSpeed;
 }
@@ -160,8 +160,8 @@ physics_apply_force(x,y-sprite_width/4,0,-80);
             <string>
 
 
-if(phy_speed_x&gt;-30){
-theTire.trueRotation-=7;
+if(theTire.trueRotation&gt;-90){
+theTire.trueRotation-=17;
 //physics_apply_force(x, y-sprite_width/4, -tireGrip, 0);
 
 //tire_angle+=turnSpeed;

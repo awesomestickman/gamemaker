@@ -8,6 +8,7 @@
   <sprites name="sprites">
     <sprite>sprites\car_idle</sprite>
     <sprite>sprites\tire_idle</sprite>
+    <sprite>sprites\junk_in_trunk</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -16,6 +17,7 @@
     <object>objects\playerCar</object>
     <object>objects\carDead</object>
     <object>objects\tire</object>
+    <object>objects\junk</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room1</room>
