@@ -9,15 +9,22 @@
     <sprite>sprites\car_idle</sprite>
     <sprite>sprites\tire_idle</sprite>
     <sprite>sprites\junk_in_trunk</sprite>
+    <sprite>sprites\rock_big1</sprite>
+    <sprite>sprites\rogue_idle</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\background0</background>
+  </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
-    <object>objects\allParent</object>
+    <object>objects\allCarParent</object>
     <object>objects\playerCar</object>
     <object>objects\carDead</object>
     <object>objects\tire</object>
     <object>objects\junk</object>
+    <object>objects\rockBig1</object>
+    <object>objects\allParent</object>
+    <object>objects\aiRogue</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room1</room>

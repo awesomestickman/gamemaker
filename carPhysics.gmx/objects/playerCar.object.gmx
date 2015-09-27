@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>allParent</parentName>
+  <parentName>allCarParent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -99,8 +99,8 @@ turnSpeed=2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(theTire.trueRotation&lt;90){
-theTire.trueRotation+=17;
+            <string>if(theTire.trueRotation&lt;120){
+theTire.trueRotation+=13;
 //physics_apply_force(x, y-sprite_width/4, tireGrip, 0);
 //tire_angle-=turnSpeed;
 }
@@ -158,8 +158,8 @@ turnDirection=2;
             <string>
 
 
-if(theTire.trueRotation&gt;-90){
-theTire.trueRotation-=17;
+if(theTire.trueRotation&gt;-120){
+theTire.trueRotation-=13;
 //physics_apply_force(x, y-sprite_width/4, -tireGrip, 0);
 
 //tire_angle+=turnSpeed;
