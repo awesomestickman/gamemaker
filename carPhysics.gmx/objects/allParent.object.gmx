@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>velocity=500;
+            <string>velocity=250;
 turnDirection=0;
 tireGrip=700;
 
@@ -56,7 +56,7 @@ theTire.depth=-1000;
             <kind>1</kind>
             <string>
 //phy_speed_y=0;
-phy_position_y+=23;
+phy_position_y+=12;
 
 
 
@@ -84,17 +84,24 @@ phy_position_y+=23;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-/*if(phy_speed_x&lt;0){
+            <string>//road friction
+if(phy_speed_x&lt;0){
 physics_apply_force(x, y, 5, 0);
 }
 if(phy_speed_x&gt;0){
 physics_apply_force(x, y, -5, 0);
 }
-*/
 
+theTire.phy_rotation=phy_rotation +(image_angle*-1);
+
+
+if(sqrt(sqr(phy_speed_y)+sqr(phy_speed_x))&lt;10){
 
 physics_apply_force(x, y-sprite_height/4,(dsin(theTire.image_angle)*velocity)*-1 , (dcos(theTire.image_angle)*velocity)*-1);
+
+}
+
+
 //turnD 1=left, 2 = right
 if(turnDirection==1){
 
@@ -134,7 +141,7 @@ phy_angular_velocity=0;
           <argument>
             <kind>1</kind>
             <string>//collide
-phy_speed_y=-50;
+
 </string>
           </argument>
         </arguments>
