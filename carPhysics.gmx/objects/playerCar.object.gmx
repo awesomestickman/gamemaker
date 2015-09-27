@@ -76,7 +76,7 @@ turnSpeed=2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>physics_apply_force(x,y-sprite_width/4,0,400);
+            <string>physics_apply_force(x, y-sprite_height/4,(dsin(theTire.image_angle)*velocity)*4, (dcos(theTire.image_angle)*velocity)*2);
 </string>
           </argument>
         </arguments>
@@ -132,9 +132,7 @@ turnDirection=2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-physics_apply_force(x,y-sprite_width/4,0,-80);
-
+            <string>physics_apply_force(x, y-sprite_height/4,(dsin(theTire.image_angle)*velocity)*-2, (dcos(theTire.image_angle)*velocity)*-1);
 </string>
           </argument>
         </arguments>

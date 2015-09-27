@@ -25,9 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>velocity=150;
+            <string>velocity=100;
 turnDirection=0;
-tireGrip=100;
+tireGrip=80;
 oldTireRotation=0;
 
  theTire= instance_create(x,y-sprite_height/4, tire);
@@ -61,8 +61,8 @@ deadWeight.depth=-1000;
             <kind>1</kind>
             <string>
 //phy_speed_y=0;
-phy_position_y+=7;
-
+phy_position_y+=8;
+//velocity=100;
 
 
 //phy_position_y=phy_position_yprevious;
@@ -132,11 +132,11 @@ if(turnDirection==2){
 
 //tire grip real
 
-if(theTire.phy_rotation&lt;-10){
+if(theTire.phy_rotation&lt;-20){
 
 physics_apply_force(x, y-sprite_height/4,(dcos(theTire.image_angle)*tireGrip)*-1, (dsin(theTire.image_angle)*tireGrip));
 }
-if(theTire.phy_rotation&gt;10){
+if(theTire.phy_rotation&gt;20){
 
 physics_apply_force(x, y-sprite_height/4,(dcos(theTire.image_angle)*tireGrip), (dsin(theTire.image_angle)*tireGrip)*-1);
 }
