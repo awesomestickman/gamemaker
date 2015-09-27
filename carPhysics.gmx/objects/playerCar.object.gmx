@@ -100,11 +100,8 @@ turnSpeed=2;
           <argument>
             <kind>1</kind>
             <string>if(phy_speed_x&lt;30){
-with(theTire){
-//physics_apply_torque(60);
-phy_rotation+=7;
-}
-physics_apply_force(x, y-sprite_width/4, tireGrip, 0);
+theTire.trueRotation+=7;
+//physics_apply_force(x, y-sprite_width/4, tireGrip, 0);
 //tire_angle-=turnSpeed;
 }
 
@@ -136,7 +133,7 @@ turnDirection=2;
           <argument>
             <kind>1</kind>
             <string>
-physics_apply_force(x,y-sprite_width/4,0,-40);
+physics_apply_force(x,y-sprite_width/4,0,-80);
 
 </string>
           </argument>
@@ -164,11 +161,8 @@ physics_apply_force(x,y-sprite_width/4,0,-40);
 
 
 if(phy_speed_x&gt;-30){
-with(theTire){
-//physics_apply_torque(-60);
-phy_rotation-=7;
-}
-physics_apply_force(x, y-sprite_width/4, -tireGrip, 0);
+theTire.trueRotation-=7;
+//physics_apply_force(x, y-sprite_width/4, -tireGrip, 0);
 
 //tire_angle+=turnSpeed;
 }
@@ -191,7 +185,7 @@ turnDirection=1;
   <PhysicsObjectRestitution>0.100000001490116</PhysicsObjectRestitution>
   <PhysicsObjectGroup>0</PhysicsObjectGroup>
   <PhysicsObjectLinearDamping>0.100000001490116</PhysicsObjectLinearDamping>
-  <PhysicsObjectAngularDamping>10</PhysicsObjectAngularDamping>
+  <PhysicsObjectAngularDamping>11</PhysicsObjectAngularDamping>
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>

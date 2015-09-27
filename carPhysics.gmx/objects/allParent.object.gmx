@@ -25,9 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>velocity=250;
+            <string>velocity=150;
 turnDirection=0;
-tireGrip=700;
+tireGrip=100;
+oldTireRotation=0;
 
  theTire= instance_create(x,y-sprite_height/4, tire);
 physics_joint_revolute_create(id,theTire,theTire.x,theTire.y,0,0,0,0,0,0,false);
@@ -56,7 +57,7 @@ theTire.depth=-1000;
             <kind>1</kind>
             <string>
 //phy_speed_y=0;
-phy_position_y+=12;
+phy_position_y+=7;
 
 
 
@@ -85,19 +86,22 @@ phy_position_y+=12;
           <argument>
             <kind>1</kind>
             <string>//road friction
+
 if(phy_speed_x&lt;0){
-physics_apply_force(x, y, 5, 0);
+physics_apply_force(x, y, 10, 0);
 }
 if(phy_speed_x&gt;0){
-physics_apply_force(x, y, -5, 0);
+physics_apply_force(x, y, -10, 0);
 }
 
-theTire.phy_rotation=phy_rotation +(image_angle*-1);
 
+theTire.phy_rotation=theTire.trueRotation +(image_angle*-1);
+show_debug_message((dsin(theTire.image_angle)*velocity)*-1);
 
-if(sqrt(sqr(phy_speed_y)+sqr(phy_speed_x))&lt;10){
+//mess around with speed limit and velocity for good feel
+if(sqrt(sqr(phy_speed_y)+sqr(phy_speed_x))&lt;7){
 
-physics_apply_force(x, y-sprite_height/4,(dsin(theTire.image_angle)*velocity)*-1 , (dcos(theTire.image_angle)*velocity)*-1);
+physics_apply_force(x, y-sprite_height/4,(dsin(theTire.image_angle)*velocity)*-1, (dcos(theTire.image_angle)*velocity)*-1);
 
 }
 
@@ -112,12 +116,32 @@ if(turnDirection==2){
 
 }
 
+//tire grip real
+if(theTire.phy_rotation&lt;-10){
+
+physics_apply_force(x, y-sprite_height/4,(dcos(theTire.image_angle)*tireGrip)*-1, (dsin(theTire.image_angle)*tireGrip));
+}
+if(theTire.phy_rotation&gt;10){
+
+physics_apply_force(x, y-sprite_height/4,(dcos(theTire.image_angle)*tireGrip), (dsin(theTire.image_angle)*tireGrip)*-1);
+}
+
 
 //y1=phy_position_y;
 
 //phy_speed_y=-20;
-phy_angular_velocity=0;
+//phy_angular_velocity=0;
 
+
+/*if(oldTireRotation-theTire.trueRotation&gt;0){
+physics_apply_force(x, y-sprite_width/4, -tireGrip, 0);
+}
+if(oldTireRotation-theTire.trueRotation&lt;-0){
+physics_apply_force(x, y-sprite_width/4, tireGrip, 0);
+}
+*/
+//keep track of tire rotation
+oldTireRotation=theTire.trueRotation;
 </string>
           </argument>
         </arguments>
@@ -141,7 +165,7 @@ phy_angular_velocity=0;
           <argument>
             <kind>1</kind>
             <string>//collide
-
+//theTire.trueRotation-=other.phy_speed_x/3;
 </string>
           </argument>
         </arguments>
@@ -154,7 +178,7 @@ phy_angular_velocity=0;
   <PhysicsObjectDensity>0</PhysicsObjectDensity>
   <PhysicsObjectRestitution>0.100000001490116</PhysicsObjectRestitution>
   <PhysicsObjectGroup>0</PhysicsObjectGroup>
-  <PhysicsObjectLinearDamping>0.100000001490116</PhysicsObjectLinearDamping>
+  <PhysicsObjectLinearDamping>9.99999974737875E-5</PhysicsObjectLinearDamping>
   <PhysicsObjectAngularDamping>0.100000001490116</PhysicsObjectAngularDamping>
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
