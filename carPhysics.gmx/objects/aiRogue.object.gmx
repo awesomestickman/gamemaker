@@ -36,8 +36,8 @@ if(playerCar.x&lt;x&amp;&amp;playerCar.y&lt;y){
 //theTire.trueRotation-=11;
 //}
 
-
-theTire.trueRotation=-1*(darctan((theTire.x-playerCar.x)/(theTire.y-playerCar.y)))/2;
+speedLimit=10;
+theTire.trueRotation=clamp(-1*darctan((theTire.x-playerCar.x)/(theTire.y-playerCar.y)),-30,30);
 
 }
 
@@ -48,10 +48,21 @@ if(playerCar.x&gt;x&amp;&amp;playerCar.y&lt;y){
 //if(theTire.trueRotation&lt;60){
 //theTire.trueRotation+=11;
 //}
-theTire.trueRotation=(darctan((playerCar.x-theTire.x)/(theTire.y-playerCar.y)))/2;
+
+speedLimit=10;
+theTire.trueRotation=clamp(darctan((playerCar.x-theTire.x)/(theTire.y-playerCar.y)),-30,30);
 
 }
 
+//balance
+if(image_angle&lt;-30){
+theTire.trueRotation=-80;
+
+}
+if(image_angle&gt;30){
+theTire.trueRotation=80;
+
+}
 </string>
           </argument>
         </arguments>

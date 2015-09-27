@@ -54,6 +54,7 @@ turnSpeed=2;
           <argument>
             <kind>1</kind>
             <string>event_inherited();
+
 </string>
           </argument>
         </arguments>
@@ -76,7 +77,11 @@ turnSpeed=2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>physics_apply_force(x, y-sprite_height/4,(dsin(theTire.image_angle)*velocity)*4, (dcos(theTire.image_angle)*velocity)*2);
+            <string>
+//brakes="on";
+//physics_apply_force(x, y-sprite_height/4,(dsin(theTire.image_angle)*velocity)*4, (dcos(theTire.image_angle)*velocity)*2);
+phy_speed_x=phy_speed_x/1.1;
+phy_speed_y=phy_speed_y/1.1;
 </string>
           </argument>
         </arguments>
@@ -132,7 +137,9 @@ turnDirection=2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>physics_apply_force(x, y-sprite_height/4,(dsin(theTire.image_angle)*velocity)*-2, (dcos(theTire.image_angle)*velocity)*-1);
+            <string>
+speedLimit=9;
+//physics_apply_force(x, y-sprite_height/4,(dsin(theTire.image_angle)*velocity)*-2, (dcos(theTire.image_angle)*velocity)*-1);
 </string>
           </argument>
         </arguments>
@@ -170,6 +177,33 @@ if(turnDirection==2){
 //phy_speed_x=phy_speed_x/2;
 }
 turnDirection=1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="38">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
+if(sqrt(sqr(phy_speed_y)+sqr(phy_speed_x))&gt;6.7){
+phy_speed_x=phy_speed_x/1.8;
+phy_speed_y=phy_speed_y/1.8;
+}
 </string>
           </argument>
         </arguments>

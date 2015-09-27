@@ -29,7 +29,8 @@
 turnDirection=0;
 tireGrip=80;
 oldTireRotation=0;
-
+speedLimit=6;
+brakes="off";
  theTire= instance_create(x,y-sprite_height/4, tire);
 physics_joint_revolute_create(id,theTire,theTire.x,theTire.y,0,0,0,0,0,0,false);
 theTire.depth=-1000;
@@ -64,7 +65,9 @@ deadWeight.depth=-1000;
 phy_position_y+=8;
 //velocity=100;
 
-
+if(speedLimit&gt;6){
+speedLimit-=0.25;
+}
 //phy_position_y=phy_position_yprevious;
 
 </string>
@@ -113,7 +116,7 @@ theTire.phy_rotation=theTire.trueRotation +(image_angle*-1);
 
 
 //mess around with speed limit and velocity for good feel
-if(sqrt(sqr(phy_speed_y)+sqr(phy_speed_x))&lt;7){
+if(sqrt(sqr(phy_speed_y)+sqr(phy_speed_x))&lt;speedLimit){
 
 physics_apply_force(x, y-sprite_height/4,(dsin(theTire.image_angle)*velocity)*-2, (dcos(theTire.image_angle)*velocity)*-1);
 
