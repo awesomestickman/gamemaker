@@ -116,11 +116,12 @@ theTire.phy_rotation=theTire.trueRotation +(image_angle*-1);
 
 
 //mess around with speed limit and velocity for good feel
-if(sqrt(sqr(phy_speed_y)+sqr(phy_speed_x))&lt;speedLimit){
-
-physics_apply_force(x, y-sprite_height/4,(dsin(theTire.image_angle)*velocity)*-2, (dcos(theTire.image_angle)*velocity)*-1);
+if(sqrt(sqr(phy_speed_y)+sqr(phy_speed_x))&gt;speedLimit){
+phy_speed_x=phy_speed_x/1.1;
+phy_speed_y=phy_speed_y/1.1;
 
 }
+physics_apply_force(x, y-sprite_height/4,(dsin(theTire.image_angle)*velocity)*-2, (dcos(theTire.image_angle)*velocity)*-1);
 
 
 //turnD 1=left, 2 = right
@@ -143,6 +144,18 @@ if(theTire.phy_rotation&gt;20){
 
 physics_apply_force(x, y-sprite_height/4,(dcos(theTire.image_angle)*tireGrip), (dsin(theTire.image_angle)*tireGrip)*-1);
 }
+
+
+
+
+///DUST CREATION
+
+if(random(12)&lt;3){
+instance_create(x+random(sprite_width)-sprite_width/2,y+sprite_height/4, smokeBloom);
+}
+
+
+
 
 
 //y1=phy_position_y;

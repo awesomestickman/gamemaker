@@ -11,6 +11,8 @@
     <sprite>sprites\junk_in_trunk</sprite>
     <sprite>sprites\rock_big1</sprite>
     <sprite>sprites\rogue_idle</sprite>
+    <sprite>sprites\war_truck_idle</sprite>
+    <sprite>sprites\smoke_bloom</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -24,7 +26,10 @@
     <object>objects\junk</object>
     <object>objects\rockBig1</object>
     <object>objects\allParent</object>
-    <object>objects\aiRogue</object>
+    <object>objects\aiParent</object>
+    <object>objects\rogue</object>
+    <object>objects\warTruck</object>
+    <object>objects\smokeBloom</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room1</room>

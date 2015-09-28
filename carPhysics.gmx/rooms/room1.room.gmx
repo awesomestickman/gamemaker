@@ -78,9 +78,30 @@
     <instance objName="rockBig1" x="32" y="-864" name="inst_0CC2F075" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="rockBig1" x="64" y="-896" name="inst_9A54F967" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="rockBig1" x="96" y="-928" name="inst_ED4E5214" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="aiRogue" x="416" y="448" name="inst_3D9209F3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="aiRogue" x="576" y="128" name="inst_487F75CF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="aiRogue" x="608" y="448" name="inst_75165EF1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="rockBig1" x="320" y="-1472" name="inst_FFD04E0E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="rockBig1" x="384" y="-1312" name="inst_16240A6F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="rockBig1" x="384" y="-1344" name="inst_04711F17" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="rockBig1" x="384" y="-1376" name="inst_79D96F5B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="rockBig1" x="384" y="-1408" name="inst_D245CB99" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="rockBig1" x="384" y="-1440" name="inst_C4E7EC25" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="rockBig1" x="416" y="-1312" name="inst_60BA4FC6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="rockBig1" x="448" y="-1312" name="inst_512F4F11" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="rockBig1" x="480" y="-1312" name="inst_F96FF650" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="rockBig1" x="288" y="-1312" name="inst_10FF7A16" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="rockBig1" x="224" y="-1312" name="inst_2CD32CD5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="rockBig1" x="256" y="-1312" name="inst_F215CB60" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="rockBig1" x="512" y="-1312" name="inst_6D160310" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="rockBig1" x="544" y="-1312" name="inst_D2D74B2E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="rockBig1" x="608" y="-1312" name="inst_F4578EB8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="rockBig1" x="576" y="-1312" name="inst_F479685B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="rockBig1" x="192" y="-1312" name="inst_F3F21810" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="warTruck" x="992" y="576" name="inst_D8C541BE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="warTruck" x="928" y="576" name="inst_8BC8E11C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="warTruck" x="992" y="64" name="inst_94F3A0A6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="rogue" x="384" y="608" name="inst_08521681" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="rogue" x="480" y="608" name="inst_FB7F2D96" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="rogue" x="544" y="608" name="inst_1E682A57" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="rogue" x="640" y="608" name="inst_4DC2F297" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>
