@@ -154,6 +154,15 @@ if(random(12)&lt;3){
 instance_create(x+random(sprite_width)-sprite_width/2,y+sprite_height/4, smokeBloom);
 }
 
+//tire
+
+instance_create(x+sprite_width/2,y+sprite_height/4, tireTrack);
+
+instance_create(x-sprite_width/2,y+sprite_height/4, tireTrack);
+
+instance_create(x+sprite_width/2,y+sprite_height/4, tireTrack);
+
+instance_create(x-sprite_width/2,y+sprite_height/4, tireTrack);
 
 
 
