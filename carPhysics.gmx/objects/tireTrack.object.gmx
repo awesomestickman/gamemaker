@@ -25,7 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>y+=8;
+            <string>y+=4;
+
+if(y&gt;1000){
+instance_destroy();
+
+
+}
 </string>
           </argument>
         </arguments>

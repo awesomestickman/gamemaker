@@ -25,12 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>velocity=100;
+            <string>velocity=60;
 turnDirection=0;
-tireGrip=80;
+tireGrip=40;
 oldTireRotation=0;
-speedLimit=6;
-brakes="off";
+speedLimit=3.15;
+
+
+
  theTire= instance_create(x,y-sprite_height/4, tire);
 physics_joint_revolute_create(id,theTire,theTire.x,theTire.y,0,0,0,0,0,0,false);
 theTire.depth=-1000;
@@ -62,12 +64,13 @@ deadWeight.depth=-1000;
             <kind>1</kind>
             <string>
 //phy_speed_y=0;
-phy_position_y+=8;
+phy_position_y+=4;
 //velocity=100;
 
-if(speedLimit&gt;6){
-speedLimit-=0.25;
+if(speedLimit&gt;3.15){
+speedLimit-=0.15;
 }
+
 //phy_position_y=phy_position_yprevious;
 
 </string>
@@ -92,7 +95,9 @@ speedLimit-=0.25;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//road friction
+            <string>
+
+//road friction
 
 if(phy_speed_x&lt;0){
 physics_apply_force(x, y, 10, 0);
@@ -117,8 +122,8 @@ theTire.phy_rotation=theTire.trueRotation +(image_angle*-1);
 
 //mess around with speed limit and velocity for good feel
 if(sqrt(sqr(phy_speed_y)+sqr(phy_speed_x))&gt;speedLimit){
-phy_speed_x=phy_speed_x/1.1;
-phy_speed_y=phy_speed_y/1.1;
+phy_speed_x=phy_speed_x/1.05;
+phy_speed_y=phy_speed_y/1.05;
 
 }
 physics_apply_force(x, y-sprite_height/4,(dsin(theTire.image_angle)*velocity)*-2, (dcos(theTire.image_angle)*velocity)*-1);
@@ -143,6 +148,16 @@ physics_apply_force(x, y-sprite_height/4,(dcos(theTire.image_angle)*tireGrip)*-1
 if(theTire.phy_rotation&gt;20){
 
 physics_apply_force(x, y-sprite_height/4,(dcos(theTire.image_angle)*tireGrip), (dsin(theTire.image_angle)*tireGrip)*-1);
+
+}
+//back tire anti driving side ways
+if(phy_rotation&lt;-70){
+
+physics_apply_force(x, y+sprite_height/4,(dcos(image_angle)*tireGrip)*-1, (dsin(image_angle)*tireGrip));
+}
+if(phy_rotation&gt;70){
+
+physics_apply_force(x, y+sprite_height/4,(dcos(image_angle)*tireGrip), (dsin(image_angle)*tireGrip)*-1);
 }
 
 
@@ -156,18 +171,19 @@ instance_create(x+random(sprite_width)-sprite_width/2,y+sprite_height/4, smokeBl
 
 //tire
 
+//instance_create(x+sprite_width/2,y+sprite_height/4, tireTrack);
+
+//instance_create(x-sprite_width/2,y+sprite_height/4, tireTrack);
+
 instance_create(x+sprite_width/2,y+sprite_height/4, tireTrack);
+
 
 instance_create(x-sprite_width/2,y+sprite_height/4, tireTrack);
 
-instance_create(x+sprite_width/2,y+sprite_height/4, tireTrack);
-
-instance_create(x-sprite_width/2,y+sprite_height/4, tireTrack);
 
 
 
 
-//y1=phy_position_y;
 
 //phy_speed_y=-20;
 //phy_angular_velocity=0;
@@ -186,6 +202,8 @@ physics_apply_force(x, y-sprite_height/4,(dcos(theTire.image_angle)*tireGrip), (
 */
 //keep track of tire rotation
 oldTireRotation=theTire.trueRotation;
+
+
 </string>
           </argument>
         </arguments>

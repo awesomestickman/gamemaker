@@ -6,7 +6,7 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\car_idle</sprite>
+    <sprite>sprites\truck_idle</sprite>
     <sprite>sprites\tire_idle</sprite>
     <sprite>sprites\weight_idle</sprite>
     <sprite>sprites\rock_big1</sprite>
