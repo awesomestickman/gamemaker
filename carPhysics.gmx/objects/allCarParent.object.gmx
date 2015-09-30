@@ -30,6 +30,7 @@ turnDirection=0;
 tireGrip=40;
 oldTireRotation=0;
 speedLimit=3.15;
+accelHorsePower=6;
 
 
 
@@ -153,11 +154,11 @@ physics_apply_force(x, y-sprite_height/4,(dcos(theTire.image_angle)*tireGrip), (
 //back tire anti driving side ways
 if(phy_rotation&lt;-70){
 
-physics_apply_force(x, y+sprite_height/4,(dcos(image_angle)*tireGrip)*-1, (dsin(image_angle)*tireGrip));
+physics_apply_force(x, y+sprite_height/4,(dcos(image_angle)*tireGrip)*-4, (dsin(image_angle)*tireGrip)*4);
 }
 if(phy_rotation&gt;70){
 
-physics_apply_force(x, y+sprite_height/4,(dcos(image_angle)*tireGrip), (dsin(image_angle)*tireGrip)*-1);
+physics_apply_force(x, y+sprite_height/4,(dcos(image_angle)*tireGrip)*4, (dsin(image_angle)*tireGrip)*-4);
 }
 
 
