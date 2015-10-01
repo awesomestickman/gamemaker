@@ -28,15 +28,24 @@
             <string>event_inherited();
 
 //brakes
-if(playerCar.y&gt;y){
+if(playerCar.y&gt;y+10){
 phy_speed_x=phy_speed_x/1.1;
 phy_speed_y=phy_speed_y/1.1;
+if(playerCar.x&lt;=x){
 
+theTire.trueRotation=-10;
+
+}
+if(playerCar.x&gt;=x){
+theTire.trueRotation=10;
+
+
+}
 
 
 }
 //left
-if(playerCar.x&lt;x&amp;&amp;playerCar.y&lt;y){
+if(playerCar.x&lt;x&amp;&amp;playerCar.y&lt;y+10){
 
 
 //if(theTire.trueRotation&gt;-60){
@@ -50,7 +59,7 @@ theTire.trueRotation=clamp(-1*darctan((theTire.x-playerCar.x)/(theTire.y-playerC
 
 //right
 
-if(playerCar.x&gt;x&amp;&amp;playerCar.y&lt;y){
+if(playerCar.x&gt;x&amp;&amp;playerCar.y&lt;y+10){
 
 //if(theTire.trueRotation&lt;60){
 //theTire.trueRotation+=11;
@@ -62,11 +71,11 @@ theTire.trueRotation=clamp(darctan((playerCar.x-theTire.x)/(theTire.y-playerCar.
 }
 
 //balance
-if(image_angle&lt;-10){
+if(image_angle&lt;-20){
 theTire.trueRotation = -80;
 
 }
-if(image_angle&gt;10){
+if(image_angle&gt;20){
 theTire.trueRotation = 80;
 
 }

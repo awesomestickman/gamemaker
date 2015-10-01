@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>allCarParent</parentName>
+  <parentName>playerCarParent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,157 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>event_inherited();
-
-turnSpeed=2;
-
-
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>event_inherited();
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="5" enumb="40">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>
-//brakes="on";
-//physics_apply_force(x, y-sprite_height/4,(dsin(theTire.image_angle)*velocity)*4, (dcos(theTire.image_angle)*velocity)*2);
-phy_speed_x=phy_speed_x/1.1;
-phy_speed_y=phy_speed_y/1.1;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="5" enumb="39">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if(theTire.trueRotation&lt;120){
-theTire.trueRotation+=13;
-//physics_apply_force(x, y-sprite_width/4, tireGrip, 0);
-//tire_angle-=turnSpeed;
-}
-
-//turnD 1 = left, right = 2
-if(turnDirection==1){
-//phy_speed_x=phy_speed_x/2;
-}
-turnDirection=2;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="5" enumb="38">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>
-speedLimit=5;
-//physics_apply_force(x, y-sprite_height/4,(dsin(theTire.image_angle)*velocity)*-2, (dcos(theTire.image_angle)*velocity)*-1);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="5" enumb="37">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>
-
-
-if(theTire.trueRotation&gt;-120){
-theTire.trueRotation-=13;
-//physics_apply_force(x, y-sprite_width/4, -tireGrip, 0);
-
-//tire_angle+=turnSpeed;
-}
-
-//turnD 1 = left, right = 2
-if(turnDirection==2){
-//phy_speed_x=phy_speed_x/2;
-}
-turnDirection=1;
+velocity=60;
 </string>
           </argument>
         </arguments>
@@ -185,7 +35,7 @@ turnDirection=1;
   </events>
   <PhysicsObject>-1</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
-  <PhysicsObjectShape>1</PhysicsObjectShape>
+  <PhysicsObjectShape>2</PhysicsObjectShape>
   <PhysicsObjectDensity>0.5</PhysicsObjectDensity>
   <PhysicsObjectRestitution>0.100000001490116</PhysicsObjectRestitution>
   <PhysicsObjectGroup>0</PhysicsObjectGroup>
@@ -195,9 +45,11 @@ turnDirection=1;
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
   <PhysicsShapePoints>
-    <point>0,0</point>
-    <point>32,0</point>
-    <point>32,42</point>
-    <point>0,42</point>
+    <point>8,0</point>
+    <point>24,0</point>
+    <point>32,24</point>
+    <point>32,40</point>
+    <point>0,40</point>
+    <point>0,24</point>
   </PhysicsShapePoints>
 </object>
