@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>velocity=60;
+            <string>velocity=80;
 turnDirection=0;
 tireGrip=40;
 oldTireRotation=0;
@@ -106,6 +106,7 @@ physics_apply_force(x, y, 10, 0);
 if(phy_speed_x&gt;0){
 physics_apply_force(x, y, -10, 0);
 }
+
 
 //return tire
 if(theTire.trueRotation&gt;0){

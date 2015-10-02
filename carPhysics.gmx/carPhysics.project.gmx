@@ -33,6 +33,7 @@
     <object>objects\smokeBloom</object>
     <object>objects\tireTrack</object>
     <object>objects\playerCar</object>
+    <object>objects\scrapeParticle</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room1</room>
