@@ -53,8 +53,9 @@ if(playerCar.x&lt;x&amp;&amp;playerCar.y&lt;y-10){
 //}
 
 speedLimit=accelHorsePower;
+if((theTire.y-playerCar.y)!=0){
 theTire.trueRotation=clamp(-1*darctan((theTire.x-playerCar.x)/(theTire.y-playerCar.y)),-30,30);
-
+}
 }
 
 //right
@@ -66,8 +67,9 @@ if(playerCar.x&gt;x&amp;&amp;playerCar.y&lt;y-10){
 //}
 
 speedLimit=accelHorsePower;
+if((theTire.y-playerCar.y)!=0){
 theTire.trueRotation=clamp(darctan((playerCar.x-theTire.x)/(theTire.y-playerCar.y)),-30,30);
-
+}
 }
 
 //balance

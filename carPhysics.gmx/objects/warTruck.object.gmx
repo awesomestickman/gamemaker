@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>event_inherited();
 accelHorsePower=5;
-velocity=200;
+velocity=180;
 </string>
           </argument>
         </arguments>

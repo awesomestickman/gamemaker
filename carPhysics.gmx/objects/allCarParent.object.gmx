@@ -68,7 +68,7 @@ theMarker.depth=-1000000;
             <kind>1</kind>
             <string>
 //phy_speed_y=0;
-//phy_position_y+=4;
+phy_position_y+=4;
 //velocity=100;
 
 if(speedLimit&gt;3.15){
@@ -133,11 +133,9 @@ phy_speed_y=phy_speed_y/1.05;
 
 
 }
+//mabye being in math isnt so bad.
 physics_apply_force(x+(dcos(image_angle+90)*(1+sprite_height/4)),y-(dsin(image_angle+90)*(1+sprite_height/4)),(dsin(theTire.phy_rotation)*velocity), (dcos(theTire.phy_rotation)*velocity)*-1);
-show_debug_message("dsin");
-show_debug_message((dsin(theTire.phy_rotation)*velocity));
-show_debug_message("dcos");
-show_debug_message((dcos(theTire.phy_rotation)*velocity)*-1);
+
 
 theMarker.x=x+(dcos(image_angle+90)*(1+sprite_height/4));
 theMarker.y=y-(dsin(image_angle+90)*(1+sprite_height/4));
