@@ -31,8 +31,12 @@ tireGrip=40;
 oldTireRotation=0;
 speedLimit=3.15;
 accelHorsePower=6;
-
-
+engine=true; 
+threshholdx=3;
+threshholdy=1;
+collide=false;
+oldphy_speed_x=phy_speed_x;
+oldphy_speed_y=phy_speed_y;
 
 theTire= instance_create(x,y-sprite_height/4, ob_tire);
 physics_joint_revolute_create(id,theTire,theTire.x,theTire.y,0,0,0,0,0,0,false);
@@ -54,7 +58,7 @@ part_type_scale(sParticle,1,1);
 part_type_size(sParticle,0.04,0.08,-.001,0);
 part_type_color2(sParticle,make_color_rgb(255, 255, 102),make_color_rgb(255, 0, 0));
 part_type_alpha1(sParticle,1);
-part_type_speed(sParticle,0.1,0.5,0,0);
+part_type_speed(sParticle,2,3,0,0);
 part_type_direction(sParticle,0,359,0,0);
 //part_type_gravity(sParticle,0.02,90);
 part_type_orientation(sParticle,0,359,10,0,true);
@@ -129,6 +133,17 @@ physics_apply_force(x, y, -10, 0);
 }
 */
 
+//collision death
+if(engine==true&amp;&amp;collide==true&amp;&amp;
+abs(oldphy_speed_y-phy_speed_y)&gt;=threshholdy||
+abs(oldphy_speed_x-phy_speed_x)&gt;=threshholdx){
+effect_create_above(ef_explosion, x, y, 1, c_orange);
+engine=false;
+};
+collide=false;
+
+
+
 //return tire
 if(theTire.trueRotation&gt;0){
 theTire.trueRotation-=theTire.trueRotation/10;
@@ -146,14 +161,19 @@ theTire.phy_rotation=theTire.trueRotation +phy_rotation;
 //mess around with speed limit and velocity for good feel
 if(sqrt(sqr(phy_speed_y)+sqr(phy_speed_x))&gt;speedLimit){
 
-phy_speed_x=phy_speed_x/1.05;
-phy_speed_y=phy_speed_y/1.05;
+//phy_speed_x=phy_speed_x/1.05;
+//phy_speed_y=phy_speed_y/1.05;
 
 
 }
-//mabye being in math isnt so bad.
-physics_apply_force(x+(dcos(image_angle+90)*(1+sprite_height/4)),y-(dsin(image_angle+90)*(1+sprite_height/4)),(dsin(theTire.phy_rotation)*velocity), (dcos(theTire.phy_rotation)*velocity)*-1);
 
+if(engine==true){
+//mabye being in math isnt so bad.
+physics_apply_force(x+(dcos(image_angle+90)*(1+sprite_height/4)),
+y-(dsin(image_angle+90)*(1+sprite_height/4)),
+(dsin(theTire.phy_rotation)*velocity),
+ (dcos(theTire.phy_rotation)*velocity)*-1);
+}
 
 theMarker.x=x+(dcos(image_angle+90)*(1+sprite_height/4));
 theMarker.y=y-(dsin(image_angle+90)*(1+sprite_height/4));
@@ -227,7 +247,42 @@ physics_apply_force(x, y-sprite_height/4,(dcos(theTire.image_angle)*tireGrip), (
 //keep track of tire rotation
 oldTireRotation=theTire.trueRotation;
 
+oldphy_speed_x=phy_speed_x;
+oldphy_speed_y=phy_speed_y;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="ob_allParent">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
 
+collide=true;
+/*
+if(abs(other.phy_speed_x-phy_speed_x)&gt;=threshholdx||abs(other.phy_speed_y-phy_speed_y)&gt;=threshholdy)&amp;&amp;engine==true{
+effect_create_above(ef_explosion, x, y, 1, c_orange);
+engine=false;
+}
+show_debug_message("other");
+show_debug_message(other.phy_speed_y);
+show_debug_message("this");
+show_debug_message(phy_speed_y);
 </string>
           </argument>
         </arguments>
@@ -270,6 +325,25 @@ part_emitter_region(scrapeParticleSystem, first_emitter, x+sprite_width/2, x-spr
 
 
 part_emitter_burst(scrapeParticleSystem,first_emitter,sParticle,1);
+collide=true;
+//collision death
+/*
+if(
+abs(other.phy_speed_x-phy_speed_x)&gt;=threshholdx
+||
+abs(other.phy_speed_y-phy_speed_y)&gt;=threshholdy
+&amp;&amp;
+engine==true
+){
+effect_create_above(ef_explosion, x, y, 1, c_orange);
+engine=false;
+}
+
+
+show_debug_message("other");
+show_debug_message(other.phy_speed_y);
+show_debug_message("this");
+show_debug_message(phy_speed_y);
 </string>
           </argument>
         </arguments>

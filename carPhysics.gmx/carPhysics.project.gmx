@@ -38,6 +38,7 @@
     <object>objects\ob_scrapeParticle</object>
     <object>objects\ob_marker</object>
     <object>objects\ob_playerMotorcycle</object>
+    <object>objects\ob_rockParent</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room1</room>
