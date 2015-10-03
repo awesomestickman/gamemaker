@@ -6,12 +6,21 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\sp_truck_idle</sprite>
+    <sprites name="truck">
+      <sprite>sprites\sp_truck_idle</sprite>
+      <sprite>sprites\sp_truck_dead</sprite>
+    </sprites>
     <sprite>sprites\sp_tire</sprite>
     <sprite>sprites\sp_weight</sprite>
     <sprite>sprites\sp_rock_big1</sprite>
-    <sprite>sprites\sp_rogue_idle</sprite>
-    <sprite>sprites\sp_warTruck_idle</sprite>
+    <sprites name="rogue">
+      <sprite>sprites\sp_rogue_idle</sprite>
+      <sprite>sprites\sp_rogue_dead</sprite>
+    </sprites>
+    <sprites name="warTruck">
+      <sprite>sprites\sp_warTruck_idle</sprite>
+      <sprite>sprites\sp_warTruck_dead</sprite>
+    </sprites>
     <sprite>sprites\sp_smokeBloom</sprite>
     <sprite>sprites\sp_tireTrack</sprite>
     <sprite>sprites\sp_marker</sprite>

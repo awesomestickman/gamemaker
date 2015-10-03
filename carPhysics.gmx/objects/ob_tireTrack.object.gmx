@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>y+=4;
 
-if(y&gt;1000){
+if(y&gt;2000){
 instance_destroy();
 
 

@@ -33,11 +33,13 @@ speedLimit=3.15;
 accelHorsePower=6;
 engine=true; 
 threshholdx=3;
-threshholdy=1;
+threshholdy=2;
 collide=false;
 oldphy_speed_x=phy_speed_x;
 oldphy_speed_y=phy_speed_y;
-
+deadSprite=sp_truck_dead;
+//jump start
+phy_speed_y=-1*(speedLimit/2);
 theTire= instance_create(x,y-sprite_height/4, ob_tire);
 physics_joint_revolute_create(id,theTire,theTire.x,theTire.y,0,0,0,0,0,0,false);
 theTire.depth=-1000;
@@ -50,12 +52,12 @@ theMarker=instance_create(x,y+sprite_height/4,ob_marker);
 theMarker.depth=-1000000;
 
 
-
+//scrapes
 scrapeParticleSystem=part_system_create();
 sParticle=part_type_create();
 part_type_shape(sParticle,pt_shape_spark);
 part_type_scale(sParticle,1,1);
-part_type_size(sParticle,0.04,0.08,-.001,0);
+part_type_size(sParticle,0.1,0.1,-.001,0);
 part_type_color2(sParticle,make_color_rgb(255, 255, 102),make_color_rgb(255, 0, 0));
 part_type_alpha1(sParticle,1);
 part_type_speed(sParticle,2,3,0,0);
@@ -64,8 +66,23 @@ part_type_direction(sParticle,0,359,0,0);
 part_type_orientation(sParticle,0,359,10,0,true);
 part_type_life(sParticle,100,150);
 part_type_blend(sParticle,true);
-first_emitter = part_emitter_create(scrapeParticleSystem);
+scrape_emitter = part_emitter_create(scrapeParticleSystem);
 
+//fire
+fireParticleSystem=part_system_create();
+fireParticle=part_type_create();
+part_type_shape(fireParticle,pt_shape_sphere);
+part_type_scale(fireParticle,1,1);
+part_type_size(fireParticle,0.3,0.6,-.001,0.20);
+part_type_color2(fireParticle,make_color_rgb(255, 255, 102),make_color_rgb(255, 0, 0));
+part_type_alpha1(fireParticle,0.2);
+part_type_speed(fireParticle,0.3,1,0,0);
+part_type_direction(fireParticle,0,359,0,0);
+//part_type_gravity(sParticle,0.02,90);
+part_type_orientation(fireParticle,0,359,10,0,true);
+part_type_life(fireParticle,100,150);
+part_type_blend(fireParticle,true);
+fire_emitter = part_emitter_create(fireParticleSystem);
 </string>
           </argument>
         </arguments>
@@ -137,11 +154,16 @@ physics_apply_force(x, y, -10, 0);
 if(engine==true&amp;&amp;collide==true&amp;&amp;
 abs(oldphy_speed_y-phy_speed_y)&gt;=threshholdy||
 abs(oldphy_speed_x-phy_speed_x)&gt;=threshholdx){
-effect_create_above(ef_explosion, x, y, 1, c_orange);
-engine=false;
+  effect_create_above(ef_explosion, x, y, 1, c_orange);
+  engine=false;
+  sprite_index=deadSprite;
 };
 collide=false;
 
+if(engine==false){
+part_emitter_region(fireParticleSystem, fire_emitter, x-3, x+3, y-3, y+3, ps_shape_ellipse, ps_distr_gaussian);
+part_emitter_burst(fireParticleSystem,fire_emitter,fireParticle,1);
+}
 
 
 //return tire
@@ -158,11 +180,12 @@ theTire.trueRotation-=theTire.trueRotation/10;
 theTire.phy_rotation=theTire.trueRotation +phy_rotation;
 
 
-//mess around with speed limit and velocity for good feel
-if(sqrt(sqr(phy_speed_y)+sqr(phy_speed_x))&gt;speedLimit){
+//SLOW DOWN
+//sqrt(sqr(phy_speed_y)+sqr(phy_speed_x))
+if(abs(phy_speed_y)&gt;speedLimit){
 
-//phy_speed_x=phy_speed_x/1.05;
-//phy_speed_y=phy_speed_y/1.05;
+phy_speed_x=phy_speed_x/1.05;
+phy_speed_y=phy_speed_y/1.05;
 
 
 }
@@ -307,16 +330,16 @@ show_debug_message(phy_speed_y);
             <kind>1</kind>
             <string>
 if(other.x&gt;x){
-part_emitter_region(scrapeParticleSystem, first_emitter, x+sprite_width/2, x+sprite_width/2, y-sprite_height/2, y+sprite_height/2, ps_shape_ellipse, ps_distr_gaussian);
+part_emitter_region(scrapeParticleSystem, scrape_emitter, x+sprite_width/2, x+sprite_width/2, y-sprite_height/2, y+sprite_height/2, ps_shape_ellipse, ps_distr_gaussian);
 }
 if(other.x&lt;x){
-part_emitter_region(scrapeParticleSystem, first_emitter, x-sprite_width/2, x-sprite_width/2, y-sprite_height/2, y+sprite_height/2, ps_shape_ellipse, ps_distr_gaussian);
+part_emitter_region(scrapeParticleSystem, scrape_emitter, x-sprite_width/2, x-sprite_width/2, y-sprite_height/2, y+sprite_height/2, ps_shape_ellipse, ps_distr_gaussian);
 }
 if(other.y-sprite_width/2&gt;y+sprite_width/2){
-part_emitter_region(scrapeParticleSystem, first_emitter, x+sprite_width/2, x-sprite_width/2, y+sprite_height/2, y+sprite_height/2, ps_shape_ellipse, ps_distr_gaussian);
+part_emitter_region(scrapeParticleSystem, scrape_emitter, x+sprite_width/2, x-sprite_width/2, y+sprite_height/2, y+sprite_height/2, ps_shape_ellipse, ps_distr_gaussian);
 }
 if(other.y+sprite_width/2&lt;y-sprite_width/2){
-part_emitter_region(scrapeParticleSystem, first_emitter, x+sprite_width/2, x-sprite_width/2, y-sprite_height/2, y-sprite_height/2, ps_shape_ellipse, ps_distr_gaussian);
+part_emitter_region(scrapeParticleSystem, scrape_emitter, x+sprite_width/2, x-sprite_width/2, y-sprite_height/2, y-sprite_height/2, ps_shape_ellipse, ps_distr_gaussian);
 }
 
 
@@ -324,7 +347,7 @@ part_emitter_region(scrapeParticleSystem, first_emitter, x+sprite_width/2, x-spr
 
 
 
-part_emitter_burst(scrapeParticleSystem,first_emitter,sParticle,1);
+part_emitter_burst(scrapeParticleSystem,scrape_emitter,sParticle,3);
 collide=true;
 //collision death
 /*

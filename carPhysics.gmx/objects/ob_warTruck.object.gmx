@@ -28,6 +28,7 @@
             <string>event_inherited();
 accelHorsePower=5;
 velocity=180;
+deadSprite=sp_warTruck_dead;
 </string>
           </argument>
         </arguments>
