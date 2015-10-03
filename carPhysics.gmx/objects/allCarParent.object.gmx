@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>velocity=80;
+            <string>velocity=60;
 turnDirection=0;
 tireGrip=40;
 oldTireRotation=0;
@@ -34,13 +34,16 @@ accelHorsePower=6;
 
 
 
- theTire= instance_create(x,y-sprite_height/4, tire);
+theTire= instance_create(x,y-sprite_height/4, tire);
 physics_joint_revolute_create(id,theTire,theTire.x,theTire.y,0,0,0,0,0,0,false);
 theTire.depth=-1000;
 
 deadWeight=instance_create(x,y+sprite_height/4,junk);
 physics_joint_revolute_create(id,deadWeight,deadWeight.x,deadWeight.y,0,0,0,0,0,0,false);
 deadWeight.depth=-1000;
+
+theMarker=instance_create(x,y+sprite_height/4,marker);
+theMarker.depth=-1000000;
 </string>
           </argument>
         </arguments>
@@ -65,7 +68,7 @@ deadWeight.depth=-1000;
             <kind>1</kind>
             <string>
 //phy_speed_y=0;
-phy_position_y+=4;
+//phy_position_y+=4;
 //velocity=100;
 
 if(speedLimit&gt;3.15){
@@ -119,7 +122,7 @@ theTire.trueRotation-=theTire.trueRotation/10;
 
 
 //get tire
-theTire.phy_rotation=theTire.trueRotation +(image_angle*-1);
+theTire.phy_rotation=theTire.trueRotation +phy_rotation;
 
 
 //mess around with speed limit and velocity for good feel
@@ -130,7 +133,16 @@ phy_speed_y=phy_speed_y/1.05;
 
 
 }
-physics_apply_force(x, y-sprite_height/4,(dsin(theTire.image_angle)*velocity)*-2, (dcos(theTire.image_angle)*velocity)*-1);
+physics_apply_force(x+(dcos(image_angle+90)*(1+sprite_height/4)),y-(dsin(image_angle+90)*(1+sprite_height/4)),(dsin(theTire.phy_rotation)*velocity), (dcos(theTire.phy_rotation)*velocity)*-1);
+show_debug_message("dsin");
+show_debug_message((dsin(theTire.phy_rotation)*velocity));
+show_debug_message("dcos");
+show_debug_message((dcos(theTire.phy_rotation)*velocity)*-1);
+
+theMarker.x=x+(dcos(image_angle+90)*(1+sprite_height/4));
+theMarker.y=y-(dsin(image_angle+90)*(1+sprite_height/4));
+
+
 
 
 //turnD 1=left, 2 = right

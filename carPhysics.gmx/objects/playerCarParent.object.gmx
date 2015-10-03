@@ -81,11 +81,11 @@ phy_speed_y=phy_speed_y/1.1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(theTire.trueRotation&lt;120){
+            <string>//if(theTire.trueRotation&lt;120){
 theTire.trueRotation+=13;
 //physics_apply_force(x, y-sprite_width/4, tireGrip, 0);
 //tire_angle-=turnSpeed;
-}
+//}
 
 //turnD 1 = left, right = 2
 if(turnDirection==1){
@@ -142,12 +142,12 @@ speedLimit=accelHorsePower;
             <string>
 
 
-if(theTire.trueRotation&gt;-120){
+//if(theTire.trueRotation&gt;-120){
 theTire.trueRotation-=13;
 //physics_apply_force(x, y-sprite_width/4, -tireGrip, 0);
 
 //tire_angle+=turnSpeed;
-}
+//}
 
 //turnD 1 = left, right = 2
 if(turnDirection==2){
