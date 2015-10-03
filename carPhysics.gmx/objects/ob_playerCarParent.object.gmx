@@ -87,11 +87,8 @@ theTire.trueRotation+=13;
 //tire_angle-=turnSpeed;
 //}
 
-//turnD 1 = left, right = 2
-if(turnDirection==1){
-//phy_speed_x=phy_speed_x/2;
-}
-turnDirection=2;
+
+turnDirection="right";
 </string>
           </argument>
         </arguments>
@@ -149,11 +146,8 @@ theTire.trueRotation-=13;
 //tire_angle+=turnSpeed;
 //}
 
-//turnD 1 = left, right = 2
-if(turnDirection==2){
-//phy_speed_x=phy_speed_x/2;
-}
-turnDirection=1;
+
+turnDirection="left";
 </string>
           </argument>
         </arguments>

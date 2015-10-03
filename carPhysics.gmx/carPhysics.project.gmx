@@ -15,6 +15,7 @@
     <sprite>sprites\sp_smokeBloom</sprite>
     <sprite>sprites\sp_tireTrack</sprite>
     <sprite>sprites\sp_marker</sprite>
+    <sprite>sprites\sp_motorcycle_idle</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -33,9 +34,10 @@
     <object>objects\ob_warTruck</object>
     <object>objects\ob_smokeBloom</object>
     <object>objects\ob_tireTrack</object>
-    <object>objects\ob_playerCar</object>
+    <object>objects\ob_playerTruck</object>
     <object>objects\ob_scrapeParticle</object>
     <object>objects\ob_marker</object>
+    <object>objects\ob_playerMotorcycle</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room1</room>

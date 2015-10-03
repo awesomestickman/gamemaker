@@ -82,11 +82,10 @@
     <instance objName="ob_rockBig1" x="288" y="-1312" name="inst_10FF7A16" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="224" y="-1312" name="inst_2CD32CD5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="192" y="-1312" name="inst_F3F21810" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_playerCar" x="576" y="416" name="inst_A116B963" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rogue" x="416" y="480" name="inst_C683B58F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rogue" x="704" y="480" name="inst_6F0B046B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_warTruck" x="128" y="352" name="inst_6CD59470" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_scrapeParticle" x="288" y="160" name="inst_57DEB883" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_playerTruck" x="480" y="352" name="inst_B33604BF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>

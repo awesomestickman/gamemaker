@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>velocity=60;
-turnDirection=0;
+turnDirection="none";
 tireGrip=40;
 oldTireRotation=0;
 speedLimit=3.15;
@@ -44,6 +44,24 @@ deadWeight.depth=-1000;
 
 theMarker=instance_create(x,y+sprite_height/4,ob_marker);
 theMarker.depth=-1000000;
+
+
+
+scrapeParticleSystem=part_system_create();
+sParticle=part_type_create();
+part_type_shape(sParticle,pt_shape_spark);
+part_type_scale(sParticle,1,1);
+part_type_size(sParticle,0.04,0.08,-.001,0);
+part_type_color2(sParticle,make_color_rgb(255, 255, 102),make_color_rgb(255, 0, 0));
+part_type_alpha1(sParticle,1);
+part_type_speed(sParticle,0.1,0.5,0,0);
+part_type_direction(sParticle,0,359,0,0);
+//part_type_gravity(sParticle,0.02,90);
+part_type_orientation(sParticle,0,359,10,0,true);
+part_type_life(sParticle,100,150);
+part_type_blend(sParticle,true);
+first_emitter = part_emitter_create(scrapeParticleSystem);
+
 </string>
           </argument>
         </arguments>
@@ -143,15 +161,7 @@ theMarker.y=y-(dsin(image_angle+90)*(1+sprite_height/4));
 
 
 
-//turnD 1=left, 2 = right
-if(turnDirection==1){
 
-
-}
-if(turnDirection==2){
-
-
-}
 
 //tire grip real
 /*
@@ -218,6 +228,48 @@ physics_apply_force(x, y-sprite_height/4,(dcos(theTire.image_angle)*tireGrip), (
 oldTireRotation=theTire.trueRotation;
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="ob_allCarParent">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
+if(other.x&gt;x){
+part_emitter_region(scrapeParticleSystem, first_emitter, x+sprite_width/2, x+sprite_width/2, y-sprite_height/2, y+sprite_height/2, ps_shape_ellipse, ps_distr_gaussian);
+}
+if(other.x&lt;x){
+part_emitter_region(scrapeParticleSystem, first_emitter, x-sprite_width/2, x-sprite_width/2, y-sprite_height/2, y+sprite_height/2, ps_shape_ellipse, ps_distr_gaussian);
+}
+if(other.y-sprite_width/2&gt;y+sprite_width/2){
+part_emitter_region(scrapeParticleSystem, first_emitter, x+sprite_width/2, x-sprite_width/2, y+sprite_height/2, y+sprite_height/2, ps_shape_ellipse, ps_distr_gaussian);
+}
+if(other.y+sprite_width/2&lt;y-sprite_width/2){
+part_emitter_region(scrapeParticleSystem, first_emitter, x+sprite_width/2, x-sprite_width/2, y-sprite_height/2, y-sprite_height/2, ps_shape_ellipse, ps_distr_gaussian);
+}
+
+
+
+
+
+
+part_emitter_burst(scrapeParticleSystem,first_emitter,sParticle,1);
 </string>
           </argument>
         </arguments>
