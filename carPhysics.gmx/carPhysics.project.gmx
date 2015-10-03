@@ -6,36 +6,36 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\truck_idle</sprite>
-    <sprite>sprites\tire_idle</sprite>
-    <sprite>sprites\weight_idle</sprite>
-    <sprite>sprites\rock_big1</sprite>
-    <sprite>sprites\rogue_idle</sprite>
-    <sprite>sprites\war_truck_idle</sprite>
-    <sprite>sprites\smoke_bloom</sprite>
-    <sprite>sprites\tire_track</sprite>
-    <sprite>sprites\marker_idle</sprite>
+    <sprite>sprites\sp_truck_idle</sprite>
+    <sprite>sprites\sp_tire</sprite>
+    <sprite>sprites\sp_weight</sprite>
+    <sprite>sprites\sp_rock_big1</sprite>
+    <sprite>sprites\sp_rogue_idle</sprite>
+    <sprite>sprites\sp_warTruck_idle</sprite>
+    <sprite>sprites\sp_smokeBloom</sprite>
+    <sprite>sprites\sp_tireTrack</sprite>
+    <sprite>sprites\sp_marker</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
   </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
-    <object>objects\allCarParent</object>
-    <object>objects\playerCarParent</object>
-    <object>objects\carDead</object>
-    <object>objects\tire</object>
-    <object>objects\junk</object>
-    <object>objects\rockBig1</object>
-    <object>objects\allParent</object>
-    <object>objects\aiParent</object>
-    <object>objects\rogue</object>
-    <object>objects\warTruck</object>
-    <object>objects\smokeBloom</object>
-    <object>objects\tireTrack</object>
-    <object>objects\playerCar</object>
-    <object>objects\scrapeParticle</object>
-    <object>objects\marker</object>
+    <object>objects\ob_allCarParent</object>
+    <object>objects\ob_playerCarParent</object>
+    <object>objects\ob_carDead</object>
+    <object>objects\ob_tire</object>
+    <object>objects\ob_junk</object>
+    <object>objects\ob_rockBig1</object>
+    <object>objects\ob_allParent</object>
+    <object>objects\ob_aiParent</object>
+    <object>objects\ob_rogue</object>
+    <object>objects\ob_warTruck</object>
+    <object>objects\ob_smokeBloom</object>
+    <object>objects\ob_tireTrack</object>
+    <object>objects\ob_playerCar</object>
+    <object>objects\ob_scrapeParticle</object>
+    <object>objects\ob_marker</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room1</room>
