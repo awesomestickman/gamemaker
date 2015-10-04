@@ -10,9 +10,11 @@
       <sprite>sprites\sp_truck_idle</sprite>
       <sprite>sprites\sp_truck_dead</sprite>
     </sprites>
-    <sprite>sprites\sp_tire</sprite>
-    <sprite>sprites\sp_weight</sprite>
-    <sprite>sprites\sp_rock_big1</sprite>
+    <sprites name="debugstuff">
+      <sprite>sprites\sp_weight</sprite>
+      <sprite>sprites\sp_tire</sprite>
+      <sprite>sprites\sp_marker</sprite>
+    </sprites>
     <sprites name="rogue">
       <sprite>sprites\sp_rogue_idle</sprite>
       <sprite>sprites\sp_rogue_dead</sprite>
@@ -21,10 +23,18 @@
       <sprite>sprites\sp_warTruck_idle</sprite>
       <sprite>sprites\sp_warTruck_dead</sprite>
     </sprites>
-    <sprite>sprites\sp_smokeBloom</sprite>
-    <sprite>sprites\sp_tireTrack</sprite>
-    <sprite>sprites\sp_marker</sprite>
-    <sprite>sprites\sp_motorcycle_idle</sprite>
+    <sprites name="particles">
+      <sprite>sprites\sp_smokeBloom</sprite>
+      <sprite>sprites\sp_tireTrack</sprite>
+    </sprites>
+    <sprites name="motorcycle">
+      <sprite>sprites\sp_motorcycle_dead</sprite>
+      <sprite>sprites\sp_motorcycle_idle</sprite>
+    </sprites>
+    <sprites name="terrain">
+      <sprite>sprites\sp_chasm_full</sprite>
+      <sprite>sprites\sp_rock_big1</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -48,6 +58,7 @@
     <object>objects\ob_marker</object>
     <object>objects\ob_playerMotorcycle</object>
     <object>objects\ob_rockParent</object>
+    <object>objects\ob_chasm</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room1</room>
