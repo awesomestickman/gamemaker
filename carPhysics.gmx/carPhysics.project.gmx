@@ -9,8 +9,8 @@
     <sprites name="truck">
       <sprite>sprites\sp_truck_idle</sprite>
       <sprite>sprites\sp_truck_dead</sprite>
-      <sprite>sprites\sp_truck_fallingTEST</sprite>
       <sprite>sprites\sp_truck_falling</sprite>
+      <sprite>sprites\sp_truck_fallingfake</sprite>
     </sprites>
     <sprites name="debugstuff">
       <sprite>sprites\sp_weight</sprite>
@@ -34,11 +34,9 @@
       <sprite>sprites\sp_motorcycle_idle</sprite>
     </sprites>
     <sprites name="terrain">
-      <sprite>sprites\sp_chasm_full</sprite>
       <sprite>sprites\sp_rock_big1</sprite>
-      <sprite>sprites\sp_chasm_circle</sprite>
-      <sprite>sprites\sp_chasm_pit</sprite>
       <sprite>sprites\sp_chasm_circle_black</sprite>
+      <sprite>sprites\sp_ground_rock</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -46,27 +44,40 @@
   </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
-    <object>objects\ob_allCarParent</object>
-    <object>objects\ob_playerCarParent</object>
-    <object>objects\ob_carDead</object>
-    <object>objects\ob_tire</object>
-    <object>objects\ob_junk</object>
-    <object>objects\ob_rockBig1</object>
+    <object>objects\ob_moveDownParent</object>
     <object>objects\ob_allParent</object>
-    <object>objects\ob_aiParent</object>
-    <object>objects\ob_rogue</object>
-    <object>objects\ob_warTruck</object>
-    <object>objects\ob_smokeBloom</object>
-    <object>objects\ob_tireTrack</object>
-    <object>objects\ob_playerTruck</object>
-    <object>objects\ob_scrapeParticle</object>
-    <object>objects\ob_marker</object>
-    <object>objects\ob_playerMotorcycle</object>
-    <object>objects\ob_rockParent</object>
-    <object>objects\ob_chasm</object>
-    <object>objects\ob_pit</object>
+    <objects name="particles and debug">
+      <object>objects\ob_marker</object>
+      <object>objects\ob_scrapeParticle</object>
+      <object>objects\ob_smokeBloom</object>
+      <object>objects\ob_junk</object>
+      <object>objects\ob_tireTrack</object>
+      <object>objects\ob_tire</object>
+    </objects>
+    <objects name="cars">
+      <objects name="ai">
+        <object>objects\ob_warTruck</object>
+        <object>objects\ob_rogue</object>
+        <object>objects\ob_carDead</object>
+        <object>objects\ob_aiParent</object>
+      </objects>
+      <objects name="players">
+        <object>objects\ob_playerMotorcycle</object>
+        <object>objects\ob_playerTruck</object>
+        <object>objects\ob_playerCarParent</object>
+      </objects>
+      <object>objects\ob_allCarParent</object>
+    </objects>
+    <objects name="terrain">
+      <object>objects\ob_chasm</object>
+      <object>objects\ob_rockBig1</object>
+      <object>objects\ob_rockParent</object>
+      <object>objects\ob_groundRock</object>
+      <object>objects\ob_cliff_edge</object>
+    </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\room2</room>
     <room>rooms\room1</room>
   </rooms>
   <help>

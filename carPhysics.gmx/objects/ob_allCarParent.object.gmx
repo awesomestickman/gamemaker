@@ -37,14 +37,14 @@ control=true;
 threshholdx=3;
 threshholdy=2;
 collide=false;
-oldphy_speed_x=phy_speed_x;
-oldphy_speed_y=phy_speed_y;
+oldphy_speed_x=0;
+oldphy_speed_y=0;
 deadSprite=sp_truck_dead;
 motorcycle=false;
 falling=false;
 
 //jump start
-phy_speed_y=-1*(speedLimit/2);
+phy_speed_y=-1*(speedLimit);
 theTire= instance_create(x,y-sprite_height/4, ob_tire);
 physics_joint_revolute_create(id,theTire,theTire.x,theTire.y,0,0,0,0,0,0,false);
 theTire.depth=-1000;
@@ -297,40 +297,6 @@ oldphy_speed_y=phy_speed_y;
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="ob_allParent">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>
-
-collide=true;
-/*
-if(abs(other.phy_speed_x-phy_speed_x)&gt;=threshholdx||abs(other.phy_speed_y-phy_speed_y)&gt;=threshholdy)&amp;&amp;engine==true{
-effect_create_above(ef_explosion, x, y, 1, c_orange);
-engine=false;
-}
-show_debug_message("other");
-show_debug_message(other.phy_speed_y);
-show_debug_message("this");
-show_debug_message(phy_speed_y);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="4" ename="ob_allCarParent">
       <action>
         <libid>1</libid>
@@ -383,6 +349,40 @@ engine=false;
 }
 
 
+show_debug_message("other");
+show_debug_message(other.phy_speed_y);
+show_debug_message("this");
+show_debug_message(phy_speed_y);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="ob_allParent">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
+
+collide=true;
+/*
+if(abs(other.phy_speed_x-phy_speed_x)&gt;=threshholdx||abs(other.phy_speed_y-phy_speed_y)&gt;=threshholdy)&amp;&amp;engine==true{
+effect_create_above(ef_explosion, x, y, 1, c_orange);
+engine=false;
+}
 show_debug_message("other");
 show_debug_message(other.phy_speed_y);
 show_debug_message("this");
