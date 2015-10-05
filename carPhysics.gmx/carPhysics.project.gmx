@@ -9,6 +9,8 @@
     <sprites name="truck">
       <sprite>sprites\sp_truck_idle</sprite>
       <sprite>sprites\sp_truck_dead</sprite>
+      <sprite>sprites\sp_truck_fallingTEST</sprite>
+      <sprite>sprites\sp_truck_falling</sprite>
     </sprites>
     <sprites name="debugstuff">
       <sprite>sprites\sp_weight</sprite>
@@ -34,6 +36,9 @@
     <sprites name="terrain">
       <sprite>sprites\sp_chasm_full</sprite>
       <sprite>sprites\sp_rock_big1</sprite>
+      <sprite>sprites\sp_chasm_circle</sprite>
+      <sprite>sprites\sp_chasm_pit</sprite>
+      <sprite>sprites\sp_chasm_circle_black</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -59,6 +64,7 @@
     <object>objects\ob_playerMotorcycle</object>
     <object>objects\ob_rockParent</object>
     <object>objects\ob_chasm</object>
+    <object>objects\ob_pit</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room1</room>

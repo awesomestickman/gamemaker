@@ -26,17 +26,25 @@
           <argument>
             <kind>1</kind>
             <string>event_inherited();
-playerCar=ob_playerCarParent;
+
+if(instance_exists(ob_playerCarParent)){
+targety=ob_playerCarParent.y;
+targetx=ob_playerCarParent.x;
+}
+else{
+targety=y;
+targetx=x;
+}
 //brakes
-if(playerCar.y&gt;y-10){
+if(targety&gt;y-10){
 phy_speed_x=phy_speed_x/1.1;
 phy_speed_y=phy_speed_y/1.1;
-if(playerCar.x&lt;=x){
+if(targetx&lt;=x){
 
 theTire.trueRotation=-90;
 
 }
-if(playerCar.x&gt;=x){
+if(targetx&gt;=x){
 theTire.trueRotation=90;
 
 
@@ -45,7 +53,7 @@ theTire.trueRotation=90;
 
 }
 //left
-if(playerCar.x&lt;x&amp;&amp;playerCar.y&lt;y-10){
+if(targetx&lt;x&amp;&amp;targety&lt;y-10){
 
 
 //if(theTire.trueRotation&gt;-60){
@@ -53,22 +61,22 @@ if(playerCar.x&lt;x&amp;&amp;playerCar.y&lt;y-10){
 //}
 
 speedLimit=accelHorsePower;
-if((theTire.y-playerCar.y)!=0){
-theTire.trueRotation=clamp(-1*darctan((theTire.x-playerCar.x)/(theTire.y-playerCar.y)),-30,30);
+if((theTire.y-targety)!=0){
+theTire.trueRotation=clamp(-1*darctan((theTire.x-targetx)/(theTire.y-targety)),-30,30);
 }
 }
 
 //right
 
-if(playerCar.x&gt;x&amp;&amp;playerCar.y&lt;y-10){
+if(targetx&gt;x&amp;&amp;targety&lt;y-10){
 
 //if(theTire.trueRotation&lt;60){
 //theTire.trueRotation+=11;
 //}
 
 speedLimit=accelHorsePower;
-if((theTire.y-playerCar.y)!=0){
-theTire.trueRotation=clamp(darctan((playerCar.x-theTire.x)/(theTire.y-playerCar.y)),-30,30);
+if((theTire.y-targety)!=0){
+theTire.trueRotation=clamp(darctan((targetx-theTire.x)/(theTire.y-targety)),-30,30);
 }
 }
 
