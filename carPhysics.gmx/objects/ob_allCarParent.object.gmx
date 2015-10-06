@@ -30,8 +30,9 @@ velocity=130;
 turnDirection="none";
 tireGrip=40;
 oldTireRotation=0;
-speedLimit=4.15;
-accelHorsePower=5;
+speedLimit=6;
+trueSpeedLimit=6;
+accelHorsePower=8;
 engine=true; 
 control=true;
 threshholdx=3;
@@ -115,7 +116,7 @@ fire_emitter = part_emitter_create(fireParticleSystem);
 phy_position_y+=5;
 //velocity=100;
 
-if(speedLimit&gt;3.15){
+if(speedLimit&gt;trueSpeedLimit){
 speedLimit-=0.15;
 }
 
@@ -219,6 +220,16 @@ instance_destroy();
 }
 
 
+//lets try this again
+if(control==true){
+//mabye being in math isnt so bad.
+//abs to deviation
+physics_apply_force(x+(dcos(image_angle+90)*(1+sprite_height/4)),
+y-(dsin(image_angle+90)*(1+sprite_height/4)),
+abs(dcos(theTire.phy_rotation))*phy_speed_x*-10,
+ abs(dsin(theTire.phy_rotation))*phy_speed_y*-10
+ );
+}
 
 
 //tire grip real

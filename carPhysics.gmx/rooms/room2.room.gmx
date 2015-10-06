@@ -564,18 +564,12 @@
     <instance objName="ob_cliff_edge" x="608" y="-3008" name="inst_95AF9EA0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_cliff_edge" x="608" y="-2976" name="inst_3FB7F587" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_cliff_edge" x="608" y="-2944" name="inst_61A17FCD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_playerMotorcycle" x="832" y="1760" name="inst_A99CE57D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_warTruck" x="640" y="1792" name="inst_91AEF3AE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_warTruck" x="992" y="1760" name="inst_2B4CD880" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_warTruck" x="800" y="1856" name="inst_20548976" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_playerMotorcycle" x="672" y="1728" name="inst_A99CE57D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_warTruck" x="896" y="1856" name="inst_9F61F482" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_warTruck" x="1056" y="1504" name="inst_015063FD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_warTruck" x="1088" y="1312" name="inst_07AFE372" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_warTruck" x="1024" y="1280" name="inst_07AFE372" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_warTruck" x="1152" y="1120" name="inst_59762565" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_warTruck" x="864" y="960" name="inst_87DEE897" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rogue" x="608" y="1664" name="inst_3A421E9D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rogue" x="800" y="1664" name="inst_3A200EB8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rogue" x="1056" y="1760" name="inst_EC144408" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rogue" x="992" y="1600" name="inst_4DDB1E70" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rogue" x="672" y="1344" name="inst_11B385A7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rogue" x="480" y="512" name="inst_D4C4C4F3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
