@@ -26,9 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>depth=20-y/10000;
-if(y&gt;1000){
+if(y&gt;-1000){
 
-image_yscale=image_yscale/(1.05);
+image_yscale=image_yscale/4;
 
 }
 </string>
@@ -56,7 +56,7 @@ image_yscale=image_yscale/(1.05);
             <string>y+=4;
 
 
-if(y&gt;-1000){
+if(y&gt;-500){
 
 image_yscale=image_yscale/(1+((y+1000)/2000)/100);
 
