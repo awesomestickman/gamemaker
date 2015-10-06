@@ -3,8 +3,8 @@
   <caption></caption>
   <width>1800</width>
   <height>2000</height>
-  <vsnap>32</vsnap>
-  <hsnap>32</hsnap>
+  <vsnap>10</vsnap>
+  <hsnap>10</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -51,21 +51,51 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="ob_groundRock" x="-480" y="640" name="inst_8D044F13" locked="0" code="" scaleX="3.26399993896484" scaleY="2.52800011634827" colour="4294967295" rotation="0"/>
-    <instance objName="ob_groundRock" x="-480" y="-256" name="inst_D8B28C44" locked="0" code="" scaleX="3.64800000190735" scaleY="1.93599998950958" colour="4294967295" rotation="0"/>
-    <instance objName="ob_groundRock" x="-160" y="-2016" name="inst_23C6850B" locked="0" code="" scaleX="2.61999988555908" scaleY="3.44000005722046" colour="4294967295" rotation="0"/>
-    <instance objName="ob_groundRock" x="672" y="-2304" name="inst_09F83DD0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_groundRock" x="672" y="-2784" name="inst_E973C5BF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_groundRock" x="384" y="-3872" name="inst_CEFA3162" locked="0" code="" scaleX="2.1800000667572" scaleY="2.05999994277954" colour="4294967295" rotation="0"/>
     <instance objName="ob_playerTruck" x="736" y="1568" name="inst_E713C06D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_warTruck" x="512" y="1664" name="inst_7E8025C8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_warTruck" x="768" y="1792" name="inst_4ED21AB1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_warTruck" x="1024" y="1664" name="inst_208578F7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rogue" x="384" y="1504" name="inst_C9D3302C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rogue" x="1120" y="1504" name="inst_C1BC990C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rogue" x="-224" y="1024" name="inst_F652E31A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rogue" x="-224" y="832" name="inst_305C7AF9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rogue" x="-224" y="640" name="inst_6EC78A67" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_groundRock" x="-20" y="1510" name="inst_1AF7B4B4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_groundRock" x="480" y="1520" name="inst_47EEBD90" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_groundRock" x="-30" y="1010" name="inst_CC1C39B0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_groundRock" x="470" y="1020" name="inst_64D3EE71" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_groundRock" x="-50" y="530" name="inst_C3F95DE3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_groundRock" x="440" y="550" name="inst_C3E14062" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_groundRock" x="390" y="60" name="inst_75A18B4D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_groundRock" x="500" y="-420" name="inst_3FCD8B70" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_groundRock" x="-100" y="40" name="inst_DFB5570E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_groundRock" x="10" y="-440" name="inst_BDEE88F5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_groundRock" x="560" y="-920" name="inst_F9908CA3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_groundRock" x="80" y="-920" name="inst_53CF04EB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_groundRock" x="-330" y="-860" name="inst_2DB1EA36" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_groundRock" x="-450" y="-390" name="inst_85108047" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_groundRock" x="660" y="-1240" name="inst_1CBCA04F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_groundRock" x="170" y="-1290" name="inst_C2CDD0E1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_groundRock" x="-300" y="-1280" name="inst_04E4847C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_chasm" x="-420" y="-230" name="inst_E1EDB6C7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_chasm" x="-270" y="-1310" name="inst_DAD6721B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_groundRock" x="660" y="-1740" name="inst_430B2962" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rogue" x="440" y="1710" name="inst_2B76259A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rogue" x="460" y="1710" name="inst_78BB27A7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rogue" x="480" y="1730" name="inst_DB5FB231" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rogue" x="500" y="1740" name="inst_C00CDC78" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rogue" x="520" y="1770" name="inst_C5E46C51" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rogue" x="540" y="1780" name="inst_C169985E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rogue" x="560" y="1790" name="inst_3A498E7A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rogue" x="580" y="1810" name="inst_4FF1909F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rogue" x="610" y="1820" name="inst_95ABD382" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rogue" x="630" y="1830" name="inst_15C09720" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rogue" x="650" y="1850" name="inst_C0FA53F9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rogue" x="670" y="1860" name="inst_ECE774EB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rogue" x="690" y="1870" name="inst_F9EC1840" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rogue" x="710" y="1860" name="inst_5F4C58B0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rogue" x="730" y="1850" name="inst_355F1F33" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rogue" x="750" y="1840" name="inst_FFC89C23" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rogue" x="750" y="1810" name="inst_C6206AEA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rogue" x="770" y="1790" name="inst_AA4D2B0B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rogue" x="790" y="1780" name="inst_CA40946C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rogue" x="810" y="1770" name="inst_7F942B16" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rogue" x="830" y="1770" name="inst_D651A78D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rogue" x="850" y="1760" name="inst_9CC2158F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rogue" x="860" y="1730" name="inst_E5ED9105" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rogue" x="870" y="1700" name="inst_EDDDF016" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>
