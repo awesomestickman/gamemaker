@@ -26,13 +26,15 @@
           <argument>
             <kind>1</kind>
             <string>//a lot of vars
-velocity=130;
+engineUse=0;
+engineMax=120;
+velocity=200;
 turnDirection="none";
-tireGrip=5;
-oldTireRotation=0;
+tireGrip=30;
+oldRotation=0;
 speedLimit=5;
 trueSpeedLimit=5;
-accelHorsePower=7;
+accelHorsePower=6;
 engine=true; 
 control=true;
 threshholdx=3;
@@ -113,7 +115,7 @@ fire_emitter = part_emitter_create(fireParticleSystem);
             <kind>1</kind>
             <string>
 //phy_speed_y=0;
-phy_position_y+=5;
+phy_position_y+=global.speed+1;
 //velocity=100;
 
 if(speedLimit&gt;trueSpeedLimit){
@@ -156,6 +158,42 @@ physics_apply_force(x, y, -10, 0);
 }
 */
 
+control=true;
+
+//ENGINE 
+if(engine==false){
+control=false;
+
+}
+if(engineUse&gt;0){
+engineUse--;
+}
+if(engineUse&gt;engineMax){
+engine=false;
+}
+if(engineUse&gt;engineMax/2){
+if(random(12)&lt;4){
+instance_create(x+random(sprite_width)-sprite_width/2,y+sprite_height/4, ob_blackSmoke);
+}
+
+
+}
+
+
+//FAAALLLLLIINNNNNNG
+if(falling==true){
+//phy_speed_x=phy_speed_x/1.05;
+//phy_speed_y=phy_speed_y/1.05;
+control=false;
+if(image_index&gt;image_number-1){
+instance_destroy();
+
+}
+
+}
+
+
+
 //collision death
 if(engine==true&amp;&amp;collide==true&amp;&amp;
 (abs(oldphy_speed_y-phy_speed_y)&gt;=threshholdy||
@@ -189,15 +227,25 @@ theTire.phy_rotation=theTire.trueRotation +phy_rotation;
 
 //SLOW DOWN
 //sqrt(sqr(phy_speed_y)+sqr(phy_speed_x))
-if(abs(phy_speed_y)&gt;speedLimit){
+if(abs(phy_speed_y)&gt;speedLimit||abs(phy_speed_x)&gt;speedLimit){
 
-phy_speed_x=phy_speed_x/1.05;
-phy_speed_y=phy_speed_y/1.05;
+
+phy_speed_x=phy_speed_x/1.2;
+phy_speed_y=phy_speed_y/1.2;
+if(abs(phy_speed_y)&gt;speedLimit||abs(phy_speed_x)&gt;speedLimit+speedLimit/2){
+
+
+phy_speed_x=phy_speed_x/4;
+phy_speed_y=phy_speed_y/4;
 
 
 }
 
-if(control==true&amp;&amp;y&gt;-50){
+}
+
+
+
+if(control==true&amp;&amp;y&gt;-10){
 //mabye being in math isnt so bad.
 //just normal displacemtn times percent of cos or sin to see how far up or down
 physics_apply_force(x+(dcos(image_angle+90)*(sprite_height/3)),
@@ -209,16 +257,6 @@ y-(dsin(image_angle+90)*(sprite_height/3)),
 theMarker.x=x+(dcos(image_angle+90)*(sprite_height/3));
 theMarker.y=y-(dsin(image_angle+90)*(sprite_height/3));
 
-//FAAALLLLLIINNNNNNG
-if(falling==true){
-//phy_speed_x=phy_speed_x/1.05;
-//phy_speed_y=phy_speed_y/1.05;
-if(image_index&gt;image_number-1){
-instance_destroy();
-
-}
-
-}
 
 
 //lets try this again
@@ -242,7 +280,6 @@ abs(dcos(phy_rotation))*phy_speed_x*-tireGrip,
  abs(dsin(phy_rotation))*phy_speed_y*-tireGrip
  );
 }
-
 
 //tire grip real
 /*
@@ -318,7 +355,9 @@ physics_apply_force(x, y-sprite_height/4,(dcos(theTire.image_angle)*tireGrip), (
 }
 */
 //keep track of tire rotation
-oldTireRotation=theTire.trueRotation;
+oldRotation=image_angle;
+
+
 
 oldphy_speed_x=phy_speed_x;
 oldphy_speed_y=phy_speed_y;

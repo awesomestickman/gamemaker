@@ -26,9 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>event_inherited();
-accelHorsePower=5;
-velocity=210;
 deadSprite=sp_warTruck_dead;
+velocity=velocity*1.5;
+tireGrip=tireGrip*1.5;
 </string>
           </argument>
         </arguments>

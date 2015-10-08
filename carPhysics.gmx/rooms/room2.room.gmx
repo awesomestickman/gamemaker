@@ -665,6 +665,7 @@
     <instance objName="ob_cliff_edge" x="1050" y="-4830" name="inst_C6BBF71C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_cliff_edge" x="960" y="-4840" name="inst_8984D318" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_cliff_edge" x="940" y="-4830" name="inst_2DF5D752" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_room" x="150" y="350" name="inst_78127EC8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>

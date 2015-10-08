@@ -28,6 +28,7 @@
     <sprites name="particles">
       <sprite>sprites\sp_smokeBloom</sprite>
       <sprite>sprites\sp_tireTrack</sprite>
+      <sprite>sprites\sp_blackSmoke</sprite>
     </sprites>
     <sprites name="motorcycle">
       <sprite>sprites\sp_motorcycle_dead</sprite>
@@ -56,6 +57,7 @@
       <object>objects\ob_marker</object>
       <object>objects\ob_scrapeParticle</object>
       <object>objects\ob_smokeBloom</object>
+      <object>objects\ob_blackSmoke</object>
       <object>objects\ob_junk</object>
       <object>objects\ob_tireTrack</object>
       <object>objects\ob_tire</object>
@@ -83,12 +85,13 @@
       <object>objects\ob_movingBottom</object>
       <object>objects\ob_cliff_filler</object>
     </objects>
+    <object>objects\ob_room</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room5</room>
-    <room>rooms\room3</room>
-    <room>rooms\room2</room>
     <room>rooms\room4</room>
+    <room>rooms\room5</room>
+    <room>rooms\room2</room>
+    <room>rooms\room3</room>
     <room>rooms\room1</room>
   </rooms>
   <help>

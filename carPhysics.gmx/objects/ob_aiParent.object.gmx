@@ -26,8 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>event_inherited();
-speedLimit+=0.5;
-tireGrip=tireGrip*2;
+//speedLimit+=0.5;
+//tireGrip=tireGrip*2;
+velocity=velocity*1.8;
+tireGrip=tireGrip/2;
 </string>
           </argument>
         </arguments>
@@ -62,8 +64,8 @@ targetx=x;
 }
 //brakes
 if(targety&gt;y-10){
-phy_speed_x=phy_speed_x/1.01;
-phy_speed_y=phy_speed_y/1.01;
+phy_speed_x=phy_speed_x/1.001;
+phy_speed_y=phy_speed_y/1.001;
 if(targetx&lt;=x){
 
 theTire.trueRotation=-90;
@@ -77,6 +79,7 @@ theTire.trueRotation=90;
 
 
 }
+
 //left
 if(targetx&lt;x&amp;&amp;targety&lt;y-10){
 
@@ -87,7 +90,7 @@ if(targetx&lt;x&amp;&amp;targety&lt;y-10){
 
 speedLimit=accelHorsePower;
 if((theTire.y-targety)!=0){
-theTire.trueRotation=clamp(-1*darctan((theTire.x-targetx)/(theTire.y-targety)),-30,30);
+theTire.trueRotation=clamp(-1*darctan((theTire.x-targetx)/(theTire.y-targety)),-50,50);
 }
 }
 
@@ -101,16 +104,16 @@ if(targetx&gt;x&amp;&amp;targety&lt;y-10){
 
 speedLimit=accelHorsePower;
 if((theTire.y-targety)!=0){
-theTire.trueRotation=clamp(darctan((targetx-theTire.x)/(theTire.y-targety)),-30,30);
+theTire.trueRotation=clamp(darctan((targetx-theTire.x)/(theTire.y-targety)),-50,50);
 }
 }
 
 //balance
-if(image_angle&lt;-20){
+if(image_angle&lt;-30){
 theTire.trueRotation = -70;
 
 }
-if(image_angle&gt;20){
+if(image_angle&gt;30){
 theTire.trueRotation = 70;
 
 }

@@ -85,6 +85,7 @@
     <instance objName="ob_rockBig1" x="544" y="-3744" name="inst_0498EF06" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_chasm" x="1888" y="-2336" name="inst_D1A04A1C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_chasm" x="992" y="-4000" name="inst_C9456545" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_room" x="192" y="1376" name="inst_753EE2B5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>

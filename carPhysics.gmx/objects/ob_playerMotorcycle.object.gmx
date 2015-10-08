@@ -29,9 +29,6 @@
 motorcycle=true;
 deadSprite=sp_motorcycle_dead;
 threshholdx=0.7;
-speedLimit=4.15;
-accelHorsePower=6;
-velocity=70;
 </string>
           </argument>
         </arguments>
@@ -72,7 +69,7 @@ show_debug_message(phy_speed_y);
   <PhysicsObjectRestitution>0.100000001490116</PhysicsObjectRestitution>
   <PhysicsObjectGroup>0</PhysicsObjectGroup>
   <PhysicsObjectLinearDamping>0.100000001490116</PhysicsObjectLinearDamping>
-  <PhysicsObjectAngularDamping>14</PhysicsObjectAngularDamping>
+  <PhysicsObjectAngularDamping>16</PhysicsObjectAngularDamping>
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>

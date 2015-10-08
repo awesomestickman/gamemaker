@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>y+=4;
+            <string>y+=global.speed;
 
 
 if(y&gt;-50){

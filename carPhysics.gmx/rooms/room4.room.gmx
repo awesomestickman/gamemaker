@@ -52,6 +52,7 @@
   </views>
   <instances>
     <instance objName="ob_playerTruck" x="736" y="1472" name="inst_F4E726DE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_room" x="128" y="1344" name="inst_ED69405A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>
