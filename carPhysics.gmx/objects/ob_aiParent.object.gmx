@@ -30,6 +30,9 @@
 //tireGrip=tireGrip*2;
 velocity=velocity*1.8;
 tireGrip=tireGrip/2;
+asleep=true;
+oldx=phy_position_x;
+oldy=phy_position_y;
 </string>
           </argument>
         </arguments>
@@ -54,6 +57,9 @@ tireGrip=tireGrip/2;
             <kind>1</kind>
             <string>event_inherited();
 
+
+
+
 if(instance_exists(ob_playerCarParent)){
 targety=ob_playerCarParent.y;
 targetx=ob_playerCarParent.x;
@@ -62,6 +68,19 @@ else{
 targety=y;
 targetx=x;
 }
+
+//wake up
+if(y&gt;targety-300){
+
+asleep=false;
+}
+//sleeping
+if(asleep==true){
+phy_position_x=oldx;
+phy_position_y=oldy+global.speed;
+}
+
+
 //brakes
 if(targety&gt;y-10){
 phy_speed_x=phy_speed_x/1.001;
@@ -117,6 +136,13 @@ if(image_angle&gt;30){
 theTire.trueRotation = 70;
 
 }
+
+
+
+
+//sleep x
+oldx=phy_position_x;
+oldy=phy_position_y;
 
 </string>
           </argument>

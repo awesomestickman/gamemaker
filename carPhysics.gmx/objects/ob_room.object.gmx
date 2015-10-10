@@ -51,6 +51,10 @@
             <kind>1</kind>
             <string>
 if(instance_exists(ob_playerCarParent)){
+if(ob_playerCarParent.y&gt;1000){
+
+global.speed=4;
+}
 if(ob_playerCarParent.y&lt;1000){
 
 global.speed=5;
@@ -74,7 +78,7 @@ global.speed=10;
 
 }
 
-
+background_vspeed[0]=global.speed-3;
 background_vspeed[1]=global.speed;
 </string>
           </argument>
