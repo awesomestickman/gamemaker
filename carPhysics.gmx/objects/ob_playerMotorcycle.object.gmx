@@ -56,7 +56,7 @@ velocity=velocity/0.8;
             <kind>1</kind>
             <string>
 event_inherited();
-show_debug_message(phy_speed_y);
+
 
 
 </string>

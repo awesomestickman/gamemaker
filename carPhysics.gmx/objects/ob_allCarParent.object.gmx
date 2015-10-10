@@ -30,8 +30,10 @@ asleep=false;
 engineUse=0;
 engineMax=120;
 velocity=200;
+//200
 turnDirection="none";
-tireGrip=30;
+tireGrip=80;
+//30
 oldRotation=0;
 speedLimit=5;
 trueSpeedLimit=5;
@@ -47,16 +49,17 @@ deadSprite=sp_truck_dead;
 motorcycle=false;
 falling=false;
 
+
 //jump start
 phy_speed_y=-1*(speedLimit);
 theTire= instance_create(x,y-sprite_height/4, ob_tire);
 physics_joint_revolute_create(id,theTire,theTire.x,theTire.y,0,0,0,0,0,0,false);
 theTire.depth=-1000;
-
+/*
 deadWeight=instance_create(x,y+sprite_height/4,ob_junk);
 physics_joint_revolute_create(id,deadWeight,deadWeight.x,deadWeight.y,0,0,0,0,0,0,false);
 deadWeight.depth=-1000;
-
+*/
 theMarker=instance_create(x,y+sprite_height/4,ob_marker);
 theMarker.depth=-1000000;
 
@@ -147,10 +150,7 @@ speedLimit-=0.15;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-
-//road friction
-/*
+            <string>/*
 if(phy_speed_x&lt;0){
 physics_apply_force(x, y, 10, 0);
 }
@@ -240,7 +240,7 @@ if(abs(phy_speed_y)&gt;speedLimit||abs(phy_speed_x)&gt;speedLimit){
 
 phy_speed_x=phy_speed_x/1.2;
 phy_speed_y=phy_speed_y/1.2;
-if(abs(phy_speed_y)&gt;speedLimit||abs(phy_speed_x)&gt;speedLimit+speedLimit/2){
+if(abs(phy_speed_y)&gt;speedLimit+speedLimit/2||abs(phy_speed_x)&gt;speedLimit+speedLimit/2){
 
 
 phy_speed_x=phy_speed_x/4;
@@ -252,29 +252,46 @@ phy_speed_y=phy_speed_y/4;
 }
 
 
-
+//ACCELERATION
 if(control==true){
 //mabye being in math isnt so bad.
 //just normal displacemtn times percent of cos or sin to see how far up or down
+
 physics_apply_force(x+(dcos(image_angle+90)*(sprite_height/3)),
 y-(dsin(image_angle+90)*(sprite_height/3)),
-(dsin(theTire.phy_rotation)*velocity),
- (dcos(theTire.phy_rotation)*velocity)*-1);
+(dcos(theTire.image_angle+90)*velocity),
+ (dsin(theTire.image_angle+90)*velocity)*-1);
 }
+
 
 theMarker.x=x+(dcos(image_angle+90)*(sprite_height/3));
 theMarker.y=y-(dsin(image_angle+90)*(sprite_height/3));
 
 
+//which directon
+if(phy_speed_x&gt;0){
+xfricitionDirection=1;
+}
+else{
+xfricitionDirection=-1;
+}
+if(phy_speed_y&gt;0){
+yfricitionDirection=1;
+}
+else{
+yfricitionDirection=-1;
+}
+
 
 //lets try this again
 if(control==true){
+
 //mabye being in math isnt so bad.
 //abs to deviation
 physics_apply_force(x+(dcos(image_angle+90)*(sprite_height/3)),
 y-(dsin(image_angle+90)*(sprite_height/3)),
-abs(dcos(theTire.phy_rotation))*phy_speed_x*-tireGrip,
- abs(dsin(theTire.phy_rotation))*phy_speed_y*-tireGrip
+abs(dsin(theTire.image_angle+90))*phy_speed_x*-tireGrip,
+ abs(dcos(theTire.image_angle+90))*phy_speed_y*-tireGrip
  );
 }
 
@@ -284,10 +301,13 @@ if(control==true){
 //abs to deviation
 physics_apply_force(x-(dcos(image_angle+90)*(sprite_height/3)),
 y+(dsin(image_angle+90)*(sprite_height/3)),
-abs(dcos(phy_rotation))*phy_speed_x*-tireGrip,
- abs(dsin(phy_rotation))*phy_speed_y*-tireGrip
+abs(dsin(image_angle+90))*phy_speed_x*-tireGrip,
+ abs(dcos(image_angle+90))*phy_speed_y*-tireGrip
  );
 }
+
+//abs(dsin(image_angle+90))*phy_speed_x*-tireGrip,
+// abs(dcos(image_angle+90))*phy_speed_y*-tireGrip
 
 //tire grip real
 /*

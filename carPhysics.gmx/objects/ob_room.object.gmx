@@ -25,8 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.speed=4;
-
+            <string>global.speed=0;
+stopped=false;
+stopped=true;
 </string>
           </argument>
         </arguments>
@@ -50,7 +51,7 @@
           <argument>
             <kind>1</kind>
             <string>
-if(instance_exists(ob_playerCarParent)){
+if(instance_exists(ob_playerCarParent)&amp;&amp;stopped==false){
 if(ob_playerCarParent.y&gt;1000){
 
 global.speed=4;
