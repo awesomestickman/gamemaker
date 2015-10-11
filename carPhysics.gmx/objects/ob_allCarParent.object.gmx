@@ -26,13 +26,19 @@
           <argument>
             <kind>1</kind>
             <string>//a lot of vars
+torqueMultiplier=10;
+maxTorquePower=200;
+torquePower=0;
+turnGripCounter=0;
+turnGrip=0;
+turnGripMultiplier=0;
 asleep=false;
 engineUse=0;
 engineMax=120;
-velocity=200;
+velocity=1200;
 //200
 turnDirection="none";
-tireGrip=80;
+tireGrip=10;
 //30
 oldRotation=0;
 speedLimit=5;
@@ -119,7 +125,7 @@ fire_emitter = part_emitter_create(fireParticleSystem);
             <kind>1</kind>
             <string>
 //phy_speed_y=0;
-phy_position_y+=global.speed+1;
+phy_position_y+=global.speed;
 //velocity=100;
 
 if(speedLimit&gt;trueSpeedLimit){
@@ -165,8 +171,26 @@ control=true;
 if(asleep=true){
 control=false;
 }
+/*
+//torque stuff
+torquePower=power(phy_speed,torqueMultiplier);
+if(torquePower&gt;maxTorquePower){
+torquePower=maxTorquePower;
 
+}
+*/
 
+//turn GRIPING
+
+if(turnGripCounter&gt;0){
+turnGripCounter--;
+if(turnGripCounter&gt;40){
+turnGripCounter--;
+
+}
+
+}
+turnGrip=turnGripCounter*turnGripMultiplier;
 
 //ENGINE 
 if(engine==false){
@@ -235,12 +259,12 @@ theTire.phy_rotation=theTire.trueRotation +phy_rotation;
 
 //SLOW DOWN
 //sqrt(sqr(phy_speed_y)+sqr(phy_speed_x))
-if(abs(phy_speed_y)&gt;speedLimit||abs(phy_speed_x)&gt;speedLimit){
+if(phy_speed&gt;speedLimit){
 
 
 phy_speed_x=phy_speed_x/1.2;
 phy_speed_y=phy_speed_y/1.2;
-if(abs(phy_speed_y)&gt;speedLimit+speedLimit/2||abs(phy_speed_x)&gt;speedLimit+speedLimit/2){
+if(phy_speed&gt;speedLimit+speedLimit/2){
 
 
 phy_speed_x=phy_speed_x/4;
@@ -284,30 +308,33 @@ yfricitionDirection=-1;
 
 
 //lets try this again
+/*
 if(control==true){
 
 //mabye being in math isnt so bad.
 //abs to deviation
 physics_apply_force(x+(dcos(image_angle+90)*(sprite_height/3)),
 y-(dsin(image_angle+90)*(sprite_height/3)),
-abs(dsin(theTire.image_angle+90))*phy_speed_x*-tireGrip,
- abs(dcos(theTire.image_angle+90))*phy_speed_y*-tireGrip
+phy_speed_x*-tireGrip,
+ phy_speed_y*-tireGrip
  );
 }
-
+*/
 //backwheels
 if(control==true){
 //mabye being in math isnt so bad.
 //abs to deviation
 physics_apply_force(x-(dcos(image_angle+90)*(sprite_height/3)),
 y+(dsin(image_angle+90)*(sprite_height/3)),
-abs(dsin(image_angle+90))*phy_speed_x*-tireGrip,
- abs(dcos(image_angle+90))*phy_speed_y*-tireGrip
+phy_speed_x*-tireGrip*turnGrip,
+ phy_speed_y*-tireGrip*turnGrip
  );
 }
 
-//abs(dsin(image_angle+90))*phy_speed_x*-tireGrip,
-// abs(dcos(image_angle+90))*phy_speed_y*-tireGrip
+//abs(dsin(theTire.image_angle+90))*
+// abs(dcos(theTire.image_angle+90))*
+//abs(dsin(image_angle+90))*
+//abs(dcos(image_angle+90))*
 
 //tire grip real
 /*

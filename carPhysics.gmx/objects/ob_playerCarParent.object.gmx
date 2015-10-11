@@ -83,9 +83,11 @@ if(control==true){
           <argument>
             <kind>1</kind>
             <string>if(theTire.trueRotation&lt;40&amp;&amp;control=true){
-theTire.trueRotation+=13;
+theTire.trueRotation+=10;
 //physics_apply_force(x, y-sprite_width/4, tireGrip, 0);
 //tire_angle-=turnSpeed;
+turnGripCounter+=2;
+physics_apply_torque(torquePower);
 }
 
 
@@ -144,10 +146,12 @@ speedLimit=accelHorsePower;
 
 
 if(theTire.trueRotation&gt;-40&amp;&amp;control=true){
-theTire.trueRotation-=13;
+theTire.trueRotation-=10;
 //physics_apply_force(x, y-sprite_width/4, -tireGrip, 0);
 
 //tire_angle+=turnSpeed;
+turnGripCounter+=2;
+physics_apply_torque(-torquePower);
 }
 
 
