@@ -26,19 +26,20 @@
           <argument>
             <kind>1</kind>
             <string>//a lot of vars
-torqueMultiplier=10;
-maxTorquePower=200;
-torquePower=0;
+angleDamp=11;
+torqueMultiplier=0;
+maxTorquePower=500;
+torquePower=1200;
 turnGripCounter=0;
 turnGrip=0;
 turnGripMultiplier=0;
 asleep=false;
 engineUse=0;
 engineMax=120;
-velocity=1200;
+velocity=300;
 //200
 turnDirection="none";
-tireGrip=10;
+tireGrip=300;
 //30
 oldRotation=0;
 speedLimit=5;
@@ -171,14 +172,21 @@ control=true;
 if(asleep=true){
 control=false;
 }
-/*
+//final solution
+if(phy_angular_damping&lt;angleDamp){
+phy_angular_damping+=2;
+
+}
+
+
+
 //torque stuff
-torquePower=power(phy_speed,torqueMultiplier);
+torquePower=(((phy_speed*2)/speedLimit)-1)*torqueMultiplier;
 if(torquePower&gt;maxTorquePower){
 torquePower=maxTorquePower;
 
 }
-*/
+
 
 //turn GRIPING
 
@@ -286,7 +294,7 @@ y-(dsin(image_angle+90)*(sprite_height/3)),
 (dcos(theTire.image_angle+90)*velocity),
  (dsin(theTire.image_angle+90)*velocity)*-1);
 }
-
+//theTire.
 
 theMarker.x=x+(dcos(image_angle+90)*(sprite_height/3));
 theMarker.y=y-(dsin(image_angle+90)*(sprite_height/3));
@@ -321,15 +329,90 @@ phy_speed_x*-tireGrip,
 }
 */
 //backwheels
+
+if(phy_speed_x!=0){
+//show_debug_message("oppoforce");
+//show_debug_message(180+darctan(-phy_speed_y/-phy_speed_x));
+//show_debug_message("tangle");
+//show_debug_message(image_angle);
+//show_debug_message("mnewoangle");
+//show_debug_message(image_angle-180+darctan(phy_speed_y/phy_speed_x));
+//show_debug_message("magnitude");
+
+
+oAngle=darctan(phy_speed_y/phy_speed_x);
+if(oAngle&gt;360||oAngle&lt;0){
+angleCorrect=abs(floor(oAngle/360));
+if(oAngle&gt;360){
+oAngle=oAngle-360*angleCorrect;
+
+}
+if(oAngle&lt;0){
+oAngle=oAngle+360*angleCorrect+1;
+
+}
+}
+//show_debug_message("oAngle");
+//show_debug_message(oAngle);
+
+tAngle=image_angle;
+if(tAngle&gt;360||tAngle&lt;0){
+angleCorrect=abs(floor(tAngle/360));
+if(tAngle&gt;360){
+tAngle=tAngle-360*angleCorrect;
+
+}
+if(tAngle&lt;0){
+tAngle=tAngle+360*angleCorrect;
+
+}
+}
+//show_debug_message("tAngle");
+//show_debug_message(tAngle);
+
+
+
+
+//newAngle=abs(tAngle-oAngle);
+/*
+show_debug_message(tAngle);
+show_debug_message("-");
+show_debug_message(oAngle);
+show_debug_message("=");
+show_debug_message(newAngle);
+*/
+}
+else{
+//newAngle=90;
+}
+if(phy_speed!=0){
+newAngle=darccos(dot_product(lengthdir_x(1,image_angle),
+lengthdir_y(1,image_angle),
+phy_speed_x,phy_speed_y)/phy_speed);
+}
+else{newAngle=90}
+//newMagnitude=dcos(newAngle)*phy_speed;
+show_debug_message(newAngle);
+//newMagnitude=dcos(newAngle)*phy_speed;
+//show_debug_message(newMagnitude);
+
 if(control==true){
 //mabye being in math isnt so bad.
 //abs to deviation
-physics_apply_force(x-(dcos(image_angle+90)*(sprite_height/3)),
-y+(dsin(image_angle+90)*(sprite_height/3)),
-phy_speed_x*-tireGrip*turnGrip,
- phy_speed_y*-tireGrip*turnGrip
+physics_apply_force(x,
+y,
+abs(dcos(newAngle))*-phy_speed_x*tireGrip,
+abs(dcos(newAngle))*-phy_speed_y*tireGrip
  );
 }
+//phy_speed_x*-tireGrip*turnGrip,
+/// phy_speed_y*-tireGrip*turnGrip
+
+//(dcos(image_angle)*newMagnitude)*tireGrip*xfricitionDirection,
+// (dsin(image_angle)*newMagnitude)*tireGrip*yfricitionDirection
+
+//-phy_speed_x*tireGrip*dcos(newAngle),
+//-phy_speed_y*tireGrip*dcos(newAngle)
 
 //abs(dsin(theTire.image_angle+90))*
 // abs(dcos(theTire.image_angle+90))*
@@ -524,7 +607,7 @@ show_debug_message(phy_speed_y);
   <PhysicsObjectRestitution>0.100000001490116</PhysicsObjectRestitution>
   <PhysicsObjectGroup>0</PhysicsObjectGroup>
   <PhysicsObjectLinearDamping>9.99999974737875E-5</PhysicsObjectLinearDamping>
-  <PhysicsObjectAngularDamping>11</PhysicsObjectAngularDamping>
+  <PhysicsObjectAngularDamping>4</PhysicsObjectAngularDamping>
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
