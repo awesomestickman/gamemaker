@@ -31,7 +31,9 @@ deadSprite=sp_motorcycle_dead;
 threshholdx=0.7;
 accelHorsePower=accelHorsePower+2;
 velocity=velocity/0.8;
-
+angleDampLow=7;
+//weapom
+weaponType="none";
 </string>
           </argument>
         </arguments>

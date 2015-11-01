@@ -26,11 +26,37 @@
           <argument>
             <kind>1</kind>
             <string>event_inherited();
+player=true;
 
 
-
-
-
+//start engines!
+engineSound=audio_play_sound(snd_engine,10,true);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>event_inherited();
+//ENGINE SOUND WOOOO
+//engineSound=audio_play_sound(snd_engine,10,false);
+audio_sound_pitch(engineSound, sqr(phy_speed)/sqr(speedLimit));
 </string>
           </argument>
         </arguments>
@@ -82,17 +108,37 @@ if(control==true){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(theTire.trueRotation&lt;40&amp;&amp;control=true){
+            <string>if(zweapon==true&amp;&amp;control=true){
+
+
+if(ztrueRotation&gt;10){
+ztrueRotation-=5;
+}
+}
+else if(xweapon==true&amp;&amp;control=true){
+if(xtrueRotation&gt;-120){
+
+xtrueRotation-=5;
+}
+}
+else{
+
+if(theTire.trueRotation&lt;40&amp;&amp;control=true){
 theTire.trueRotation+=10;
 //physics_apply_force(x, y-sprite_width/4, tireGrip, 0);
 //tire_angle-=turnSpeed;
-turnGripCounter+=2;
-physics_apply_torque(torquePower);
-phy_angular_damping=1;
+
+
+
+if(turnGripCounter&lt;10&amp;&amp;phy_speed&gt;speedLimit-1){
+phy_angular_damping=angleDampLow;
+}
+turnGripCounter+=3;
 }
 
 
 turnDirection="right";
+}
 </string>
           </argument>
         </arguments>
@@ -144,20 +190,258 @@ speedLimit=accelHorsePower;
           <argument>
             <kind>1</kind>
             <string>
+if(zweapon==true&amp;&amp;control=true){
 
+
+if(ztrueRotation&lt;150){
+
+ztrueRotation+=5;
+}
+}
+else if(xweapon==true&amp;&amp;control=true){
+if(xtrueRotation&lt;-60){
+
+xtrueRotation+=5;
+}
+
+}
+else{
 
 if(theTire.trueRotation&gt;-40&amp;&amp;control=true){
 theTire.trueRotation-=10;
 //physics_apply_force(x, y-sprite_width/4, -tireGrip, 0);
 
 //tire_angle+=turnSpeed;
-turnGripCounter+=2;
-physics_apply_torque(-torquePower);
-phy_angular_damping=1;
+
+
+
+if(turnGripCounter&lt;10&amp;&amp;phy_speed&gt;speedLimit-1){
+phy_angular_damping=angleDampLow;
+}
+turnGripCounter+=3;
 }
 
 
 turnDirection="left";
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="90">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
+//////////////////////////////WINDOW GUN
+if(weaponType=="window"){
+if(xweapon==true){
+
+with(xgun){
+instance_destroy();
+
+}
+
+xweapon=false;
+
+}
+
+
+
+if(control==true){
+
+zweapon=true;
+
+zgun= instance_create(
+x+(dcos(image_angle+90)*(sprite_height/3))-(dsin(image_angle+90)*(sprite_width/2)),
+y-(dsin(image_angle+90)*(sprite_height/3))-(dcos(image_angle+90)*(sprite_width/2))
+, ob_gun_window);
+
+zgun.depth=-100;
+//reset rotation
+if(ztrueRotation&lt;10){
+ztrueRotation=10;
+}
+}
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="88">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
+//////////////////////////////WINDOW GUN
+if(weaponType=="window"){
+if(zweapon==true){
+
+with(zgun){
+instance_destroy();
+
+}
+
+zweapon=false;
+
+}
+
+
+
+if(control==true){
+
+xweapon=true;
+
+xgun= instance_create(
+x+(dcos(image_angle+90)*(sprite_height/3))+(dsin(image_angle+90)*(sprite_width/2)),
+y-(dsin(image_angle+90)*(sprite_height/3))+(dcos(image_angle+90)*(sprite_width/2))
+, ob_gun_window);
+
+xgun.depth=-100;
+//reset rotation
+if(xtrueRotation&gt;-60){
+xtrueRotation=-60;
+}
+}
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="90">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//////////////////////////////WINDOW GUN
+if(weaponType=="window"){
+if(zweapon==true){
+
+
+
+//create bullet
+bullet= instance_create(x+(dcos(image_angle+90)*(sprite_height/3))-(dsin(image_angle+90)*(sprite_width/2)),
+y-(dsin(image_angle+90)*(sprite_height/3))-(dcos(image_angle+90)*(sprite_width/2))
+, ob_smallBullet);
+
+//add rope so doesnt collide with shooter car
+physics_joint_rope_create(id, bullet, x, y, bullet.x, bullet.y, 4000, false)
+
+//give bullet reference to fire in
+bullet.angle=zgun.image_angle+90;
+with(bullet){
+//boom
+physics_apply_force(x,y,lengthdir_x(200000,angle),lengthdir_y(200000,angle));
+
+//stutter for kick
+instance_create(x,y,ob_shake);
+
+}
+
+
+with(zgun){
+instance_destroy();
+
+}
+
+zweapon=false;
+}
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="88">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//////////////////////////////WINDOW GUN
+if(weaponType=="window"){
+if(xweapon==true){
+
+//create bullet
+bullet= instance_create(x+(dcos(image_angle+90)*(sprite_height/3))+(dsin(image_angle+90)*(sprite_width/2)),
+y-(dsin(image_angle+90)*(sprite_height/3))+(dcos(image_angle+90)*(sprite_width/2))
+
+, ob_smallBullet);
+//add rope so doesnt collide with shooter car
+physics_joint_rope_create(id, bullet, x, y, bullet.x, bullet.y, 4000, false)
+
+
+//give bullet reference to fire in
+bullet.angle=xgun.image_angle+90;
+with(bullet){
+//boom
+physics_apply_force(x,y,lengthdir_x(200000,angle),lengthdir_y(200000,angle));
+
+}
+//stutter for kick
+instance_create(x,y,ob_shake);
+
+//clean up
+with(xgun){
+instance_destroy();
+
+}
+
+xweapon=false;
+}
+}
 </string>
           </argument>
         </arguments>

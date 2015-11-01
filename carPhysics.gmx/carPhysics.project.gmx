@@ -4,7 +4,12 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\snd_engine</sound>
+    <sound>sound\snd_theme</sound>
+    <sound>sound\snd_bump</sound>
+    <sound>sound\snd_explosion</sound>
+  </sounds>
   <sprites name="sprites">
     <sprites name="truck">
       <sprite>sprites\sp_truck_idle</sprite>
@@ -45,6 +50,13 @@
       <sprite>sprites\sp_dial</sprite>
       <sprite>sprites\sp_pointer</sprite>
     </sprites>
+    <sprites name="shooters">
+      <sprite>sprites\sp_gun_window</sprite>
+      <sprite>sprites\sp_small_bullet</sprite>
+    </sprites>
+    <sprites name="gunnerbuggy">
+      <sprite>sprites\sp_gunner_buggy</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -68,6 +80,7 @@
         <object>objects\ob_rogue</object>
         <object>objects\ob_carDead</object>
         <object>objects\ob_aiParent</object>
+        <object>objects\ob_aiTail</object>
       </objects>
       <objects name="players">
         <object>objects\ob_playerMotorcycle</object>
@@ -86,6 +99,12 @@
       <object>objects\ob_cliff_filler</object>
     </objects>
     <object>objects\ob_room</object>
+    <objects name="weapons">
+      <object>objects\ob_gun_window</object>
+      <object>objects\ob_smallBullet</object>
+    </objects>
+    <object>objects\ob_stutter</object>
+    <object>objects\ob_shake</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room4</room>

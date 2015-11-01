@@ -26,20 +26,30 @@
           <argument>
             <kind>1</kind>
             <string>//a lot of vars
+
+//weaponsvars
+zweapon=false;
+xweapon=false;
+ztrueRotation=0;
+xtrueRotation=0;
+//player or ai
+player=false;
+
+
+angleDampLow=4;
 angleDamp=11;
-torqueMultiplier=0;
-maxTorquePower=500;
-torquePower=1200;
+
 turnGripCounter=0;
 turnGrip=0;
 turnGripMultiplier=0;
 asleep=false;
 engineUse=0;
 engineMax=120;
-velocity=300;
+velocity=12;
+targetVelocity=280;
 //200
 turnDirection="none";
-tireGrip=300;
+tireGrip=60;
 //30
 oldRotation=0;
 speedLimit=5;
@@ -127,10 +137,17 @@ fire_emitter = part_emitter_create(fireParticleSystem);
             <string>
 //phy_speed_y=0;
 phy_position_y+=global.speed;
+theTire.phy_position_y+=global.speed;
 //velocity=100;
 
 if(speedLimit&gt;trueSpeedLimit){
 speedLimit-=0.15;
+}
+if(velocity&gt;targetVelocity){
+velocity-=20;
+}
+if(velocity&lt;targetVelocity){
+velocity+=20;
 }
 
 //phy_position_y=phy_position_yprevious;
@@ -166,7 +183,37 @@ physics_apply_force(x, y, -10, 0);
 }
 */
 
+if(zweapon=true){
+//clamp(ztrueRotation,10,170);
+zgun.x=x+(dcos(image_angle+90)*(sprite_height/3))-(dsin(image_angle+90)*(sprite_width/2))
+zgun.y=y-(dsin(image_angle+90)*(sprite_height/3))-(dcos(image_angle+90)*(sprite_width/2))
+
+zgun.image_angle=ztrueRotation +image_angle;
+
+}
+if(xweapon=true){
+//clamp(xtrueRotation,10,170);
+xgun.x=x+(dcos(image_angle+90)*(sprite_height/3))+(dsin(image_angle+90)*(sprite_width/2))
+xgun.y=y-(dsin(image_angle+90)*(sprite_height/3))+(dcos(image_angle+90)*(sprite_width/2))
+
+xgun.image_angle=xtrueRotation +image_angle;
+
+}
+
+
+
 control=true;
+
+
+//slow turns back into action
+
+velocity=clamp((power(phy_speed,4)/power(speedLimit,4))*targetVelocity,
+targetVelocity/2,
+targetVelocity);
+
+
+
+
 
 //ai sleep
 if(asleep=true){
@@ -174,25 +221,20 @@ control=false;
 }
 //final solution
 if(phy_angular_damping&lt;angleDamp){
-phy_angular_damping+=2;
+phy_angular_damping+=0.2;
 
 }
 
 
 
-//torque stuff
-torquePower=(((phy_speed*2)/speedLimit)-1)*torqueMultiplier;
-if(torquePower&gt;maxTorquePower){
-torquePower=maxTorquePower;
 
-}
 
 
 //turn GRIPING
 
 if(turnGripCounter&gt;0){
 turnGripCounter--;
-if(turnGripCounter&gt;40){
+if(turnGripCounter&gt;20){
 turnGripCounter--;
 
 }
@@ -232,7 +274,15 @@ instance_destroy();
 
 }
 
-
+//collision shake
+if(engine==true&amp;&amp;collide==true&amp;&amp;player=true&amp;&amp;
+(abs(oldphy_speed_y-phy_speed_y)&gt;=threshholdy/9||
+abs(oldphy_speed_x-phy_speed_x)&gt;=threshholdx/9)){
+  instance_create(x,y,ob_shake);
+  audio_play_sound(snd_bump,9,false);
+  //keep beat blasting
+global.antiFade=4;
+};
 
 //collision death
 if(engine==true&amp;&amp;collide==true&amp;&amp;
@@ -242,9 +292,15 @@ abs(oldphy_speed_x-phy_speed_x)&gt;=threshholdx)){
   engine=false;
   control=false;
   sprite_index=deadSprite;
-};
-collide=false;
+  //BOOM
+  audio_play_sound(snd_explosion,9,false);
+  //keep beat blasting
+global.antiFade=4;
 
+};
+//reset collide
+collide=false;
+//engine burn
 if(engine==false){
 part_emitter_region(fireParticleSystem, fire_emitter, x-3, x+3, y-3, y+3, ps_shape_ellipse, ps_distr_gaussian);
 part_emitter_burst(fireParticleSystem,fire_emitter,fireParticle,1);
@@ -328,79 +384,31 @@ phy_speed_x*-tireGrip,
  );
 }
 */
-//backwheels
 
-if(phy_speed_x!=0){
-//show_debug_message("oppoforce");
-//show_debug_message(180+darctan(-phy_speed_y/-phy_speed_x));
-//show_debug_message("tangle");
-//show_debug_message(image_angle);
-//show_debug_message("mnewoangle");
-//show_debug_message(image_angle-180+darctan(phy_speed_y/phy_speed_x));
-//show_debug_message("magnitude");
-
-
-oAngle=darctan(phy_speed_y/phy_speed_x);
-if(oAngle&gt;360||oAngle&lt;0){
-angleCorrect=abs(floor(oAngle/360));
-if(oAngle&gt;360){
-oAngle=oAngle-360*angleCorrect;
-
-}
-if(oAngle&lt;0){
-oAngle=oAngle+360*angleCorrect+1;
-
-}
-}
-//show_debug_message("oAngle");
-//show_debug_message(oAngle);
-
-tAngle=image_angle;
-if(tAngle&gt;360||tAngle&lt;0){
-angleCorrect=abs(floor(tAngle/360));
-if(tAngle&gt;360){
-tAngle=tAngle-360*angleCorrect;
-
-}
-if(tAngle&lt;0){
-tAngle=tAngle+360*angleCorrect;
-
-}
-}
-//show_debug_message("tAngle");
-//show_debug_message(tAngle);
-
-
-
-
-//newAngle=abs(tAngle-oAngle);
-/*
-show_debug_message(tAngle);
-show_debug_message("-");
-show_debug_message(oAngle);
-show_debug_message("=");
-show_debug_message(newAngle);
-*/
-}
-else{
-//newAngle=90;
-}
-if(phy_speed!=0){
+//ok future fam, look up find angle between vectors and always remember lengthdir_x
+//angle between to find variation, use -phy_speed_x and y becasue lazy
+if(phy_speed!=0&amp;&amp;(dot_product(lengthdir_x(1,image_angle),
+lengthdir_y(1,image_angle),
+phy_speed_x,phy_speed_y)/phy_speed)&gt;-1&amp;&amp;
+(dot_product(lengthdir_x(1,image_angle),
+lengthdir_y(1,image_angle),
+phy_speed_x,phy_speed_y)/phy_speed)&lt;1)
+{
+//TRY CLAMPING IF SHIT HAPPENS AGAIN
 newAngle=darccos(dot_product(lengthdir_x(1,image_angle),
 lengthdir_y(1,image_angle),
 phy_speed_x,phy_speed_y)/phy_speed);
 }
 else{newAngle=90}
-//newMagnitude=dcos(newAngle)*phy_speed;
-show_debug_message(newAngle);
-//newMagnitude=dcos(newAngle)*phy_speed;
-//show_debug_message(newMagnitude);
+
+
+
 
 if(control==true){
 //mabye being in math isnt so bad.
 //abs to deviation
-physics_apply_force(x,
-y,
+physics_apply_force(x-(dcos(image_angle+90)*(sprite_height/3)),
+y+(dsin(image_angle+90)*(sprite_height/3)),
 abs(dcos(newAngle))*-phy_speed_x*tireGrip,
 abs(dcos(newAngle))*-phy_speed_y*tireGrip
  );
@@ -442,7 +450,8 @@ physics_apply_force(x, y+sprite_height/4,(dcos(image_angle)*tireGrip)*4, (dsin(i
 
 
 */
-if(falling==false&amp;&amp;asleep==false){
+//checks to draw sutff and stutter - 1 so it draws tires but doesnt bunch em up
+if(falling==false&amp;&amp;asleep==false&amp;&amp;global.stutter-1&lt;0){
 ///DUST CREATION
 
 if(random(12)&lt;3){
@@ -537,7 +546,7 @@ part_emitter_region(scrapeParticleSystem, scrape_emitter, x+sprite_width/2, x-sp
 
 
 
-
+phy_angular_damping=angleDampLow;
 
 
 part_emitter_burst(scrapeParticleSystem,scrape_emitter,sParticle,3);

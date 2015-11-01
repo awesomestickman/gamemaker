@@ -25,9 +25,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.speed=0;
+            <string>global.antiFade=1;
+global.speed=2;
+global.stutter=0;
 stopped=false;
-stopped=true;
+//stopped=true;
+if(stopped==false){
+global.speed=4;
+
+}
+//PLAY THE BEAT
+theme=audio_play_sound(snd_theme,10,true);
+
 </string>
           </argument>
         </arguments>
@@ -51,6 +60,12 @@ stopped=true;
           <argument>
             <kind>1</kind>
             <string>
+audio_master_gain(global.antiFade);
+if(global.antiFade&gt;1){
+
+global.antiFade-=0.01;
+}
+//screen roll speed
 if(instance_exists(ob_playerCarParent)&amp;&amp;stopped==false){
 if(ob_playerCarParent.y&gt;1000){
 
@@ -81,6 +96,14 @@ global.speed=10;
 
 background_vspeed[0]=global.speed-3;
 background_vspeed[1]=global.speed;
+if(global.stutter&gt;0){
+background_vspeed[0]=0;
+background_vspeed[1]=0;
+global.speed=0;
+
+}
+global.stutter--;
+
 </string>
           </argument>
         </arguments>
@@ -104,6 +127,9 @@ background_vspeed[1]=global.speed;
           <argument>
             <kind>1</kind>
             <string>room_restart();
+
+//stop sound
+audio_stop_all();
 </string>
           </argument>
         </arguments>
@@ -126,7 +152,7 @@ background_vspeed[1]=global.speed;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(room6);
+            <string>//room_goto(room6);
 </string>
           </argument>
         </arguments>
@@ -150,6 +176,8 @@ background_vspeed[1]=global.speed;
           <argument>
             <kind>1</kind>
             <string>room_goto(room5);
+//stop sound
+audio_stop_all();
 </string>
           </argument>
         </arguments>
@@ -173,6 +201,8 @@ background_vspeed[1]=global.speed;
           <argument>
             <kind>1</kind>
             <string>room_goto(room4);
+//stop sound
+audio_stop_all();
 </string>
           </argument>
         </arguments>
@@ -196,6 +226,8 @@ background_vspeed[1]=global.speed;
           <argument>
             <kind>1</kind>
             <string>room_goto(room3);
+//stop sound
+audio_stop_all();
 </string>
           </argument>
         </arguments>
@@ -219,6 +251,8 @@ background_vspeed[1]=global.speed;
           <argument>
             <kind>1</kind>
             <string>room_goto(room2);
+//stop sound
+audio_stop_all();
 </string>
           </argument>
         </arguments>
@@ -242,6 +276,32 @@ background_vspeed[1]=global.speed;
           <argument>
             <kind>1</kind>
             <string>room_goto(room1);
+//stop sound
+audio_stop_all();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="77">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//mute
+audio_stop_sound(snd_theme);
 </string>
           </argument>
         </arguments>
