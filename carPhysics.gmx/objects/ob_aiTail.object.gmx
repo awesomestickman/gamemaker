@@ -99,11 +99,11 @@ theTire.trueRotation=clamp(darctan((targetx-theTire.x)/(theTire.y-targety)),-50,
 
 //balance
 if(image_angle&lt;-30){
-theTire.trueRotation = -70;
+theTire.trueRotation = -trueMaxTurn;
 
 }
 if(image_angle&gt;30){
-theTire.trueRotation = 70;
+theTire.trueRotation = trueMaxTurn;
 
 }
 

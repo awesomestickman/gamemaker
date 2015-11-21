@@ -31,6 +31,9 @@ player=true;
 
 //start engines!
 engineSound=audio_play_sound(snd_engine,10,true);
+threshholdx+=2;
+threshholdy+=2;
+
 </string>
           </argument>
         </arguments>
@@ -56,7 +59,21 @@ engineSound=audio_play_sound(snd_engine,10,true);
             <string>event_inherited();
 //ENGINE SOUND WOOOO
 //engineSound=audio_play_sound(snd_engine,10,false);
-audio_sound_pitch(engineSound, sqr(phy_speed)/sqr(speedLimit));
+if(engine==true){
+audio_sound_pitch(engineSound, (engineUse/engineMax)+sqr(phy_speed)/sqr(speedLimit));
+}
+else{
+
+audio_stop_sound(engineSound);
+}
+if(phy_speed&lt;7){
+maxTurn=30;
+}
+if(phy_speed&lt;2){
+maxTurn=20;
+}
+show_debug_message("playercar");
+show_debug_message(phy_speed);
 </string>
           </argument>
         </arguments>
@@ -116,10 +133,10 @@ ztrueRotation-=5;
 }
 }
 else if(xweapon==true&amp;&amp;control=true){
-if(xtrueRotation&gt;-120){
+
 
 xtrueRotation-=5;
-}
+
 }
 else{
 
@@ -165,6 +182,7 @@ turnDirection="right";
 engineUse+=2;
 if(control==true){
 speedLimit=accelHorsePower;
+velocity=targetVelocity+60;
 }
 //physics_apply_force(x, y-sprite_height/4,(dsin(theTire.image_angle)*velocity)*-2, (dcos(theTire.image_angle)*velocity)*-1);
 </string>
@@ -199,10 +217,10 @@ ztrueRotation+=5;
 }
 }
 else if(xweapon==true&amp;&amp;control=true){
-if(xtrueRotation&lt;-60){
+
 
 xtrueRotation+=5;
-}
+
 
 }
 else{
@@ -357,7 +375,8 @@ xtrueRotation=-60;
             <string>//////////////////////////////WINDOW GUN
 if(weaponType=="window"){
 if(zweapon==true){
-
+//bam
+audio_play_sound(snd_shoot,9,false);
 
 
 //create bullet
@@ -366,7 +385,7 @@ y-(dsin(image_angle+90)*(sprite_height/3))-(dcos(image_angle+90)*(sprite_width/2
 , ob_smallBullet);
 
 //add rope so doesnt collide with shooter car
-physics_joint_rope_create(id, bullet, x, y, bullet.x, bullet.y, 4000, false)
+physics_joint_rope_create(id, bullet, x, y, bullet.x, bullet.y, 9000, false)
 
 //give bullet reference to fire in
 bullet.angle=zgun.image_angle+90;
@@ -413,14 +432,16 @@ zweapon=false;
             <string>//////////////////////////////WINDOW GUN
 if(weaponType=="window"){
 if(xweapon==true){
-
+//bam
+audio_play_sound(snd_shoot,9,false);
+//////REAL BULLET
 //create bullet
 bullet= instance_create(x+(dcos(image_angle+90)*(sprite_height/3))+(dsin(image_angle+90)*(sprite_width/2)),
 y-(dsin(image_angle+90)*(sprite_height/3))+(dcos(image_angle+90)*(sprite_width/2))
 
 , ob_smallBullet);
 //add rope so doesnt collide with shooter car
-physics_joint_rope_create(id, bullet, x, y, bullet.x, bullet.y, 4000, false)
+physics_joint_rope_create(id, bullet, x, y, bullet.x, bullet.y, 9000, false);
 
 
 //give bullet reference to fire in
@@ -430,6 +451,31 @@ with(bullet){
 physics_apply_force(x,y,lengthdir_x(200000,angle),lengthdir_y(200000,angle));
 
 }
+///////////////GHOST BULLET
+
+//create bullet
+gbullet= instance_create(x+(dcos(image_angle+90)*(sprite_height/3))+(dsin(image_angle+90)*(sprite_width/2)),
+y-(dsin(image_angle+90)*(sprite_height/3))+(dcos(image_angle+90)*(sprite_width/2))
+
+, ob_smallBullet_ghost);
+//add rope so doesnt collide with shooter car
+physics_joint_rope_create(id, gbullet, x, y, gbullet.x, gbullet.y, 9000, false)
+
+
+//give bullet reference to fire in
+gbullet.angle=xgun.image_angle+90;
+with(gbullet){
+//boom
+physics_apply_force(x,y,lengthdir_x(200000,angle),lengthdir_y(200000,angle));
+
+}
+
+
+
+
+
+
+
 //stutter for kick
 instance_create(x,y,ob_shake);
 

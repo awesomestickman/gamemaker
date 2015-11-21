@@ -27,6 +27,9 @@
             <kind>1</kind>
             <string>event_inherited();
 deadSprite=sp_rogue_dead;
+targetVelocity=targetVelocity/1.8;
+hasDriver=true;
+driver=instance_create(x,y,ob_driver_hit);
 </string>
           </argument>
         </arguments>
@@ -37,7 +40,7 @@ deadSprite=sp_rogue_dead;
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
   <PhysicsObjectShape>1</PhysicsObjectShape>
   <PhysicsObjectDensity>0.5</PhysicsObjectDensity>
-  <PhysicsObjectRestitution>0.100000001490116</PhysicsObjectRestitution>
+  <PhysicsObjectRestitution>0</PhysicsObjectRestitution>
   <PhysicsObjectGroup>0</PhysicsObjectGroup>
   <PhysicsObjectLinearDamping>0.100000001490116</PhysicsObjectLinearDamping>
   <PhysicsObjectAngularDamping>11</PhysicsObjectAngularDamping>

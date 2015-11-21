@@ -27,8 +27,10 @@
             <kind>1</kind>
             <string>event_inherited();
 deadSprite=sp_warTruck_dead;
-velocity=velocity*1.5;
-tireGrip=tireGrip*1.5;
+//targetVelocity=targetVelocity*1.5;
+tireGrip=tireGrip*3;
+
+accelBalance=1;
 </string>
           </argument>
         </arguments>
@@ -42,7 +44,7 @@ tireGrip=tireGrip*1.5;
   <PhysicsObjectRestitution>0.100000001490116</PhysicsObjectRestitution>
   <PhysicsObjectGroup>0</PhysicsObjectGroup>
   <PhysicsObjectLinearDamping>0.100000001490116</PhysicsObjectLinearDamping>
-  <PhysicsObjectAngularDamping>12</PhysicsObjectAngularDamping>
+  <PhysicsObjectAngularDamping>7</PhysicsObjectAngularDamping>
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>

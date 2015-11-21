@@ -9,6 +9,8 @@
     <sound>sound\snd_theme</sound>
     <sound>sound\snd_bump</sound>
     <sound>sound\snd_explosion</sound>
+    <sound>sound\snd_shoot</sound>
+    <sound>sound\snd_burnout</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="truck">
@@ -21,6 +23,9 @@
       <sprite>sprites\sp_weight</sprite>
       <sprite>sprites\sp_tire</sprite>
       <sprite>sprites\sp_marker</sprite>
+      <sprite>sprites\sp_driverDebug</sprite>
+      <sprite>sprites\sp_amorDebug_vertical</sprite>
+      <sprite>sprites\sp_armorDebug_horizontal</sprite>
     </sprites>
     <sprites name="rogue">
       <sprite>sprites\sp_rogue_idle</sprite>
@@ -73,6 +78,10 @@
       <object>objects\ob_junk</object>
       <object>objects\ob_tireTrack</object>
       <object>objects\ob_tire</object>
+      <objects name="weapon debug">
+        <object>objects\ob_smallBullet_ghost</object>
+        <object>objects\ob_driver_hit</object>
+      </objects>
     </objects>
     <objects name="cars">
       <objects name="ai">

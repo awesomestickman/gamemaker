@@ -65,7 +65,6 @@
     <instance objName="ob_rockBig1" x="1088" y="128" name="inst_24CD96FF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="800" y="160" name="inst_14A7E737" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="1056" y="800" name="inst_0B29C188" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="864" y="-672" name="inst_94E238C9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="1184" y="-1120" name="inst_B64395C0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_chasm" x="-960" y="-1280" name="inst_39462044" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_chasm" x="-96" y="-2080" name="inst_21DA4FAC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -75,7 +74,6 @@
     <instance objName="ob_rockBig1" x="1344" y="-2880" name="inst_F42F361E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="1024" y="-3168" name="inst_381DCAA7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="736" y="-3840" name="inst_C68995A0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="960" y="-3904" name="inst_72DD0D6F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="1248" y="-3904" name="inst_9E8B39B7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="1472" y="-3808" name="inst_2418B44C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="1664" y="-3744" name="inst_609DCDDF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -119,18 +117,10 @@
     <instance objName="ob_rockBig1" x="-64" y="-3456" name="inst_E25C1F5F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="-32" y="-3456" name="inst_C2E45470" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="0" y="-3456" name="inst_7B56D936" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="32" y="-3456" name="inst_AB6CA193" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="64" y="-3456" name="inst_0FA4C493" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="96" y="-3456" name="inst_C0DAD8B3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="128" y="-3456" name="inst_181FD546" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="128" y="-3488" name="inst_0B6493A9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="160" y="-3488" name="inst_D107E1F5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="160" y="-3520" name="inst_5667030B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="192" y="-3520" name="inst_516E4227" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="192" y="-3552" name="inst_DF58E90C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="224" y="-3552" name="inst_75F8EA6B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="224" y="-3584" name="inst_504A221C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="256" y="-3616" name="inst_67D1BABC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="288" y="-3648" name="inst_5AA18043" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="288" y="-3680" name="inst_87561D9F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="320" y="-3712" name="inst_E20F029D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -141,28 +131,6 @@
     <instance objName="ob_rockBig1" x="384" y="-3872" name="inst_FB06BAF8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="416" y="-3872" name="inst_332C36DF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="416" y="-3904" name="inst_8CC4C5F2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="448" y="-3936" name="inst_17A4F49B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="448" y="-3968" name="inst_24D32D22" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="480" y="-3968" name="inst_967DE710" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="512" y="-4000" name="inst_852238B5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="544" y="-4000" name="inst_35015F75" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="544" y="-4032" name="inst_94013518" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="576" y="-4032" name="inst_029D1C2A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="608" y="-4064" name="inst_C2D4BE67" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="640" y="-4064" name="inst_8133518E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="672" y="-4096" name="inst_91162455" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="704" y="-4096" name="inst_3F579D34" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="736" y="-4096" name="inst_16504BEE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="736" y="-4128" name="inst_8DB545FC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="768" y="-4128" name="inst_C43DA213" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="800" y="-4128" name="inst_7B805348" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="832" y="-4160" name="inst_677CF89B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="864" y="-4160" name="inst_15DCD619" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="896" y="-4160" name="inst_21445C96" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="928" y="-4160" name="inst_FC59C7E3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="992" y="-4160" name="inst_D8D0A116" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="1024" y="-4160" name="inst_6ADEF2C3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="1056" y="-4160" name="inst_46B0EE8A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="2112" y="-4768" name="inst_A3BBD8AC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="2112" y="-4800" name="inst_67EFD022" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="2080" y="-4800" name="inst_29D10537" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -173,14 +141,6 @@
     <instance objName="ob_rockBig1" x="2016" y="-4896" name="inst_F1CBFDDC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="1984" y="-4896" name="inst_6B8FCAD3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="1984" y="-4928" name="inst_690587AB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="1952" y="-4928" name="inst_4B26B430" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="1920" y="-4928" name="inst_1EB46D41" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="1888" y="-4960" name="inst_AC68250F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="1856" y="-4960" name="inst_8EF2F7C3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="1824" y="-4992" name="inst_093BA7CC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="1792" y="-4992" name="inst_4394E704" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="1760" y="-4992" name="inst_47210280" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="1760" y="-5024" name="inst_4D82E81B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="1728" y="-5024" name="inst_0E0BE134" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="1696" y="-5024" name="inst_468403B7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="1664" y="-5024" name="inst_7350796D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -192,27 +152,9 @@
     <instance objName="ob_rockBig1" x="1504" y="-5056" name="inst_D8A1D821" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="1472" y="-5056" name="inst_A26A2698" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="1440" y="-5056" name="inst_4F4F89CE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="1408" y="-5056" name="inst_37020663" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="1376" y="-5056" name="inst_8B421925" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="1344" y="-5056" name="inst_631CEEEF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="1312" y="-5056" name="inst_FF6D9FFA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="1280" y="-5056" name="inst_30EDFC84" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="1248" y="-5056" name="inst_FB65B658" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="1216" y="-5056" name="inst_13CF3008" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="1216" y="-5088" name="inst_4911AB7B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="1184" y="-5088" name="inst_41D389AF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="1152" y="-5088" name="inst_E5F4C753" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="1120" y="-5088" name="inst_3E649FD0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="1088" y="-5088" name="inst_270E064E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="1056" y="-5088" name="inst_962109F3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="1024" y="-5088" name="inst_4B7DE1BF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="992" y="-5088" name="inst_19044969" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="960" y="-5088" name="inst_F0C8A58D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="960" y="-5120" name="inst_C3A208FF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="928" y="-5120" name="inst_15A601B4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="896" y="-5120" name="inst_7CFC8B46" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="864" y="-5152" name="inst_CF655EE7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="832" y="-5152" name="inst_7558A029" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="32" y="-5824" name="inst_0AC6F33B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="32" y="-5856" name="inst_A487D4BC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="64" y="-5856" name="inst_91A82799" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -227,20 +169,7 @@
     <instance objName="ob_rockBig1" x="480" y="-6016" name="inst_059E2974" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="512" y="-6016" name="inst_38A8C0D6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="544" y="-6016" name="inst_DCF95D22" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="576" y="-6016" name="inst_18023220" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="608" y="-6048" name="inst_1F681794" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="640" y="-6048" name="inst_BE820F88" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="672" y="-6048" name="inst_93A50B60" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="704" y="-6080" name="inst_3982F073" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="736" y="-6080" name="inst_6B252CAA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="768" y="-6080" name="inst_E9E10E30" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="800" y="-6080" name="inst_C5DF5D49" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="864" y="-6080" name="inst_E67DD93F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="896" y="-6112" name="inst_D8ED0AB1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="928" y="-6112" name="inst_9CF22974" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="960" y="-6112" name="inst_081B40DC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="1024" y="-6112" name="inst_A0DA41DD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_rockBig1" x="1056" y="-6112" name="inst_256D9082" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="1088" y="-6144" name="inst_5C0552EC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="1120" y="-6144" name="inst_B2C27690" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="1152" y="-6144" name="inst_749D1E6F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

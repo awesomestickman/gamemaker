@@ -26,7 +26,13 @@
           <argument>
             <kind>1</kind>
             <string>//a lot of vars
-
+///DOES CAR HAVE DRIVER related to loop
+hasDriver=false;
+//how far down accel tire is 
+accelBalance=3;
+//max turn angle
+maxTurn=60;
+trueMaxTurn=60;
 //weaponsvars
 zweapon=false;
 xweapon=false;
@@ -44,20 +50,20 @@ turnGrip=0;
 turnGripMultiplier=0;
 asleep=false;
 engineUse=0;
+//engine max + 40 is die
 engineMax=120;
 velocity=12;
 targetVelocity=280;
-//200
 turnDirection="none";
 tireGrip=60;
-//30
 oldRotation=0;
-speedLimit=5;
-trueSpeedLimit=5;
-accelHorsePower=6;
+speedLimit=8;
+trueSpeedLimit=8;
+//5
+accelHorsePower=trueSpeedLimit+2;
 engine=true; 
 control=true;
-threshholdx=3;
+threshholdx=4;
 threshholdy=2;
 collide=false;
 oldphy_speed_x=0;
@@ -149,6 +155,9 @@ velocity-=20;
 if(velocity&lt;targetVelocity){
 velocity+=20;
 }
+if(maxTurn&lt;trueMaxTurn){
+maxTurn+=2;
+}
 
 //phy_position_y=phy_position_yprevious;
 
@@ -174,14 +183,14 @@ velocity+=20;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*
-if(phy_speed_x&lt;0){
-physics_apply_force(x, y, 10, 0);
-}
-if(phy_speed_x&gt;0){
-physics_apply_force(x, y, -10, 0);
-}
-*/
+            <string>
+
+
+
+
+
+//MAX TURN
+clamp(theTire.trueRotation,-maxTurn,maxTurn);
 
 if(zweapon=true){
 //clamp(ztrueRotation,10,170);
@@ -204,11 +213,21 @@ xgun.image_angle=xtrueRotation +image_angle;
 
 control=true;
 
+///driver stuff
+if(hasDriver==true){
+driver.phy_position_x=phy_position_x;
+driver.phy_position_y=phy_position_y;
+if(driver.dead==true){
+control=false;
+}
 
+
+
+}
 //slow turns back into action
 
 velocity=clamp((power(phy_speed,4)/power(speedLimit,4))*targetVelocity,
-targetVelocity/2,
+targetVelocity/1.5,
 targetVelocity);
 
 
@@ -224,7 +243,10 @@ if(phy_angular_damping&lt;angleDamp){
 phy_angular_damping+=0.2;
 
 }
+if(phy_angular_damping&gt;angleDamp){
+phy_angular_damping-=5;
 
+}
 
 
 
@@ -250,8 +272,9 @@ control=false;
 if(engineUse&gt;0){
 engineUse--;
 }
-if(engineUse&gt;engineMax){
+if(engineUse&gt;engineMax+40&amp;&amp;engine==true){
 engine=false;
+audio_play_sound(snd_burnout,9,false);
 }
 if(engineUse&gt;engineMax/2){
 if(random(12)&lt;4){
@@ -276,12 +299,16 @@ instance_destroy();
 
 //collision shake
 if(engine==true&amp;&amp;collide==true&amp;&amp;player=true&amp;&amp;
-(abs(oldphy_speed_y-phy_speed_y)&gt;=threshholdy/9||
-abs(oldphy_speed_x-phy_speed_x)&gt;=threshholdx/9)){
+(abs(oldphy_speed_y-phy_speed_y)&gt;=threshholdy/20||
+abs(oldphy_speed_x-phy_speed_x)&gt;=threshholdx/20)){
   instance_create(x,y,ob_shake);
   audio_play_sound(snd_bump,9,false);
   //keep beat blasting
-global.antiFade=4;
+global.antiFade=global.standardVolume+10;
+//prevent turing into cars
+phy_angular_damping=angleDamp+60;
+//tire shit
+turnMax=10;
 };
 
 //collision death
@@ -295,7 +322,7 @@ abs(oldphy_speed_x-phy_speed_x)&gt;=threshholdx)){
   //BOOM
   audio_play_sound(snd_explosion,9,false);
   //keep beat blasting
-global.antiFade=4;
+global.antiFade=global.standardVolume+10;
 
 };
 //reset collide
@@ -345,8 +372,8 @@ if(control==true){
 //mabye being in math isnt so bad.
 //just normal displacemtn times percent of cos or sin to see how far up or down
 
-physics_apply_force(x+(dcos(image_angle+90)*(sprite_height/3)),
-y-(dsin(image_angle+90)*(sprite_height/3)),
+physics_apply_force(x+(dcos(image_angle+90)*(sprite_height/accelBalance)),
+y-(dsin(image_angle+90)*(sprite_height/accelBalance)),
 (dcos(theTire.image_angle+90)*velocity),
  (dsin(theTire.image_angle+90)*velocity)*-1);
 }
@@ -413,6 +440,7 @@ abs(dcos(newAngle))*-phy_speed_x*tireGrip,
 abs(dcos(newAngle))*-phy_speed_y*tireGrip
  );
 }
+velocity+=abs(dcos(newAngle))*tireGrip;
 //phy_speed_x*-tireGrip*turnGrip,
 /// phy_speed_y*-tireGrip*turnGrip
 
@@ -613,10 +641,10 @@ show_debug_message(phy_speed_y);
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
   <PhysicsObjectShape>1</PhysicsObjectShape>
   <PhysicsObjectDensity>0</PhysicsObjectDensity>
-  <PhysicsObjectRestitution>0.100000001490116</PhysicsObjectRestitution>
+  <PhysicsObjectRestitution>1</PhysicsObjectRestitution>
   <PhysicsObjectGroup>0</PhysicsObjectGroup>
   <PhysicsObjectLinearDamping>9.99999974737875E-5</PhysicsObjectLinearDamping>
-  <PhysicsObjectAngularDamping>4</PhysicsObjectAngularDamping>
+  <PhysicsObjectAngularDamping>0.100000001490116</PhysicsObjectAngularDamping>
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>

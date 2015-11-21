@@ -28,7 +28,8 @@
             <string>event_inherited();
 //speedLimit+=0.5;
 //tireGrip=tireGrip*2;
-velocity=velocity*1.8;
+targetVelocity=targetVelocity*1.8;
+//1.8
 tireGrip=tireGrip/2;
 asleep=true;
 oldx=phy_position_x;

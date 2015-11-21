@@ -26,16 +26,20 @@
           <argument>
             <kind>1</kind>
             <string>global.antiFade=1;
-global.speed=2;
+global.standardVolume=5;
+goal=7;
+global.speed=goal;
 global.stutter=0;
 stopped=false;
 //stopped=true;
 if(stopped==false){
-global.speed=4;
+global.speed=goal;
 
 }
 //PLAY THE BEAT
 theme=audio_play_sound(snd_theme,10,true);
+//ramp it up
+global.antiFade=global.standardVolume+10;
 
 </string>
           </argument>
@@ -61,31 +65,43 @@ theme=audio_play_sound(snd_theme,10,true);
             <kind>1</kind>
             <string>
 audio_master_gain(global.antiFade);
-if(global.antiFade&gt;1){
+if(global.antiFade&gt;global.standardVolume){
 
 global.antiFade-=0.01;
 }
 //screen roll speed
 if(instance_exists(ob_playerCarParent)&amp;&amp;stopped==false){
-if(ob_playerCarParent.y&gt;1000){
+if(ob_playerCarParent.y&gt;1800){
 
-global.speed=4;
+global.speed=3;
+}
+if(ob_playerCarParent.y&lt;1800){
+
+global.speed=goal-3;
+}
+if(ob_playerCarParent.y&lt;1500){
+
+global.speed=goal-1;
+}
+if(ob_playerCarParent.y&lt;1300){
+
+global.speed=goal+2;
 }
 if(ob_playerCarParent.y&lt;1000){
 
-global.speed=5;
+global.speed=goal+3;
 }
 if(ob_playerCarParent.y&lt;700){
 
-global.speed=6;
+global.speed=goal+5;
 }
 if(ob_playerCarParent.y&lt;500){
 
-global.speed=8;
+global.speed=goal+7;
 }
 if(ob_playerCarParent.y&lt;300){
 
-global.speed=10;
+global.speed=goal+10;
 }
 
 
