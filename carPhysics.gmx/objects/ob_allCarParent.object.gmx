@@ -191,7 +191,10 @@ maxTurn+=2;
 
 //MAX TURN
 clamp(theTire.trueRotation,-maxTurn,maxTurn);
-
+/////GUN ROTATION DOC
+//
+//the angle up is 0 degress to the right is negative to left is positive
+//
 if(zweapon=true){
 //clamp(ztrueRotation,10,170);
 zgun.x=x+(dcos(image_angle+90)*(sprite_height/3))-(dsin(image_angle+90)*(sprite_width/2))

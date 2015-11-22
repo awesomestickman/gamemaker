@@ -134,9 +134,9 @@ ztrueRotation-=5;
 }
 else if(xweapon==true&amp;&amp;control=true){
 
-
+if(xtrueRotation&gt;-110){
 xtrueRotation-=5;
-
+}
 }
 else{
 
@@ -218,9 +218,9 @@ ztrueRotation+=5;
 }
 else if(xweapon==true&amp;&amp;control=true){
 
-
+if(xtrueRotation&lt;-40){
 xtrueRotation+=5;
-
+}
 
 }
 else{
@@ -392,11 +392,29 @@ bullet.angle=zgun.image_angle+90;
 with(bullet){
 //boom
 physics_apply_force(x,y,lengthdir_x(200000,angle),lengthdir_y(200000,angle));
+}
+///////////////GHOST BULLET
+
+//create bullet
+gbullet= instance_create(x+(dcos(image_angle+90)*(sprite_height/3))-(dsin(image_angle+90)*(sprite_width/2)),
+y-(dsin(image_angle+90)*(sprite_height/3))-(dcos(image_angle+90)*(sprite_width/2))
+
+, ob_smallBullet_ghost);
+//add rope so doesnt collide with shooter car
+physics_joint_rope_create(id, gbullet, x, y, gbullet.x, gbullet.y, 9000, false)
+
+//give bullet reference to fire in
+gbullet.angle=zgun.image_angle+90;
+with(gbullet){
+//boom
+physics_apply_force(x,y,lengthdir_x(200000,angle),lengthdir_y(200000,angle));
+
+}
 
 //stutter for kick
 instance_create(x,y,ob_shake);
 
-}
+
 
 
 with(zgun){

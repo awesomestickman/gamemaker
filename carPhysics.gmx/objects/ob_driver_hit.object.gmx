@@ -52,6 +52,12 @@ depth=-100;
           <argument>
             <kind>1</kind>
             <string>dead=true;
+with(other){
+
+instance_destroy();
+
+}
+audio_play_sound(snd_scream, 10, false);
 </string>
           </argument>
         </arguments>

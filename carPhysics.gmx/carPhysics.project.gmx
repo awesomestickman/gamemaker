@@ -11,6 +11,7 @@
     <sound>sound\snd_explosion</sound>
     <sound>sound\snd_shoot</sound>
     <sound>sound\snd_burnout</sound>
+    <sound>sound\snd_scream</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="truck">
