@@ -56,7 +56,8 @@ threshholdy+=2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited();
+            <string>///basic looping
+event_inherited();
 //ENGINE SOUND WOOOO
 //engineSound=audio_play_sound(snd_engine,10,false);
 if(engine==true){
@@ -72,14 +73,11 @@ maxTurn=30;
 if(phy_speed&lt;2){
 maxTurn=20;
 }
-show_debug_message("playercar");
-show_debug_message(phy_speed);
+
 </string>
           </argument>
         </arguments>
       </action>
-    </event>
-    <event eventtype="5" enumb="40">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -96,12 +94,252 @@ show_debug_message(phy_speed);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-//brakes="on";
-//physics_apply_force(x, y-sprite_height/4,(dsin(theTire.image_angle)*velocity)*4, (dcos(theTire.image_angle)*velocity)*2);
+            <string>////movement
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///pressing keys
+//create variables for both sides
+cweapon=false;
+anglemax=0;
+anglemin=0;
+
+if(keyboard_check_pressed(ord('Z'))==true){
+    
+//////////////////////////////WINDOW GUN
+if(weaponType=="window"){
+if(xweapon==true){
+
+with(xgun){
+instance_destroy();
+
+}
+
+xweapon=false;
+
+}
+
+
+
 if(control==true){
-//phy_speed_x=phy_speed_x/1.1;
-//phy_speed_y=phy_speed_y/1.1;
+
+zweapon=true;
+
+zgun= instance_create(
+x+(dcos(image_angle+90)*(sprite_height/3))-(dsin(image_angle+90)*(sprite_width/2)),
+y-(dsin(image_angle+90)*(sprite_height/3))-(dcos(image_angle+90)*(sprite_width/2))
+, ob_gun_window);
+
+zgun.depth=-100;
+//reset rotation
+if(ztrueRotation&lt;10){
+ztrueRotation=10;
+}
+}
+}
+
+}
+else if(keyboard_check_pressed(ord('X'))==true){
+
+//////////////////////////////WINDOW GUN
+if(weaponType=="window"){
+    if(zweapon==true){
+
+        with(zgun){
+        instance_destroy();
+
+        }
+
+    zweapon=false;
+
+    }
+
+
+
+    if(control==true){
+
+    xweapon=true;
+
+    xgun= instance_create(
+    x+(dcos(image_angle+90)*(sprite_height/3))+(dsin(image_angle+90)*(sprite_width/2)),
+    y-(dsin(image_angle+90)*(sprite_height/3))+(dcos(image_angle+90)*(sprite_width/2))
+    , ob_gun_window);
+
+    xgun.depth=-100;
+    //reset rotation
+        if(xtrueRotation&gt;-60){
+        xtrueRotation=-60;
+        }
+    }
+}
+
+}
+if(keyboard_check_pressed(ord('z'))==true||keyboard_check_pressed(ord('x'))==true){
+
+
+
+
+
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///releasing keys
+if(keyboard_check_released(ord('Z'))==true){
+//////////////////////////////WINDOW GUN
+if(weaponType=="window"){
+if(zweapon==true){
+//bam
+audio_play_sound(snd_shoot,9,false);
+
+
+//create bullet
+bullet= instance_create(x+(dcos(image_angle+90)*(sprite_height/3))-(dsin(image_angle+90)*(sprite_width/2)),
+y-(dsin(image_angle+90)*(sprite_height/3))-(dcos(image_angle+90)*(sprite_width/2))
+, ob_smallBullet);
+
+//add rope so doesnt collide with shooter car
+physics_joint_rope_create(id, bullet, x, y, bullet.x, bullet.y, 9000, false)
+
+//give bullet reference to fire in
+bullet.angle=zgun.image_angle+90;
+with(bullet){
+//boom
+physics_apply_force(x,y,lengthdir_x(200000,angle),lengthdir_y(200000,angle));
+}
+///////////////GHOST BULLET
+
+//create bullet
+gbullet= instance_create(x+(dcos(image_angle+90)*(sprite_height/3))-(dsin(image_angle+90)*(sprite_width/2)),
+y-(dsin(image_angle+90)*(sprite_height/3))-(dcos(image_angle+90)*(sprite_width/2))
+
+, ob_smallBullet_ghost);
+//add rope so doesnt collide with shooter car
+physics_joint_rope_create(id, gbullet, x, y, gbullet.x, gbullet.y, 9000, false)
+
+//give bullet reference to fire in
+gbullet.angle=zgun.image_angle+90;
+with(gbullet){
+//boom
+physics_apply_force(x,y,lengthdir_x(200000,angle),lengthdir_y(200000,angle));
+
+}
+
+//stutter for kick
+instance_create(x,y,ob_shake);
+
+
+
+
+with(zgun){
+instance_destroy();
+
+}
+
+zweapon=false;
+}
+}
+
+
+}
+
+
+if(keyboard_check_released(ord('X'))==true){
+
+//////////////////////////////WINDOW GUN
+if(weaponType=="window"){
+if(xweapon==true){
+//bam
+audio_play_sound(snd_shoot,9,false);
+//////REAL BULLET
+//create bullet
+bullet= instance_create(x+(dcos(image_angle+90)*(sprite_height/3))+(dsin(image_angle+90)*(sprite_width/2)),
+y-(dsin(image_angle+90)*(sprite_height/3))+(dcos(image_angle+90)*(sprite_width/2))
+
+, ob_smallBullet);
+//add rope so doesnt collide with shooter car
+physics_joint_rope_create(id, bullet, x, y, bullet.x, bullet.y, 9000, false);
+
+
+//give bullet reference to fire in
+bullet.angle=xgun.image_angle+90;
+with(bullet){
+//boom
+physics_apply_force(x,y,lengthdir_x(200000,angle),lengthdir_y(200000,angle));
+
+}
+///////////////GHOST BULLET
+
+//create bullet
+gbullet= instance_create(x+(dcos(image_angle+90)*(sprite_height/3))+(dsin(image_angle+90)*(sprite_width/2)),
+y-(dsin(image_angle+90)*(sprite_height/3))+(dcos(image_angle+90)*(sprite_width/2))
+
+, ob_smallBullet_ghost);
+//add rope so doesnt collide with shooter car
+physics_joint_rope_create(id, gbullet, x, y, gbullet.x, gbullet.y, 9000, false)
+
+
+//give bullet reference to fire in
+gbullet.angle=xgun.image_angle+90;
+with(gbullet){
+//boom
+physics_apply_force(x,y,lengthdir_x(200000,angle),lengthdir_y(200000,angle));
+
+}
+
+
+
+
+
+
+
+//stutter for kick
+instance_create(x,y,ob_shake);
+
+//clean up
+with(xgun){
+instance_destroy();
+
+}
+
+xweapon=false;
+}
+}
+
 }
 </string>
           </argument>
@@ -241,270 +479,6 @@ turnGripCounter+=3;
 
 
 turnDirection="left";
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="90">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>
-//////////////////////////////WINDOW GUN
-if(weaponType=="window"){
-if(xweapon==true){
-
-with(xgun){
-instance_destroy();
-
-}
-
-xweapon=false;
-
-}
-
-
-
-if(control==true){
-
-zweapon=true;
-
-zgun= instance_create(
-x+(dcos(image_angle+90)*(sprite_height/3))-(dsin(image_angle+90)*(sprite_width/2)),
-y-(dsin(image_angle+90)*(sprite_height/3))-(dcos(image_angle+90)*(sprite_width/2))
-, ob_gun_window);
-
-zgun.depth=-100;
-//reset rotation
-if(ztrueRotation&lt;10){
-ztrueRotation=10;
-}
-}
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="88">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>
-//////////////////////////////WINDOW GUN
-if(weaponType=="window"){
-if(zweapon==true){
-
-with(zgun){
-instance_destroy();
-
-}
-
-zweapon=false;
-
-}
-
-
-
-if(control==true){
-
-xweapon=true;
-
-xgun= instance_create(
-x+(dcos(image_angle+90)*(sprite_height/3))+(dsin(image_angle+90)*(sprite_width/2)),
-y-(dsin(image_angle+90)*(sprite_height/3))+(dcos(image_angle+90)*(sprite_width/2))
-, ob_gun_window);
-
-xgun.depth=-100;
-//reset rotation
-if(xtrueRotation&gt;-60){
-xtrueRotation=-60;
-}
-}
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="10" enumb="90">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>//////////////////////////////WINDOW GUN
-if(weaponType=="window"){
-if(zweapon==true){
-//bam
-audio_play_sound(snd_shoot,9,false);
-
-
-//create bullet
-bullet= instance_create(x+(dcos(image_angle+90)*(sprite_height/3))-(dsin(image_angle+90)*(sprite_width/2)),
-y-(dsin(image_angle+90)*(sprite_height/3))-(dcos(image_angle+90)*(sprite_width/2))
-, ob_smallBullet);
-
-//add rope so doesnt collide with shooter car
-physics_joint_rope_create(id, bullet, x, y, bullet.x, bullet.y, 9000, false)
-
-//give bullet reference to fire in
-bullet.angle=zgun.image_angle+90;
-with(bullet){
-//boom
-physics_apply_force(x,y,lengthdir_x(200000,angle),lengthdir_y(200000,angle));
-}
-///////////////GHOST BULLET
-
-//create bullet
-gbullet= instance_create(x+(dcos(image_angle+90)*(sprite_height/3))-(dsin(image_angle+90)*(sprite_width/2)),
-y-(dsin(image_angle+90)*(sprite_height/3))-(dcos(image_angle+90)*(sprite_width/2))
-
-, ob_smallBullet_ghost);
-//add rope so doesnt collide with shooter car
-physics_joint_rope_create(id, gbullet, x, y, gbullet.x, gbullet.y, 9000, false)
-
-//give bullet reference to fire in
-gbullet.angle=zgun.image_angle+90;
-with(gbullet){
-//boom
-physics_apply_force(x,y,lengthdir_x(200000,angle),lengthdir_y(200000,angle));
-
-}
-
-//stutter for kick
-instance_create(x,y,ob_shake);
-
-
-
-
-with(zgun){
-instance_destroy();
-
-}
-
-zweapon=false;
-}
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="10" enumb="88">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>//////////////////////////////WINDOW GUN
-if(weaponType=="window"){
-if(xweapon==true){
-//bam
-audio_play_sound(snd_shoot,9,false);
-//////REAL BULLET
-//create bullet
-bullet= instance_create(x+(dcos(image_angle+90)*(sprite_height/3))+(dsin(image_angle+90)*(sprite_width/2)),
-y-(dsin(image_angle+90)*(sprite_height/3))+(dcos(image_angle+90)*(sprite_width/2))
-
-, ob_smallBullet);
-//add rope so doesnt collide with shooter car
-physics_joint_rope_create(id, bullet, x, y, bullet.x, bullet.y, 9000, false);
-
-
-//give bullet reference to fire in
-bullet.angle=xgun.image_angle+90;
-with(bullet){
-//boom
-physics_apply_force(x,y,lengthdir_x(200000,angle),lengthdir_y(200000,angle));
-
-}
-///////////////GHOST BULLET
-
-//create bullet
-gbullet= instance_create(x+(dcos(image_angle+90)*(sprite_height/3))+(dsin(image_angle+90)*(sprite_width/2)),
-y-(dsin(image_angle+90)*(sprite_height/3))+(dcos(image_angle+90)*(sprite_width/2))
-
-, ob_smallBullet_ghost);
-//add rope so doesnt collide with shooter car
-physics_joint_rope_create(id, gbullet, x, y, gbullet.x, gbullet.y, 9000, false)
-
-
-//give bullet reference to fire in
-gbullet.angle=xgun.image_angle+90;
-with(gbullet){
-//boom
-physics_apply_force(x,y,lengthdir_x(200000,angle),lengthdir_y(200000,angle));
-
-}
-
-
-
-
-
-
-
-//stutter for kick
-instance_create(x,y,ob_shake);
-
-//clean up
-with(xgun){
-instance_destroy();
-
-}
-
-xweapon=false;
-}
 }
 </string>
           </argument>

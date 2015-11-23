@@ -53,7 +53,6 @@
       <sprite>sprites\sp_filler</sprite>
     </sprites>
     <sprites name="hud">
-      <sprite>sprites\sp_dial</sprite>
       <sprite>sprites\sp_pointer</sprite>
     </sprites>
     <sprites name="shooters">
@@ -66,11 +65,19 @@
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
+    <background>background\b_intro</background>
+    <background>background\b_menu</background>
   </backgrounds>
   <paths name="paths"/>
+  <fonts name="fonts">
+    <font>fonts\f_title</font>
+    <font>fonts\f_menu</font>
+    <font>fonts\f_copyright</font>
+  </fonts>
   <objects name="objects">
     <object>objects\ob_moveDownParent</object>
     <object>objects\ob_allParent</object>
+    <object>objects\ob_shake</object>
     <objects name="particles and debug">
       <object>objects\ob_marker</object>
       <object>objects\ob_scrapeParticle</object>
@@ -83,6 +90,7 @@
         <object>objects\ob_smallBullet_ghost</object>
         <object>objects\ob_driver_hit</object>
       </objects>
+      <object>objects\ob_stutter</object>
     </objects>
     <objects name="cars">
       <objects name="ai">
@@ -99,6 +107,10 @@
       </objects>
       <object>objects\ob_allCarParent</object>
     </objects>
+    <objects name="weapons">
+      <object>objects\ob_gun_window</object>
+      <object>objects\ob_smallBullet</object>
+    </objects>
     <objects name="terrain">
       <object>objects\ob_chasm</object>
       <object>objects\ob_rockBig1</object>
@@ -109,18 +121,19 @@
       <object>objects\ob_cliff_filler</object>
     </objects>
     <object>objects\ob_room</object>
-    <objects name="weapons">
-      <object>objects\ob_gun_window</object>
-      <object>objects\ob_smallBullet</object>
-    </objects>
-    <object>objects\ob_stutter</object>
-    <object>objects\ob_shake</object>
+    <object>objects\ob_intro</object>
+    <object>objects\ob_mainmenu</object>
+    <object>objects\ob_level_start</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_intro</room>
+    <room>rooms\rm_menu</room>
     <room>rooms\room4</room>
+    <room>rooms\rm_blank</room>
     <room>rooms\room5</room>
     <room>rooms\room2</room>
     <room>rooms\room3</room>
+    <room>rooms\high_ground_example</room>
     <room>rooms\room1</room>
   </rooms>
   <help>
