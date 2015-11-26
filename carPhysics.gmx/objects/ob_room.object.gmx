@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///init vars
+global.escape=false;
 global.antiFade=1;
 global.standardVolume=5;
 goal=7;
@@ -150,6 +151,7 @@ global.speed=goal+10;
 
 background_vspeed[0]=global.speed-3;
 background_vspeed[1]=global.speed;
+//stutter cam
 if(global.stutter&gt;0){
 background_vspeed[0]=0;
 background_vspeed[1]=0;
@@ -157,6 +159,13 @@ global.speed=0;
 
 }
 global.stutter--;
+//escape
+if(global.escape==true){
+background_vspeed[0]=0;
+background_vspeed[1]=0;
+global.speed=0;
+
+}
 
 </string>
           </argument>
@@ -183,8 +192,11 @@ if(enemies[0]!=noone){
 
 var alldeadc=0;
 for(var i=0;i&lt;array_length_1d(enemies);i++){
+if(enemies[i]==noone){
+alldeadc++;
 
-if(enemies[i].dead==true){
+}
+else if(enemies[i].dead==true){
 alldeadc++;
 
 }
@@ -272,6 +284,11 @@ win=true;
 
 }
 
+
+}
+else if(global.escape==true){
+
+win=true;
 
 }
 </string>
@@ -469,6 +486,65 @@ draw_text(800,1500,"press enter to continue")
 
 
 }
+else if(global.escape==true){
+draw_set_font(f_title);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_set_color(c_black);
+draw_text(800,700,"YOU MADE IT")
+draw_set_font(f_menu);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_set_color(c_black);
+draw_text(800,1500,"press enter to continue")
+
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="87">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>win=true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="27">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>room_goto(rm_menu);
 </string>
           </argument>
         </arguments>

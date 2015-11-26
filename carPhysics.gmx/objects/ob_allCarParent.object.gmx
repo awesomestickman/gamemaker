@@ -297,7 +297,8 @@ if(falling==true){
 //phy_speed_y=phy_speed_y/1.05;
 control=false;
 if(image_index&gt;image_number-1){
-instance_destroy();
+dead=true;
+phy_position_y+=10000;
 
 }
 
