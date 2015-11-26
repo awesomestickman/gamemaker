@@ -52,6 +52,27 @@
   </views>
   <instances>
     <instance objName="ob_room" x="140" y="1900" name="inst_6055D23A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rockBig1" x="320" y="890" name="inst_BFE3E46F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rockBig1" x="830" y="630" name="inst_9961B629" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rockBig1" x="560" y="170" name="inst_FE5015DE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rockBig1" x="1220" y="-50" name="inst_061F271C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rockBig1" x="1020" y="-540" name="inst_8461FA8C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rockBig1" x="660" y="-820" name="inst_155C3A66" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rockBig1" x="1140" y="-1280" name="inst_A4163AA0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rockBig1" x="700" y="-2200" name="inst_48FC0BEE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rockBig1" x="1240" y="-2540" name="inst_95783ADB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rockBig1" x="800" y="-3180" name="inst_F0BD27D5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rockBig1" x="1360" y="-2140" name="inst_5CA26688" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rockBig1" x="1400" y="-3240" name="inst_E556F957" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rockBig1" x="940" y="-4200" name="inst_B9010987" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rockBig1" x="1500" y="-4980" name="inst_A9E10A07" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rockBig1" x="1060" y="-5260" name="inst_A1145651" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rockBig1" x="600" y="-5640" name="inst_6B3685E1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rockBig1" x="1240" y="-6520" name="inst_73B0616E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rockBig1" x="1440" y="-8000" name="inst_02BA0906" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rockBig1" x="760" y="-8000" name="inst_5D9A9B1F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rockBig1" x="1240" y="-8480" name="inst_B9751E2E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_rockBig1" x="1360" y="-9640" name="inst_667AC98D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>

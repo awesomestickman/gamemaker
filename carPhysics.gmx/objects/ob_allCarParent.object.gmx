@@ -33,6 +33,8 @@ accelBalance=3;
 //max turn angle
 maxTurn=60;
 trueMaxTurn=60;
+//if dead or naw
+dead=false;
 //weaponsvars
 zweapon=false;
 xweapon=false;
@@ -222,6 +224,7 @@ driver.phy_position_x=phy_position_x;
 driver.phy_position_y=phy_position_y;
 if(driver.dead==true){
 control=false;
+dead=true;
 }
 driver.phy_rotation=phy_rotation;
 
@@ -270,7 +273,7 @@ turnGrip=turnGripCounter*turnGripMultiplier;
 //ENGINE 
 if(engine==false){
 control=false;
-
+dead=true;
 }
 if(engineUse&gt;0){
 engineUse--;

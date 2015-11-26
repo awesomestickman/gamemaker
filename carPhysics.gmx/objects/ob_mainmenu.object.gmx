@@ -70,9 +70,10 @@ switch(selectionIndex){
 
 case 1:{
 audio_play_sound(snd_shoot,9,false);
-room_goto(rm_blank);
-global.level=global.easyLevel;
-instance_create(0,0,ob_level_start);
+global.progression=0;
+
+scr_progress();
+
 
 break;
 }

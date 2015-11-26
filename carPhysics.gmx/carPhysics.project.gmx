@@ -69,6 +69,9 @@
     <background>background\b_menu</background>
   </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\scr_progress.gml</script>
+  </scripts>
   <fonts name="fonts">
     <font>fonts\f_title</font>
     <font>fonts\f_menu</font>
@@ -123,13 +126,13 @@
     <object>objects\ob_room</object>
     <object>objects\ob_intro</object>
     <object>objects\ob_mainmenu</object>
-    <object>objects\ob_level_start</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_intro</room>
     <room>rooms\rm_menu</room>
     <room>rooms\room4</room>
     <room>rooms\rm_blank</room>
+    <room>rooms\rm_easyrock</room>
     <room>rooms\room5</room>
     <room>rooms\room2</room>
     <room>rooms\room3</room>

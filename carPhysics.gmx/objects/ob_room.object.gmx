@@ -25,12 +25,19 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.antiFade=1;
+            <string>///init vars
+global.antiFade=1;
 global.standardVolume=5;
 goal=7;
 global.speed=goal;
 global.stutter=0;
 stopped=false;
+//win condition
+alldead=false;
+//win timers and verifiers
+wincounter=0;
+win=false;
+lose=false;
 //stopped=true;
 if(stopped==false){
 global.speed=goal;
@@ -41,6 +48,37 @@ theme=audio_play_sound(snd_theme,10,true);
 //ramp it up
 global.antiFade=global.standardVolume+10;
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///create instance
+//array enemies
+show_debug_message(array_height_2d(global.level));
+for(i=1;i&lt;array_height_2d(global.level);i++){
+tempguy=instance_create(global.level[i,1],global.level[i,2],global.level[i,0]);
+
+
+enemies[i-1]=tempguy;
+}
+//create player
+singleplayer=instance_create(global.level[0,1],global.level[0,2],global.level[0,0]);
 </string>
           </argument>
         </arguments>
@@ -141,12 +179,28 @@ global.stutter--;
           <argument>
             <kind>1</kind>
             <string>///check win or lose
+if(enemies[0]!=noone){
+
+var alldeadc=0;
+for(var i=0;i&lt;array_length_1d(enemies);i++){
+
+if(enemies[i].dead==true){
+alldeadc++;
+
+}
+
+
+
+}
+if(alldeadc==array_length_1d(enemies)){
+alldead=true;
+}
+
+}
 </string>
           </argument>
         </arguments>
       </action>
-    </event>
-    <event eventtype="5" enumb="82">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -163,10 +217,63 @@ global.stutter--;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_restart();
+            <string>///key presses
+if(keyboard_check_pressed(ord('R'))==true){
+
+room_restart();
 
 //stop sound
 audio_stop_all();
+
+
+}
+if(keyboard_check_pressed(ord('M'))==true){
+//mute
+audio_stop_sound(snd_theme);
+}
+if(keyboard_check_pressed(vk_enter)){
+if(win==true){
+global.progression++;
+scr_progress();
+
+}
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///counter then real win
+
+if(singleplayer.dead==true){
+win=false;
+lose=true;
+
+}
+else if(alldead==true){
+wincounter++;
+if(wincounter&gt;20){
+win=true;
+
+}
+
+
+}
 </string>
           </argument>
         </arguments>
@@ -320,7 +427,7 @@ audio_stop_all();
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="77">
+    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -337,8 +444,31 @@ audio_stop_all();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//mute
-audio_stop_sound(snd_theme);
+            <string>///draw words
+//remember view down 600
+if(singleplayer.dead==true){
+show_debug_message("draw room ");
+draw_set_font(f_title);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_set_color(c_red);
+draw_text(500,700,"DEAD DEAD DEAD DEAD DEAD DEAD DEAD DEAD DEAD DEAD DEAD ")
+
+}
+else if(alldead==true){
+draw_set_font(f_title);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_set_color(c_black);
+draw_text(800,700,"YOU MONSTER")
+draw_set_font(f_menu);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_set_color(c_black);
+draw_text(800,1500,"press enter to continue")
+
+
+}
 </string>
           </argument>
         </arguments>
