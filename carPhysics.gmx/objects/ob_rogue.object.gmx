@@ -48,8 +48,8 @@ driver=instance_create(x,y,ob_driver_hit);
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
   <PhysicsShapePoints>
-    <point>4,0</point>
-    <point>28,0</point>
+    <point>4,4</point>
+    <point>28,4</point>
     <point>28,48</point>
     <point>4,48</point>
   </PhysicsShapePoints>

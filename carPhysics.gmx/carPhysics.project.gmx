@@ -53,8 +53,11 @@
       <sprite>sprites\sp_moving_bottom</sprite>
       <sprite>sprites\sp_filler</sprite>
     </sprites>
-    <sprites name="hud">
+    <sprites name="menu">
       <sprite>sprites\sp_pointer</sprite>
+      <sprite>sprites\sp_tutWheel</sprite>
+      <sprite>sprites\sp_tutGear</sprite>
+      <sprite>sprites\sp_tutGun</sprite>
     </sprites>
     <sprites name="shooters">
       <sprite>sprites\sp_gun_window</sprite>
@@ -77,12 +80,18 @@
   <fonts name="fonts">
     <font>fonts\f_title</font>
     <font>fonts\f_menu</font>
+    <font>fonts\f_tut</font>
     <font>fonts\f_copyright</font>
   </fonts>
   <objects name="objects">
     <object>objects\ob_moveDownParent</object>
     <object>objects\ob_allParent</object>
     <object>objects\ob_shake</object>
+    <objects name="tutorial">
+      <object>objects\ob_tutWheel</object>
+      <object>objects\ob_tutGear</object>
+      <object>objects\ob_tutGun</object>
+    </objects>
     <objects name="particles and debug">
       <object>objects\ob_marker</object>
       <object>objects\ob_scrapeParticle</object>
@@ -140,10 +149,12 @@
     <room>rooms\room5</room>
     <room>rooms\rm_hardcliff</room>
     <room>rooms\room2</room>
+    <room>rooms\rm_curve1</room>
     <room>rooms\room3</room>
     <room>rooms\high_ground_example</room>
     <room>rooms\rm_easycliff</room>
     <room>rooms\room1</room>
+    <room>rooms\rm_hardrock</room>
     <room>rooms\rm_credits</room>
   </rooms>
   <help>

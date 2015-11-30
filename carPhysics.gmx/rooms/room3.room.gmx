@@ -51,9 +51,8 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="ob_playerTruck" x="736" y="1568" name="inst_E713C06D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_groundRock" x="-20" y="1510" name="inst_1AF7B4B4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_groundRock" x="480" y="1520" name="inst_47EEBD90" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_groundRock" x="480" y="1500" name="inst_47EEBD90" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_groundRock" x="-30" y="1010" name="inst_CC1C39B0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_groundRock" x="470" y="1020" name="inst_64D3EE71" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_groundRock" x="-50" y="530" name="inst_C3F95DE3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

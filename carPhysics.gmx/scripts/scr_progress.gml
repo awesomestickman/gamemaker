@@ -32,6 +32,24 @@ global.level=global.war1Level;
 break;
 }
 case 5:{
+room_goto(rm_hardcliff);
+global.level=global.war2Level;
+
+break;
+}
+case 6:{
+room_goto(rm_hardrock);
+global.level=global.war2Level;
+
+break;
+}
+case 7:{
+room_goto(rm_curve1);
+global.level=global.curve1;
+
+break;
+}
+case 8:{
 room_goto(rm_credits);
 
 

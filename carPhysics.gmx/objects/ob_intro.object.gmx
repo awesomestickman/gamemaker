@@ -47,7 +47,7 @@
           <argument>
             <kind>1</kind>
             <string>///make all levels
-
+/////STOP WITH THE GLOBAL ARRAYS PUT THESE IN ROOM THEN CALL FROM THERE
 global.level=0;
 
 
@@ -114,6 +114,68 @@ global.war1Level[5,2]=1500;
 global.war1Level[6,0]=ob_warTruck;
 global.war1Level[6,1]=1100;
 global.war1Level[6,2]=1400;
+
+global.war2Level[0,0]=ob_playerTruck;
+global.war2Level[0,1]=900;
+global.war2Level[0,2]=1700;
+global.war2Level[1,0]=ob_rogue;
+global.war2Level[1,1]=600;
+global.war2Level[1,2]=1700;
+global.war2Level[2,0]=ob_rogue;
+global.war2Level[2,1]=650;
+global.war2Level[2,2]=1700;
+global.war2Level[3,0]=ob_rogue;
+global.war2Level[3,1]=700;
+global.war2Level[3,2]=1700;
+global.war2Level[4,0]=ob_rogue;
+global.war2Level[4,1]=800;
+global.war2Level[4,2]=1700;
+global.war2Level[5,0]=ob_warTruck;
+global.war2Level[5,1]=1200;
+global.war2Level[5,2]=1500;
+global.war2Level[6,0]=ob_warTruck;
+global.war2Level[6,1]=500;
+global.war2Level[6,2]=1400;
+global.war2Level[7,0]=ob_warTruck;
+global.war2Level[7,1]=1100;
+global.war2Level[7,2]=1500;
+global.war2Level[8,0]=ob_warTruck;
+global.war2Level[8,1]=600;
+global.war2Level[8,2]=1400;
+global.war2Level[9,0]=ob_rogue;
+global.war2Level[9,1]=600;
+global.war2Level[9,2]=1800;
+global.war2Level[10,0]=ob_rogue;
+global.war2Level[10,1]=1000;
+global.war2Level[10,2]=1700;
+global.war2Level[11,0]=ob_rogue;
+global.war2Level[11,1]=1000;
+global.war2Level[11,2]=1800;
+global.war2Level[12,0]=ob_rogue;
+global.war2Level[12,1]=800;
+global.war2Level[12,2]=1800;
+
+global.curve1[0,0]=ob_playerTruck;
+global.curve1[0,1]=500;
+global.curve1[0,2]=1700;
+global.curve1[1,0]=ob_rogue;
+global.curve1[1,1]=460;
+global.curve1[1,2]=390;
+global.curve1[2,0]=ob_rogue;
+global.curve1[2,1]=700;
+global.curve1[2,2]=360;
+global.curve1[3,0]=ob_rogue;
+global.curve1[3,1]=1310;
+global.curve1[3,2]=-2380;
+global.curve1[4,0]=ob_rogue;
+global.curve1[4,1]=800;
+global.curve1[4,2]=1700;
+global.curve1[5,0]=ob_warTruck;
+global.curve1[5,1]=940;
+global.curve1[5,2]=1810;
+global.curve1[6,0]=ob_warTruck;
+global.curve1[6,1]=660;
+global.curve1[6,2]=1400;
 </string>
           </argument>
         </arguments>
@@ -180,8 +242,8 @@ draw_text(500,600,"PRESS ENTER TO BEGIN")
 
 }
 
-draw_set_font(f_copyright);
-draw_text(500,700,"(C) 2015 THEO OLSEN")
+//draw_set_font(f_copyright);
+//draw_text(500,700,"(C) 2015 SCHEMESMITH")
 </string>
           </argument>
         </arguments>

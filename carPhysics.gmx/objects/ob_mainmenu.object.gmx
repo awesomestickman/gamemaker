@@ -28,6 +28,12 @@
             <string>//if save game
 save=false;
 selectionIndex=1;
+tutorial=false;
+
+tutWheel=instance_create(352,448,ob_tutWheel);
+tutGear=instance_create(544,672,ob_tutGear);
+tutGun=instance_create(800,500,ob_tutGun);
+
 </string>
           </argument>
         </arguments>
@@ -62,7 +68,15 @@ if(selectionIndex&gt;1){
 selectionIndex--;
 
 }
+if(tutorial==true){
+tutGear.y-=30;
+}
 
+}
+if ((keyboard_check_released(vk_up))==true){
+if(tutorial==true){
+tutGear.y+=30;
+}
 }
 
 if ((keyboard_check_pressed(vk_enter))==true){
@@ -70,9 +84,13 @@ switch(selectionIndex){
 
 case 1:{
 audio_play_sound(snd_shoot,9,false);
-global.progression=0;
 
+if(tutorial==true){
+global.progression=0;
 scr_progress();
+}
+tutorial=true;
+
 
 
 break;
@@ -86,6 +104,44 @@ break;
 }
 
 
+}
+
+}
+
+//wheel
+if ((keyboard_check_direct(vk_left))==true){
+if(tutorial=true){
+tutWheel.image_angle+=10;
+
+}
+}
+if ((keyboard_check_direct(vk_right))==true){
+if(tutorial=true){
+tutWheel.image_angle-=10;
+
+}
+}
+if ((keyboard_check_pressed(ord('Z')))==true){
+if(tutorial=true){
+tutGun.image_angle+=10;
+}
+
+}
+if ((keyboard_check_released(ord('Z')))==true){
+if(tutorial=true){
+tutGun.image_angle-=10;
+}
+
+}
+if ((keyboard_check_pressed(ord('X')))==true){
+if(tutorial=true){
+tutGun.image_angle-=10;
+}
+
+}
+if ((keyboard_check_released(ord('X')))==true){
+if(tutorial=true){
+tutGun.image_angle+=10;
 }
 
 }
@@ -111,15 +167,18 @@ break;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_font(f_menu);
+            <string>if(tutorial==false){
+
+draw_set_font(f_menu);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 draw_set_color(c_black);
 draw_text(500,100,"START")
 
-draw_text(500,300,"OPTIONS")
-draw_text(500,400,"EXIT")
 
+draw_text(500,400,"EXIT")
+draw_set_color(c_gray);
+draw_text(500,300,"OPTIONS")
 
 if(save==true){
 draw_text(500,200,"CONTINUE")
@@ -147,7 +206,17 @@ switch(selectionIndex){
     break;}
 
 }
+}
+else {
+draw_set_font(f_tut);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_set_color(c_black);
+draw_text(500,100,"Once you're comfortable with the controls")
+draw_text(500,150,"press enter.")
 
+
+}
 
 
 

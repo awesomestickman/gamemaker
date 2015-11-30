@@ -28,6 +28,10 @@
             <string>event_inherited();
 player=true;
 
+///gun spam timer
+gunTimer=0;
+
+
 
 //start engines!
 engineSound=audio_play_sound(snd_engine,10,true);
@@ -73,7 +77,18 @@ maxTurn=30;
 if(phy_speed&lt;2){
 maxTurn=20;
 }
+//gunspam so if you spam shoot you can
+if(gunTimer&lt;40){
+gunTimer++;
 
+}
+
+//checking if too off nowhere
+if(phy_position_x&lt;-500||phy_position_x&gt;2200||phy_position_y&gt;2000){
+dead=true;
+control=false;
+
+}
 </string>
           </argument>
         </arguments>
@@ -121,6 +136,7 @@ cweapon=false;
 anglemax=0;
 anglemin=0;
 
+////////////////////////////////////////////////ZZZZZZZZZZZZZZZZZZZZZZ
 if(keyboard_check_pressed(ord('Z'))==true){
     
 //////////////////////////////WINDOW GUN
@@ -148,6 +164,13 @@ y-(dsin(image_angle+90)*(sprite_height/3))-(dcos(image_angle+90)*(sprite_width/2
 , ob_gun_window);
 
 zgun.depth=-100;
+///gun timer spam
+if(gunTimer&lt;15){
+zgun.imageTimer=15;
+
+}
+
+
 //reset rotation
 if(ztrueRotation&lt;10){
 ztrueRotation=10;
@@ -156,6 +179,7 @@ ztrueRotation=10;
 }
 
 }
+/////////////////////////////////////////XXXXXXXXXXXXXXXXXXXXXX
 else if(keyboard_check_pressed(ord('X'))==true){
 
 //////////////////////////////WINDOW GUN
@@ -183,6 +207,10 @@ if(weaponType=="window"){
     , ob_gun_window);
 
     xgun.depth=-100;
+    if(gunTimer&lt;15){
+xgun.imageTimer=15;
+
+}
     //reset rotation
         if(xtrueRotation&gt;-60){
         xtrueRotation=-60;
@@ -219,124 +247,136 @@ if(keyboard_check_pressed(ord('z'))==true||keyboard_check_pressed(ord('x'))==tru
           <argument>
             <kind>1</kind>
             <string>///releasing keys
+
+
+
+/////////////////////ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
 if(keyboard_check_released(ord('Z'))==true){
 //////////////////////////////WINDOW GUN
 if(weaponType=="window"){
 if(zweapon==true){
-//bam
-audio_play_sound(snd_shoot,9,false);
-
-
-//create bullet
-bullet= instance_create(x+(dcos(image_angle+90)*(sprite_height/3))-(dsin(image_angle+90)*(sprite_width/2)),
-y-(dsin(image_angle+90)*(sprite_height/3))-(dcos(image_angle+90)*(sprite_width/2))
-, ob_smallBullet);
-
-//add rope so doesnt collide with shooter car
-physics_joint_rope_create(id, bullet, x, y, bullet.x, bullet.y, 9000, false)
-
-//give bullet reference to fire in
-bullet.angle=zgun.image_angle+90;
-with(bullet){
-//boom
-physics_apply_force(x,y,lengthdir_x(200000,angle),lengthdir_y(200000,angle));
+    if(zgun.ready==true){
+        //bam
+        audio_play_sound(snd_shoot,9,false);
+    
+    
+        //create bullet
+        bullet= instance_create(x+(dcos(image_angle+90)*(sprite_height/3))-(dsin(image_angle+90)*(sprite_width/2)),
+        y-(dsin(image_angle+90)*(sprite_height/3))-(dcos(image_angle+90)*(sprite_width/2))
+        , ob_smallBullet);
+    
+        //add rope so doesnt collide with shooter car
+        physics_joint_rope_create(id, bullet, x, y, bullet.x, bullet.y, 9000, false)
+    
+        //give bullet reference to fire in
+        bullet.angle=zgun.image_angle+90;
+            with(bullet){
+            //boom
+            physics_apply_force(x,y,lengthdir_x(200000,angle),lengthdir_y(200000,angle));
+            }
+        ///////////////GHOST BULLET
+    
+        //create bullet
+        gbullet= instance_create(x+(dcos(image_angle+90)*(sprite_height/3))-(dsin(image_angle+90)*(sprite_width/2)),
+        y-(dsin(image_angle+90)*(sprite_height/3))-(dcos(image_angle+90)*(sprite_width/2))
+    
+        , ob_smallBullet_ghost);
+        //add rope so doesnt collide with shooter car
+        physics_joint_rope_create(id, gbullet, x, y, gbullet.x, gbullet.y, 9000, false)
+    
+        //give bullet reference to fire in
+        gbullet.angle=zgun.image_angle+90;
+            with(gbullet){
+            //boom
+            physics_apply_force(x,y,lengthdir_x(200000,angle),lengthdir_y(200000,angle));
+    
+            }
+    
+        //stutter for kick
+        instance_create(x,y,ob_shake);
+    
+    
+    //spammy
+    gunTimer=0;
+    
+        
+    }
+    with(zgun){
+        instance_destroy();
+    
+        }
+    
+        zweapon=false;
 }
-///////////////GHOST BULLET
-
-//create bullet
-gbullet= instance_create(x+(dcos(image_angle+90)*(sprite_height/3))-(dsin(image_angle+90)*(sprite_width/2)),
-y-(dsin(image_angle+90)*(sprite_height/3))-(dcos(image_angle+90)*(sprite_width/2))
-
-, ob_smallBullet_ghost);
-//add rope so doesnt collide with shooter car
-physics_joint_rope_create(id, gbullet, x, y, gbullet.x, gbullet.y, 9000, false)
-
-//give bullet reference to fire in
-gbullet.angle=zgun.image_angle+90;
-with(gbullet){
-//boom
-physics_apply_force(x,y,lengthdir_x(200000,angle),lengthdir_y(200000,angle));
-
-}
-
-//stutter for kick
-instance_create(x,y,ob_shake);
-
-
-
-
-with(zgun){
-instance_destroy();
-
-}
-
-zweapon=false;
-}
 }
 
 
 }
 
-
+/////////////////////////////////////////XXXXXXXXXXXXXXXXXXXXXX
 if(keyboard_check_released(ord('X'))==true){
 
 //////////////////////////////WINDOW GUN
 if(weaponType=="window"){
 if(xweapon==true){
-//bam
-audio_play_sound(snd_shoot,9,false);
-//////REAL BULLET
-//create bullet
-bullet= instance_create(x+(dcos(image_angle+90)*(sprite_height/3))+(dsin(image_angle+90)*(sprite_width/2)),
-y-(dsin(image_angle+90)*(sprite_height/3))+(dcos(image_angle+90)*(sprite_width/2))
+    if(xgun.ready==true){
+        //bam
+        audio_play_sound(snd_shoot,9,false);
+        //////REAL BULLET
+        //create bullet
+        bullet= instance_create(x+(dcos(image_angle+90)*(sprite_height/3))+(dsin(image_angle+90)*(sprite_width/2)),
+        y-(dsin(image_angle+90)*(sprite_height/3))+(dcos(image_angle+90)*(sprite_width/2))
 
-, ob_smallBullet);
-//add rope so doesnt collide with shooter car
-physics_joint_rope_create(id, bullet, x, y, bullet.x, bullet.y, 9000, false);
-
-
-//give bullet reference to fire in
-bullet.angle=xgun.image_angle+90;
-with(bullet){
-//boom
-physics_apply_force(x,y,lengthdir_x(200000,angle),lengthdir_y(200000,angle));
-
-}
-///////////////GHOST BULLET
-
-//create bullet
-gbullet= instance_create(x+(dcos(image_angle+90)*(sprite_height/3))+(dsin(image_angle+90)*(sprite_width/2)),
-y-(dsin(image_angle+90)*(sprite_height/3))+(dcos(image_angle+90)*(sprite_width/2))
-
-, ob_smallBullet_ghost);
-//add rope so doesnt collide with shooter car
-physics_joint_rope_create(id, gbullet, x, y, gbullet.x, gbullet.y, 9000, false)
+        , ob_smallBullet);
+        //add rope so doesnt collide with shooter car
+        physics_joint_rope_create(id, bullet, x, y, bullet.x, bullet.y, 9000, false);
 
 
-//give bullet reference to fire in
-gbullet.angle=xgun.image_angle+90;
-with(gbullet){
-//boom
-physics_apply_force(x,y,lengthdir_x(200000,angle),lengthdir_y(200000,angle));
+        //give bullet reference to fire in
+        bullet.angle=xgun.image_angle+90;
+            with(bullet){
+            //boom
+            physics_apply_force(x,y,lengthdir_x(200000,angle),lengthdir_y(200000,angle));
 
-}
+            }
+        ///////////////GHOST BULLET
+
+        //create bullet
+        gbullet= instance_create(x+(dcos(image_angle+90)*(sprite_height/3))+(dsin(image_angle+90)*(sprite_width/2)),
+        y-(dsin(image_angle+90)*(sprite_height/3))+(dcos(image_angle+90)*(sprite_width/2))
+
+        , ob_smallBullet_ghost);
+        //add rope so doesnt collide with shooter car
+        physics_joint_rope_create(id, gbullet, x, y, gbullet.x, gbullet.y, 9000, false)
 
 
+        //give bullet reference to fire in
+        gbullet.angle=xgun.image_angle+90;
+            with(gbullet){
+            //boom
+            physics_apply_force(x,y,lengthdir_x(200000,angle),lengthdir_y(200000,angle));
 
+            }
 
 
 
 
-//stutter for kick
-instance_create(x,y,ob_shake);
 
-//clean up
-with(xgun){
-instance_destroy();
 
-}
 
-xweapon=false;
+        //stutter for kick
+        instance_create(x,y,ob_shake);
+    //spammy
+    gunTimer=0;
+        
+    }
+    //clean up
+        with(xgun){
+        instance_destroy();
+
+        }
+
+    xweapon=false;
 }
 }
 
@@ -375,6 +415,9 @@ else if(xweapon==true&amp;&amp;control=true){
 if(xtrueRotation&gt;-110){
 xtrueRotation-=5;
 }
+}
+else if(gunTimer&lt;10){
+//prevent drive n spam
 }
 else{
 
@@ -460,6 +503,9 @@ if(xtrueRotation&lt;-40){
 xtrueRotation+=5;
 }
 
+}
+else if(gunTimer&lt;10){
+//prevent drive n spam
 }
 else{
 
