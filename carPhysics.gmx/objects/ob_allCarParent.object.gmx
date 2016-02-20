@@ -385,8 +385,8 @@ if(control==true){
 
 physics_apply_force(x+(dcos(image_angle+90)*(sprite_height/accelBalance)),
 y-(dsin(image_angle+90)*(sprite_height/accelBalance)),
-(dcos(theTire.image_angle+90)*velocity/2),
- (dsin(theTire.image_angle+90)*velocity/2)*-1);
+(dcos(theTire.image_angle+90)*velocity/1.2),
+ (dsin(theTire.image_angle+90)*velocity/1.2)*-1);
  
  physics_apply_force(x+(dcos(image_angle+90)*(sprite_height/accelBalance)),
 y-(dsin(image_angle+90)*(sprite_height/accelBalance)),

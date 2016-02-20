@@ -53,8 +53,8 @@ phy_position_y=oldy+global.speed;
 
 //brakes
 if(targety&gt;y-10){
-phy_speed_x=phy_speed_x/1.001;
-phy_speed_y=phy_speed_y/1.001;
+phy_speed_x=phy_speed_x/1.01;
+phy_speed_y=phy_speed_y/1.01;
 if(targetx&lt;=x){
 
 theTire.trueRotation=-90;

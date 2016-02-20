@@ -406,7 +406,7 @@ if(xweapon==true){
             <string>if(zweapon==true&amp;&amp;control=true){
 
 
-if(ztrueRotation&gt;10){
+if(ztrueRotation&gt;0){
 ztrueRotation-=5;
 }
 }
@@ -492,7 +492,7 @@ velocity=targetVelocity+60;
 if(zweapon==true&amp;&amp;control=true){
 
 
-if(ztrueRotation&lt;150){
+if(ztrueRotation&lt;180){
 
 ztrueRotation+=5;
 }

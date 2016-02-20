@@ -29,11 +29,8 @@
 save=false;
 selectionIndex=1;
 tutorial=false;
-
-tutWheel=instance_create(352,448,ob_tutWheel);
-tutGear=instance_create(544,672,ob_tutGear);
-tutGun=instance_create(800,500,ob_tutGun);
-
+/////cutscene experimental
+cutscene=true;
 </string>
           </argument>
         </arguments>
@@ -85,11 +82,17 @@ switch(selectionIndex){
 case 1:{
 audio_play_sound(snd_shoot,9,false);
 
-if(tutorial==true){
+
 global.progression=0;
-scr_progress();
+if(cutscene=true){
+
+room_goto(rm_introscene);
+
+instance_destroy();
 }
-tutorial=true;
+scr_progress();
+
+
 
 
 
@@ -121,6 +124,7 @@ tutWheel.image_angle-=10;
 
 }
 }
+if(global.tutgun=true){
 if ((keyboard_check_pressed(ord('Z')))==true){
 if(tutorial=true){
 tutGun.image_angle+=10;
@@ -144,6 +148,7 @@ if(tutorial=true){
 tutGun.image_angle+=10;
 }
 
+}
 }
 </string>
           </argument>

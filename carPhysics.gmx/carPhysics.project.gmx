@@ -139,6 +139,10 @@
     <object>objects\ob_intro</object>
     <object>objects\ob_mainmenu</object>
     <object>objects\ob_credits</object>
+    <object>objects\ob_tut</object>
+    <objects name="scenes">
+      <object>objects\sc_intro</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_intro</room>
@@ -156,6 +160,10 @@
     <room>rooms\room1</room>
     <room>rooms\rm_hardrock</room>
     <room>rooms\rm_credits</room>
+    <room>rooms\rm_car</room>
+    <rooms name="scenes">
+      <room>rooms\rm_introscene</room>
+    </rooms>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
