@@ -89,6 +89,9 @@ dead=true;
 control=false;
 
 }
+
+show_debug_message("from the player car parent step");
+show_debug_message(phy_speed)
 </string>
           </argument>
         </arguments>

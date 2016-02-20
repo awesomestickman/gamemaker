@@ -464,7 +464,7 @@ audio_stop_all();
             <string>///draw words
 //remember view down 600
 if(singleplayer.dead==true){
-show_debug_message("draw room ");
+
 draw_set_font(f_title);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
