@@ -35,6 +35,11 @@ maxTurn=60;
 trueMaxTurn=60;
 //if dead or naw
 dead=false;
+//handlebrake stuff
+driftStrength=0;
+drift=false;
+//countdown when stopped after hard brake to turn fast
+finishdrift=0
 //weaponsvars
 zweapon=false;
 xweapon=false;
@@ -42,8 +47,9 @@ ztrueRotation=0;
 xtrueRotation=0;
 //player or ai
 player=false;
-
-
+//when braking if to keep spinnign
+brakestop=false;
+//
 angleDampLow=4;
 angleDamp=11;
 
@@ -57,6 +63,7 @@ engineMax=120;
 velocity=12;
 targetVelocity=280;
 turnDirection="none";
+//tire grip alterable
 tireGrip=60;
 oldRotation=0;
 speedLimit=8;
@@ -218,7 +225,25 @@ xgun.image_angle=xtrueRotation +image_angle;
 
 control=true;
 
+//drifitng
+if(drift==true){
+//control=false;
+if(phy_speed&lt;4&amp;&amp;brakestop==false){
+angleDamp+=10;
+brakestop =true;
 
+}
+
+}
+//drift recovery
+if(finishdrift&gt;0){
+finishdrift-=1;
+if(finishdrift==1){
+angleDamp+=6;
+
+}
+
+}
 
 
 

@@ -92,6 +92,7 @@ control=false;
 
 show_debug_message("from the player car parent step");
 show_debug_message(phy_speed)
+show_debug_message(angleDamp)
 </string>
           </argument>
         </arguments>
@@ -226,6 +227,27 @@ if(keyboard_check_pressed(ord('z'))==true||keyboard_check_pressed(ord('x'))==tru
 
 
 
+
+
+}
+if(keyboard_check_pressed(vk_down)==true){
+
+tireGrip-=driftStrength;
+drift=true;
+angleDamp-=10;
+velocity-=12;
+//correct finishdrift
+if(finishdrift&gt;0){
+angleDamp+=6;
+
+}
+finishdrift=0;
+}
+//continuous braking
+if(keyboard_check(vk_down)==true){
+
+phy_speed_x=phy_speed_x/1.07;
+phy_speed_y=phy_speed_y/1.07;
 
 
 }
@@ -383,6 +405,21 @@ if(xweapon==true){
 }
 }
 
+}
+//handbrake
+if(keyboard_check_released(vk_down)==true){
+
+tireGrip+=driftStrength;
+drift=false;
+if(brakestop=false){
+angleDamp+=10;
+}
+else{
+finishdrift=100;
+angleDamp-=6;
+}
+velocity+=12;
+brakestop=false;
 }
 </string>
           </argument>

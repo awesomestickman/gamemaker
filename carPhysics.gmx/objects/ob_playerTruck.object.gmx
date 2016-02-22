@@ -28,6 +28,8 @@
             <string>event_inherited();
 weaponType="window";
 tireGrip=tireGrip*2
+//handlebrake stuff
+driftStrength=80;
 </string>
           </argument>
         </arguments>
