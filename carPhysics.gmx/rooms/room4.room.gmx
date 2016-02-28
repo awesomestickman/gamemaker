@@ -52,6 +52,7 @@
   </views>
   <instances>
     <instance objName="ob_room" x="140" y="1900" name="inst_6055D23A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_gunnerbug" x="700" y="1820" name="inst_EAD26CD4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>

@@ -40,11 +40,14 @@ driftStrength=0;
 drift=false;
 //countdown when stopped after hard brake to turn fast
 finishdrift=0
-//weaponsvars
+/////////////////weaponsvars 
+//window
 zweapon=false;
 xweapon=false;
 ztrueRotation=0;
 xtrueRotation=0;
+//top 
+topweapon=false;
 //player or ai
 player=false;
 //when braking if to keep spinnign
@@ -218,6 +221,12 @@ xgun.x=x+(dcos(image_angle+90)*(sprite_height/3))+(dsin(image_angle+90)*(sprite_
 xgun.y=y-(dsin(image_angle+90)*(sprite_height/3))+(dcos(image_angle+90)*(sprite_width/2))
 
 xgun.image_angle=xtrueRotation +image_angle;
+
+}
+if(topweapon=true){
+//placeholder gun stuff
+topgun.x=x;
+topgun.y=y;
 
 }
 

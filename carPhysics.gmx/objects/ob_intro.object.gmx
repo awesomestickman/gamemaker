@@ -70,8 +70,12 @@ flashtimer=0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/////what fookn level we on
+            <string>/////some globals
 global.level=0;
+global.progression=0;
+
+global.introscene=0;
+global.introtimer=0;
 
 
 

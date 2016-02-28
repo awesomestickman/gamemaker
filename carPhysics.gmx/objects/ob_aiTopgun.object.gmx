@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>ob_aiTail</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,12 +25,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//if save game
-save=false;
-selectionIndex=1;
+            <string>event_inherited();
+topweapon=true;
 
-/////cutscene experimental
-cutscene=true;
+topgun=instance_create(
+x,
+y
+, ob_gun_top);
+
+topgun.depth=-100;
+
+//how often shoots
+guntimer=0;
 </string>
           </argument>
         </arguments>
@@ -53,124 +59,75 @@ cutscene=true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if ((keyboard_check_pressed(vk_down))==true){
-if(selectionIndex&lt;4){
-selectionIndex++;
+            <string>///LIT AI
+event_inherited();
 
-}
-
-}
-if ((keyboard_check_pressed(vk_up))==true){
-if(selectionIndex&gt;1){
-selectionIndex--;
-
-}
-
-
-}
-if ((keyboard_check_released(vk_up))==true){
-
-}
-
-if ((keyboard_check_pressed(vk_enter))==true){
-switch(selectionIndex){
-
-case 1:{
-audio_play_sound(snd_shoot,9,false);
-
-
-
-if(cutscene=true){
-
-scr_intro();
-
-instance_destroy();
-}
-
-
-
-
-
-
-break;
-}
-
-case 4:{
-audio_play_sound(snd_shoot,9,false);
-game_end();
-
-break;
-}
-
-
-}
-
-}
-
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>
-
-draw_set_font(f_menu);
-draw_set_halign(fa_center);
-draw_set_valign(fa_top);
-draw_set_color(c_black);
-draw_text(500,100,"START")
-
-
-draw_text(500,400,"EXIT")
-draw_set_color(c_gray);
-draw_text(500,300,"OPTIONS")
-
-if(save==true){
-draw_text(500,200,"CONTINUE")
+if(instance_exists(ob_playerCarParent)){
+targety=ob_playerCarParent.y;
+targetx=ob_playerCarParent.x;
 }
 else{
-draw_set_color(c_gray);
-draw_text(500,200,"CONTINUE")
-}
-
-switch(selectionIndex){
-    case 1:{
-    draw_sprite(sp_pointer,0,200,100);
-    break;}
-    
-    case 2:{
-   draw_sprite(sp_pointer,0,200,200);
-    break;}
-    
-    case 3:{
-    draw_sprite(sp_pointer,0,200,300);
-    break;}
-
-    case 4 :{
-    draw_sprite(sp_pointer,0,200,400);
-    break;}
-
+targety=y;
+targetx=x;
 }
 
 
+///shameless copy from the internet. thank you nocturne from nocturne games
+
+var pd = point_direction(x, y, targetx, targety) -90; //Get the direction to point to
+var dd = ((((pd - topgun.image_angle) mod 360) + 540) mod 360) - 180; //get the angle difference
+topgun.image_angle += min(abs(dd), 10) * sign(dd);  //Turn the turret (set the 10 value to whatever you wish as it will be the maximum turn speed in degrees per step).
+
+guntimer--;
+if(guntimer&lt;0){
+guntimer=20;
+
+//bam
+        audio_play_sound(snd_shoot,9,false);
+    
+    
+        //create bullet
+        bullet= instance_create(x,
+        y
+        , ob_smallBullet);
+    
+        //add rope so doesnt collide with shooter car
+        physics_joint_rope_create(id, bullet, x, y, bullet.x, bullet.y, 9000, false)
+    
+        //give bullet reference to fire in
+        bullet.angle=topgun.image_angle+90;
+            with(bullet){
+            //boom
+            physics_apply_force(x,y,lengthdir_x(200000,angle),lengthdir_y(200000,angle));
+            }
+        ///////////////GHOST BULLET
+    
+        //create bullet
+        gbullet= instance_create(x,
+        y
+    
+        , ob_smallBullet_ghost);
+        //add rope so doesnt collide with shooter car
+        physics_joint_rope_create(id, gbullet, x, y, gbullet.x, gbullet.y, 9000, false)
+    
+        //give bullet reference to fire in
+        gbullet.angle=topgun.image_angle+90;
+            with(gbullet){
+            //boom
+            physics_apply_force(x,y,lengthdir_x(200000,angle),lengthdir_y(200000,angle));
+    
+            }
+
+
+
+
+
+
+
+
+
+
+}
 
 </string>
           </argument>

@@ -25,10 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//if save game
-save=false;
-selectionIndex=1;
-tutorial=false;
+            <string>
+
+
 
 tutWheel=instance_create(352,448,ob_tutWheel);
 tutGear=instance_create(544,672,ob_tutGear);
@@ -58,93 +57,77 @@ tutGun=instance_create(800,500,ob_tutGun);
           <argument>
             <kind>1</kind>
             <string>if ((keyboard_check_pressed(vk_down))==true){
-if(selectionIndex&lt;4){
-selectionIndex++;
 
-}
 
 }
 if ((keyboard_check_pressed(vk_up))==true){
-if(selectionIndex&gt;1){
-selectionIndex--;
 
-}
-if(tutorial==true){
+
 tutGear.y-=30;
-}
+
 
 }
 if ((keyboard_check_released(vk_up))==true){
-if(tutorial==true){
+
 tutGear.y+=30;
-}
+
 }
 
 if ((keyboard_check_pressed(vk_enter))==true){
-switch(selectionIndex){
 
-case 1:{
-audio_play_sound(snd_shoot,9,false);
-
-if(tutorial==true){
 global.progression=0;
 scr_progress();
-}
-tutorial=true;
 
 
 
-break;
-}
 
-case 4:{
-audio_play_sound(snd_shoot,9,false);
-game_end();
-
-break;
-}
 
 
 }
 
-}
+
+
+
+
+
+
 
 //wheel
 if ((keyboard_check_direct(vk_left))==true){
-if(tutorial=true){
+
 tutWheel.image_angle+=10;
 
-}
-}
-if ((keyboard_check_direct(vk_right))==true){
-if(tutorial=true){
-tutWheel.image_angle-=10;
 
 }
+if ((keyboard_check_direct(vk_right))==true){
+
+tutWheel.image_angle-=10;
+
+
 }
 if(global.tutgun=true){
 if ((keyboard_check_pressed(ord('Z')))==true){
-if(tutorial=true){
+
 tutGun.image_angle+=10;
-}
+
 
 }
 if ((keyboard_check_released(ord('Z')))==true){
-if(tutorial=true){
+
 tutGun.image_angle-=10;
-}
+
 
 }
 if ((keyboard_check_pressed(ord('X')))==true){
-if(tutorial=true){
+
 tutGun.image_angle-=10;
-}
+
 
 }
 if ((keyboard_check_released(ord('X')))==true){
-if(tutorial=true){
+
 tutGun.image_angle+=10;
-}
+
 
 }
 }
@@ -170,47 +153,7 @@ tutGun.image_angle+=10;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(tutorial==false){
-
-draw_set_font(f_menu);
-draw_set_halign(fa_center);
-draw_set_valign(fa_top);
-draw_set_color(c_black);
-draw_text(500,100,"START")
-
-
-draw_text(500,400,"EXIT")
-draw_set_color(c_gray);
-draw_text(500,300,"OPTIONS")
-
-if(save==true){
-draw_text(500,200,"CONTINUE")
-}
-else{
-draw_set_color(c_gray);
-draw_text(500,200,"CONTINUE")
-}
-
-switch(selectionIndex){
-    case 1:{
-    draw_sprite(sp_pointer,0,200,100);
-    break;}
-    
-    case 2:{
-   draw_sprite(sp_pointer,0,200,200);
-    break;}
-    
-    case 3:{
-    draw_sprite(sp_pointer,0,200,300);
-    break;}
-
-    case 4 :{
-    draw_sprite(sp_pointer,0,200,400);
-    break;}
-
-}
-}
-else {
+            <string>
 draw_set_font(f_tut);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
@@ -219,7 +162,7 @@ draw_text(500,100,"Once you're comfortable with the controls")
 draw_text(500,150,"press enter.")
 
 
-}
+
 
 
 
