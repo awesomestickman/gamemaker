@@ -37,6 +37,8 @@ topgun.depth=-100;
 
 //how often shoots
 guntimer=0;
+bursttimer=30;
+burstcounter=0;
 </string>
           </argument>
         </arguments>
@@ -72,16 +74,30 @@ targetx=x;
 }
 
 
+
+
+guntimer--;
+bursttimer--;
+if(burstcounter&gt;3){
+bursttimer=190;
+burstcounter=0;
+
+}
+
+if(dead==false&amp;&amp;asleep==false){
+
 ///shameless copy from the internet. thank you nocturne from nocturne games
 
 var pd = point_direction(x, y, targetx, targety) -90; //Get the direction to point to
 var dd = ((((pd - topgun.image_angle) mod 360) + 540) mod 360) - 180; //get the angle difference
-topgun.image_angle += min(abs(dd), 10) * sign(dd);  //Turn the turret (set the 10 value to whatever you wish as it will be the maximum turn speed in degrees per step).
+topgun.image_angle += min(abs(dd), 1) * sign(dd);  //Turn the turret (set the 10 value to whatever you wish as it will be the maximum turn speed in degrees per step).
 
-guntimer--;
-if(guntimer&lt;0){
-guntimer=20;
 
+
+if(abs(targetx-x)&lt;300&amp;&amp;abs(targety-y&lt;300)){
+if(guntimer&lt;0&amp;&amp;bursttimer&lt;0){
+guntimer=10;
+burstcounter++;
 //bam
         audio_play_sound(snd_shoot,9,false);
     
@@ -119,8 +135,7 @@ guntimer=20;
             }
 
 
-
-
+            gbullet.parent=id;
 
 
 
@@ -128,7 +143,8 @@ guntimer=20;
 
 
 }
-
+}
+}
 </string>
           </argument>
         </arguments>

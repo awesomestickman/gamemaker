@@ -44,6 +44,7 @@
       <sprite>sprites\sp_smokeBloom</sprite>
       <sprite>sprites\sp_tireTrack</sprite>
       <sprite>sprites\sp_blackSmoke</sprite>
+      <sprite>sprites\sp_duckview</sprite>
     </sprites>
     <sprites name="motorcycle">
       <sprite>sprites\sp_motorcycle_dead</sprite>
@@ -84,6 +85,7 @@
     <backgrounds name="cutscenes">
       <background>background\b_quarry</background>
       <background>background\b_slavemine</background>
+      <background>background\b_slave_in_mine</background>
       <background>background\b_escape</background>
     </backgrounds>
   </backgrounds>
@@ -121,6 +123,7 @@
       </objects>
       <object>objects\ob_stutter</object>
       <object>objects\ob_escape</object>
+      <object>objects\ob_duckview</object>
     </objects>
     <objects name="cars">
       <objects name="ai">

@@ -28,6 +28,10 @@
             <string>//a lot of vars
 ///DOES CAR HAVE DRIVER related to loop
 hasDriver=false;
+///cover from bullets
+ducking=false;
+//more sepcifci control
+steering=true;
 //how far down accel tire is 
 accelBalance=3;
 //max turn angle
@@ -231,8 +235,10 @@ topgun.y=y;
 }
 
 
-
+steering=true;
 control=true;
+
+
 
 //drifitng
 if(drift==true){
@@ -260,9 +266,16 @@ angleDamp+=6;
 if(hasDriver==true){
 driver.phy_position_x=phy_position_x;
 driver.phy_position_y=phy_position_y;
+driver.ducking=false;
+if(ducking=true){
+driver.ducking=true;
+}
 if(driver.dead==true){
+
+
 control=false;
 dead=true;
+
 }
 driver.phy_rotation=phy_rotation;
 
@@ -566,22 +579,22 @@ y+(dsin(image_angle+90)*(sprite_height/3))
 
 
 }
+//steering
+if(control==false){
 
-//phy_speed_y=-20;
-//phy_angular_velocity=0;
+steering=false;
 
-/*
-if(oldTireRotation-theTire.trueRotation&gt;0){
-
-physics_apply_force(x, y-sprite_height/4,(dcos(theTire.image_angle)*tireGrip)*-1, (dsin(theTire.image_angle)*tireGrip));
-//physics_apply_force(x, y-sprite_width/4, -tireGrip, 0);
 }
-if(oldTireRotation-theTire.trueRotation&lt;-0){
+//if(ducking==true){
 
-physics_apply_force(x, y-sprite_height/4,(dcos(theTire.image_angle)*tireGrip), (dsin(theTire.image_angle)*tireGrip)*-1);
-//physics_apply_force(x, y-sprite_width/4, tireGrip, 0);
-}
-*/
+
+//steering=false;
+
+//}
+
+
+
+
 //keep track of tire rotation
 oldRotation=image_angle;
 

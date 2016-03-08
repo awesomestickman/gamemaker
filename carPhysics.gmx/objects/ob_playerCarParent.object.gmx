@@ -90,9 +90,7 @@ control=false;
 
 }
 
-show_debug_message("from the player car parent step");
-show_debug_message(phy_speed)
-show_debug_message(angleDamp)
+
 </string>
           </argument>
         </arguments>
@@ -251,6 +249,16 @@ phy_speed_y=phy_speed_y/1.07;
 
 
 }
+//ducking bullets
+ducking=false;
+if(keyboard_check(vk_space)==true){
+ducking=true;
+
+i=instance_create(x,y,ob_duckview);
+
+}
+
+
 </string>
           </argument>
         </arguments>
@@ -461,7 +469,7 @@ else if(gunTimer&lt;10){
 }
 else{
 
-if(theTire.trueRotation&lt;40&amp;&amp;control=true){
+if(theTire.trueRotation&lt;40&amp;&amp;steering=true&amp;&amp;control=true){
 theTire.trueRotation+=10;
 //physics_apply_force(x, y-sprite_width/4, tireGrip, 0);
 //tire_angle-=turnSpeed;
@@ -529,7 +537,10 @@ velocity=targetVelocity+60;
           <argument>
             <kind>1</kind>
             <string>
-if(zweapon==true&amp;&amp;control=true){
+
+
+
+if(zweapon==true&amp;&amp;control==true){
 
 
 if(ztrueRotation&lt;180){
@@ -549,7 +560,7 @@ else if(gunTimer&lt;10){
 }
 else{
 
-if(theTire.trueRotation&gt;-40&amp;&amp;control=true){
+if(theTire.trueRotation&gt;-40&amp;&amp;control=true&amp;&amp;steering=true){
 theTire.trueRotation-=10;
 //physics_apply_force(x, y-sprite_width/4, -tireGrip, 0);
 

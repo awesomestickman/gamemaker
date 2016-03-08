@@ -29,6 +29,8 @@
 //paretn car checks this
 dead=false;
 depth=-100;
+parent=1;
+ducking=false;
 </string>
           </argument>
         </arguments>
@@ -51,7 +53,11 @@ depth=-100;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(dead==false){
+            <string>
+if(ducking=false){
+
+if(other.parent!=parent){
+if(dead==false){
 dead=true;
 with(other){
 
@@ -59,6 +65,8 @@ instance_destroy();
 
 }
 audio_play_sound(snd_scream, 10, false);
+}
+}
 }
 </string>
           </argument>

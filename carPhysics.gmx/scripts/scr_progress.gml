@@ -7,24 +7,24 @@ easyLevel[0,0]=ob_playerTruck;
 easyLevel[0,1]=900;
 easyLevel[0,2]=1700;
 easyLevel[1,0]=ob_rogue;
-easyLevel[1,1]=600;
-easyLevel[1,2]=1700;
+easyLevel[1,1]=800;
+easyLevel[1,2]=2020;
 
 secondLevel[0,0]=ob_playerTruck;
 secondLevel[0,1]=900;
 secondLevel[0,2]=1700;
 secondLevel[1,0]=ob_rogue;
 secondLevel[1,1]=600;
-secondLevel[1,2]=1700;
+secondLevel[1,2]=2020;
 secondLevel[2,0]=ob_rogue;
-secondLevel[2,1]=650;
-secondLevel[2,2]=1700;
+secondLevel[2,1]=-20;
+secondLevel[2,2]=1000;
 secondLevel[3,0]=ob_rogue;
 secondLevel[3,1]=700;
-secondLevel[3,2]=1700;
+secondLevel[3,2]=1900;
 secondLevel[4,0]=ob_rogue;
 secondLevel[4,1]=800;
-secondLevel[4,2]=1700;
+secondLevel[4,2]=1900;
 
 motoroneLevel[0,0]=ob_playerMotorcycle;
 motoroneLevel[0,1]=900;
@@ -126,6 +126,27 @@ curve1[6,0]=ob_warTruck;
 curve1[6,1]=660;
 curve1[6,2]=1400;
 
+gun1[0,0]=ob_playerTruck;
+gun1[0,1]=900;
+gun1[0,2]=1700;
+gun1[1,0]=ob_rogue;
+gun1[1,1]=600;
+gun1[1,2]=2020;
+gun1[2,0]=ob_gunnerbug;
+gun1[2,1]=-20;
+gun1[2,2]=1000;
+gun1[3,0]=ob_rogue;
+gun1[3,1]=700;
+gun1[3,2]=1900;
+gun1[4,0]=ob_rogue;
+gun1[4,1]=800;
+gun1[4,2]=1900;
+gun1[5,0]=ob_gunnerbug;
+gun1[5,1]=2000;
+gun1[5,2]=1000;
+gun1[6,0]=ob_gunnerbug;
+gun1[6,1]=900;
+gun1[6,2]=950;
 
 switch(global.progression){
 case 0:{
@@ -142,7 +163,7 @@ break;
 }
 case 2:{
 room_goto(rm_easycliff);
-global.level=secondLevel;
+global.level=easyLevel;
 
 break;
 }
@@ -177,6 +198,18 @@ global.level=curve1;
 break;
 }
 case 8:{
+room_goto(rm_easyrock);
+global.level=curve1;
+
+break;
+}
+case 9:{
+room_goto(rm_easyrock);
+global.level=gun1;
+
+break;
+}
+case 10:{
 room_goto(rm_credits);
 
 

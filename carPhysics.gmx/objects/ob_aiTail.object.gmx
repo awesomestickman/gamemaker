@@ -55,6 +55,11 @@ phy_position_y=oldy+global.speed;
 if(targety&gt;y-10){
 phy_speed_x=phy_speed_x/1.01;
 phy_speed_y=phy_speed_y/1.01;
+if(targety&gt;y+800){
+phy_speed_x=phy_speed_x/1.03;
+phy_speed_y=phy_speed_y/1.03;
+
+}
 if(targetx&lt;=x){
 
 theTire.trueRotation=-90;

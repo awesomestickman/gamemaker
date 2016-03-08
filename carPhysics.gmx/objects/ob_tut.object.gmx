@@ -160,6 +160,14 @@ draw_set_valign(fa_top);
 draw_set_color(c_black);
 draw_text(500,100,"Once you're comfortable with the controls")
 draw_text(500,150,"press enter.")
+draw_text(500,240,"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+draw_text(500,260,"THIS LIST TO BE DELETED LATER IN PRODUCTION")
+draw_text(500,280,"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+draw_text(500,300,"to shoot hold z or x until your gun is ready")
+draw_text(500,320,"then use left or right to aim")
+draw_text(500,340,"and release or tap to fire")
+draw_text(500,360,"use down to handbrake")
+draw_text(500,380,"and finally use space to duck, but no vision")
 
 
 

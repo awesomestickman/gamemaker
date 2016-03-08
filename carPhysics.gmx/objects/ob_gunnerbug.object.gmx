@@ -28,7 +28,10 @@
             <string>event_inherited();
 weaponType="top";
 tireGrip=tireGrip*2
-
+//driver
+hasDriver=true;
+driver=instance_create(x,y,ob_driver_hit);
+driver.parent=id;
 </string>
           </argument>
         </arguments>
