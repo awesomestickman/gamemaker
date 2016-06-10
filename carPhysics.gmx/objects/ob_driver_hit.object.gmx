@@ -53,21 +53,27 @@ ducking=false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-if(ducking=false){
+            <string>if(other.parent!=parent){
 
-if(other.parent!=parent){
-if(dead==false){
-dead=true;
 with(other){
 
 instance_destroy();
 
 }
+if(ducking=false){
+
+
+if(dead==false){
+dead=true;
+
 audio_play_sound(snd_scream, 10, false);
 }
 }
 }
+
+
+
+
 </string>
           </argument>
         </arguments>

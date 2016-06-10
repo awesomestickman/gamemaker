@@ -39,6 +39,12 @@ alldead=false;
 wincounter=0;
 win=false;
 lose=false;
+//which win message
+winnum = irandom(2);
+
+
+
+
 //stopped=true;
 if(stopped==false){
 global.speed=goal;
@@ -480,7 +486,20 @@ draw_set_font(f_title);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 draw_set_color(c_black);
-draw_text(800,700,"YOU MONSTER")
+show_debug_message(winnum);
+show_debug_message("room draw");
+switch(winnum){
+    case 0:
+    draw_text(800,700,"YA TOASTED EM")
+    break;
+    case 1:
+    draw_text(800,700,"NICE")
+    break;
+    case 2:
+    draw_text(500,700,"WIN WIN WIN WIN WIN WIN WIN WIN WIN")
+    break;
+
+}
 draw_set_font(f_menu);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);

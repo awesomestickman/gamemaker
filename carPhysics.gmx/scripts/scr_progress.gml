@@ -3,12 +3,19 @@ audio_stop_all();
 //2d array for each level
 //each a has obj, x, y 0 always player
 //ideas for coords view w:1800 h:1350 y:600 hb:1950 x:0
+firstLevel[0,0]=ob_playerTruck;
+firstLevel[0,1]=900;
+firstLevel[0,2]=1700;
+firstLevel[1,0]=ob_rogue;
+firstLevel[1,1]=800;
+firstLevel[1,2]=3020;
+
 easyLevel[0,0]=ob_playerTruck;
 easyLevel[0,1]=900;
 easyLevel[0,2]=1700;
 easyLevel[1,0]=ob_rogue;
 easyLevel[1,1]=800;
-easyLevel[1,2]=2020;
+easyLevel[1,2]=2000;
 
 secondLevel[0,0]=ob_playerTruck;
 secondLevel[0,1]=900;
@@ -151,7 +158,7 @@ gun1[6,2]=950;
 switch(global.progression){
 case 0:{
 room_goto(rm_easyrock);
-global.level=easyLevel;
+global.level=firstLevel;
 
 break;
 }

@@ -221,13 +221,21 @@ xgun.imageTimer=15;
 }
 
 }
-if(keyboard_check_pressed(ord('z'))==true||keyboard_check_pressed(ord('x'))==true){
 
 
-
+//pressed
+if(keyboard_check_pressed(ord('Z'))==true||keyboard_check_pressed(ord('X'))==true){
 
 
 }
+//holding
+//new duck
+ducking=true;
+if(keyboard_check(ord('Z'))==true||keyboard_check(ord('X'))==true){
+ducking=false;
+
+}
+
 if(keyboard_check_pressed(vk_down)==true){
 
 tireGrip-=driftStrength;
@@ -250,13 +258,14 @@ phy_speed_y=phy_speed_y/1.07;
 
 }
 //ducking bullets
-ducking=false;
-if(keyboard_check(vk_space)==true){
-ducking=true;
+//ducking=false;
+//if(keyboard_check(vk_space)==true){
+//ducking=true;
 
-i=instance_create(x,y,ob_duckview);
+//big black screen
+//i=instance_create(x,y,ob_duckview);
 
-}
+//}
 
 
 </string>
