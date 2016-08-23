@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>//a lot of vars
+//are you teamkilling
+friend="naw";
 ///DOES CAR HAVE DRIVER related to loop
 hasDriver=false;
 ///cover from bullets
@@ -156,7 +158,7 @@ fire_emitter = part_emitter_create(fireParticleSystem);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>///keep car in center
 //phy_speed_y=0;
 phy_position_y+=global.speed;
 theTire.phy_position_y+=global.speed;
@@ -199,7 +201,7 @@ maxTurn+=2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>///The heart of the mechanics
 
 
 

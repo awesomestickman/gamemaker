@@ -3,6 +3,25 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
+  <datafiles number="1" name="datafiles">
+    <datafile>
+      <name>Pictures - Shortcut.lnk</name>
+      <exists>-1</exists>
+      <size>1063</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>Pictures - Shortcut.lnk</filename>
+    </datafile>
+  </datafiles>
   <NewExtensions/>
   <sounds name="sound">
     <sound>sound\snd_engine</sound>
@@ -62,6 +81,7 @@
       <sprite>sprites\sp_tutWheel</sprite>
       <sprite>sprites\sp_tutGear</sprite>
       <sprite>sprites\sp_tutGun</sprite>
+      <sprite>sprites\sp_brake</sprite>
     </sprites>
     <sprites name="shooters">
       <sprite>sprites\sp_gun_window</sprite>
@@ -87,12 +107,15 @@
       <background>background\b_slavemine</background>
       <background>background\b_slave_in_mine</background>
       <background>background\b_escape</background>
+      <background>background\b_getready</background>
+      <background>background\b_here</background>
     </backgrounds>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\scr_progress.gml</script>
     <script>scripts\scr_intro.gml</script>
+    <script>scripts\scr_text.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\f_title</font>
@@ -108,6 +131,7 @@
       <object>objects\ob_tutWheel</object>
       <object>objects\ob_tutGear</object>
       <object>objects\ob_tutGun</object>
+      <object>objects\ob_tutBrake</object>
     </objects>
     <objects name="particles and debug">
       <object>objects\ob_marker</object>
@@ -117,7 +141,7 @@
       <object>objects\ob_junk</object>
       <object>objects\ob_tireTrack</object>
       <object>objects\ob_tire</object>
-      <objects name="weapon debug">
+      <objects name="weapon + death code">
         <object>objects\ob_smallBullet_ghost</object>
         <object>objects\ob_driver_hit</object>
       </objects>
@@ -139,6 +163,7 @@
       <objects name="players">
         <object>objects\ob_playerMotorcycle</object>
         <object>objects\ob_playerTruck</object>
+        <object>objects\ob_playerTruckNoGun</object>
         <object>objects\ob_playerCarParent</object>
       </objects>
       <object>objects\ob_allCarParent</object>
@@ -165,6 +190,7 @@
     <objects name="scenes">
       <object>objects\sc_intro</object>
     </objects>
+    <object>objects\ob_text</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_intro</room>
@@ -176,6 +202,8 @@
         <room>rooms\rm_sc_quarry</room>
         <room>rooms\rm_sc_mine</room>
         <room>rooms\rm_sc_escape</room>
+        <room>rooms\rm_sc_getready</room>
+        <room>rooms\rm_sc_here</room>
       </rooms>
     </rooms>
     <rooms name="levels">

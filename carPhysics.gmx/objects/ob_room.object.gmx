@@ -42,7 +42,8 @@ lose=false;
 //which win message
 winnum = irandom(2);
 
-
+//dont keep repeating dialogue
+dialogue=0;
 
 
 //stopped=true;
@@ -295,6 +296,37 @@ win=true;
 else if(global.escape==true){
 
 win=true;
+
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///dialouge
+switch(global.progression){
+case 0:{
+    if(dialogue=0){
+        //scr_text("hey there lad, git gud or else",0.2,300,1400);
+        dialogue++;
+    }
+    break;
+}
 
 }
 </string>

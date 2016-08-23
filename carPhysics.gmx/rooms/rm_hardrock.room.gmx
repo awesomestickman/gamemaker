@@ -172,6 +172,7 @@
     <instance objName="ob_rockBig1" x="1408" y="-6208" name="inst_CC16508F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="1440" y="-6208" name="inst_29E76CAC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_escape" x="640" y="-6176" name="inst_6095105E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_escape" x="-448" y="-6848" name="inst_787201E6" locked="0" code="" scaleX="7.88000011444092" scaleY="5" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>

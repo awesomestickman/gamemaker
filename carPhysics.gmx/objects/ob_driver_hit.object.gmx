@@ -31,6 +31,7 @@ dead=false;
 depth=-100;
 parent=1;
 ducking=false;
+friend="noone";
 </string>
           </argument>
         </arguments>
@@ -54,7 +55,10 @@ ducking=false;
           <argument>
             <kind>1</kind>
             <string>if(other.parent!=parent){
-
+//make sure ai dont kill eachother
+if(other.friend!=friend){
+show_debug_message("bullet firend"+friend);
+show_debug_message("other"+other.friend);
 with(other){
 
 instance_destroy();
@@ -67,6 +71,7 @@ if(dead==false){
 dead=true;
 
 audio_play_sound(snd_scream, 10, false);
+}
 }
 }
 }

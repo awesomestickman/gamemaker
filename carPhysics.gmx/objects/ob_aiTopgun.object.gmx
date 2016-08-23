@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>event_inherited();
+friend="evil";
 topweapon=true;
 
 topgun=instance_create(
@@ -93,7 +94,7 @@ var dd = ((((pd - topgun.image_angle) mod 360) + 540) mod 360) - 180; //get the 
 topgun.image_angle += min(abs(dd), 1) * sign(dd);  //Turn the turret (set the 10 value to whatever you wish as it will be the maximum turn speed in degrees per step).
 
 
-
+//near?
 if(abs(targetx-x)&lt;300&amp;&amp;abs(targety-y&lt;300)){
 if(guntimer&lt;0&amp;&amp;bursttimer&lt;0){
 guntimer=10;
@@ -106,10 +107,10 @@ burstcounter++;
         bullet= instance_create(x,
         y
         , ob_smallBullet);
-    
+        
         //add rope so doesnt collide with shooter car
         physics_joint_rope_create(id, bullet, x, y, bullet.x, bullet.y, 9000, false)
-    
+        
         //give bullet reference to fire in
         bullet.angle=topgun.image_angle+90;
             with(bullet){
@@ -123,6 +124,8 @@ burstcounter++;
         y
     
         , ob_smallBullet_ghost);
+        //give bullet team
+        gbullet.friend="evil";
         //add rope so doesnt collide with shooter car
         physics_joint_rope_create(id, gbullet, x, y, gbullet.x, gbullet.y, 9000, false)
     

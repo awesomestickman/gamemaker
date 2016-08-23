@@ -73,7 +73,7 @@
     <instance objName="ob_rockBig1" x="760" y="-8000" name="inst_5D9A9B1F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="1240" y="-8480" name="inst_B9751E2E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ob_rockBig1" x="1360" y="-9640" name="inst_667AC98D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_escape" x="620" y="-10690" name="inst_0841EA4D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_escape" x="530" y="-10730" name="inst_0841EA4D" locked="0" code="" scaleX="2.84999990463257" scaleY="0.310000002384186" colour="4294967295" rotation="0"/>
     <instance objName="ob_escape" x="1020" y="-10680" name="inst_B9EEE099" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>

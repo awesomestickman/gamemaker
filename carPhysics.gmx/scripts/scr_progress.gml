@@ -3,6 +3,13 @@ audio_stop_all();
 //2d array for each level
 //each a has obj, x, y 0 always player
 //ideas for coords view w:1800 h:1350 y:600 hb:1950 x:0
+tutLevel[0,0]=ob_playerTruckNoGun;
+tutLevel[0,1]=900;
+tutLevel[0,2]=1700;
+tutLevel[1,0]=ob_rogue;
+tutLevel[1,1]=800;
+tutLevel[1,2]=3020;
+
 firstLevel[0,0]=ob_playerTruck;
 firstLevel[0,1]=900;
 firstLevel[0,2]=1700;
@@ -17,7 +24,7 @@ easyLevel[1,0]=ob_rogue;
 easyLevel[1,1]=800;
 easyLevel[1,2]=2000;
 
-secondLevel[0,0]=ob_playerTruck;
+secondLevel[0,0]=ob_playerTruckNoGun;
 secondLevel[0,1]=900;
 secondLevel[0,2]=1700;
 secondLevel[1,0]=ob_rogue;
@@ -158,8 +165,7 @@ gun1[6,2]=950;
 switch(global.progression){
 case 0:{
 room_goto(rm_easyrock);
-global.level=firstLevel;
-
+global.level=tutLevel;
 break;
 }
 case 1:{
@@ -169,20 +175,23 @@ global.level=secondLevel;
 break;
 }
 case 2:{
-room_goto(rm_easycliff);
-global.level=easyLevel;
+//room_goto(rm_easycliff);
+//global.level=easyLevel;
+global.progression++;
+global.introscene=5;
+scr_intro();
 
 break;
 }
 case 3:{
 room_goto(rm_easycliff);
-global.level=motoroneLevel;
+global.level=war1Level;
 
 break;
 }
 case 4:{
 room_goto(rm_hardcliff);
-global.level=war1Level;
+global.level=motoroneLevel;
 
 break;
 }
