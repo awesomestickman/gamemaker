@@ -63,7 +63,6 @@
       <sprite>sprites\sp_smokeBloom</sprite>
       <sprite>sprites\sp_tireTrack</sprite>
       <sprite>sprites\sp_blackSmoke</sprite>
-      <sprite>sprites\sp_duckview</sprite>
     </sprites>
     <sprites name="motorcycle">
       <sprite>sprites\sp_motorcycle_dead</sprite>

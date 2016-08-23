@@ -35,7 +35,7 @@ break;
 }
 case 5:{
 room_goto(rm_sc_here);
-global.introtimer=90;
+global.introtimer=180;
 break;
 }
 case 6:{

@@ -24,7 +24,23 @@ easyLevel[1,0]=ob_rogue;
 easyLevel[1,1]=800;
 easyLevel[1,2]=2000;
 
-secondLevel[0,0]=ob_playerTruckNoGun;
+secondLevelTut[0,0]=ob_playerTruckNoGun;
+secondLevelTut[0,1]=900;
+secondLevelTut[0,2]=1700;
+secondLevelTut[1,0]=ob_rogue;
+secondLevelTut[1,1]=600;
+secondLevelTut[1,2]=2020;
+secondLevelTut[2,0]=ob_rogue;
+secondLevelTut[2,1]=-20;
+secondLevelTut[2,2]=1000;
+secondLevelTut[3,0]=ob_rogue;
+secondLevelTut[3,1]=700;
+secondLevelTut[3,2]=1900;
+secondLevelTut[4,0]=ob_rogue;
+secondLevelTut[4,1]=800;
+secondLevelTut[4,2]=1900;
+
+secondLevel[0,0]=ob_playerTruck;
 secondLevel[0,1]=900;
 secondLevel[0,2]=1700;
 secondLevel[1,0]=ob_rogue;
@@ -170,7 +186,7 @@ break;
 }
 case 1:{
 room_goto(rm_easyrock);
-global.level=secondLevel;
+global.level=secondLevelTut;
 
 break;
 }
@@ -184,13 +200,13 @@ scr_intro();
 break;
 }
 case 3:{
-room_goto(rm_easycliff);
-global.level=war1Level;
+room_goto(rm_easyrock);
+global.level=secondLevel;
 
 break;
 }
 case 4:{
-room_goto(rm_hardcliff);
+room_goto(rm_easycliff);
 global.level=motoroneLevel;
 
 break;

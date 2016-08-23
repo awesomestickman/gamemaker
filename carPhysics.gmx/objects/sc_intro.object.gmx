@@ -53,8 +53,11 @@ dialogue=0;
 ///dialouge
 switch(global.introscene){
 case 5:{
+    
     if(dialogue=0){
-        scr_text("Take this. Hold z or x to aim, and release to fire!",0.2,300,1600);
+    show_debug_message("sc_into step")
+    show_debug_message(dialogue)
+        scr_text("Take this. Hold z or x to aim, and release to fire!",0.8,20,576);
         dialogue++;
     }
     break;
